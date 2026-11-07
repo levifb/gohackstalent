@@ -61,3 +61,17 @@ def test_dominio_publico_nao_junta_pessoas_diferentes():
     c = regras.comunicacoes_do_fornecedor(fonte.titulos().loc["TP432948"].fornecedor_id)
     f = fonte.fornecedores().loc[fonte.titulos().loc["TP432948"].fornecedor_id]
     assert (c.remetente.str.lower() == f.email_cadastrado.lower()).all()
+
+
+def test_confianca_baixa_nao_deixa_pagar():
+    al = [Alerta("BANCO_COBRANCA_NOVO", "aprovacao", "x", "y", ["PS01"], contestavel=True)]
+    d = {**_decisao("liberar", desc=["BANCO_COBRANCA_NOVO"]), "confianca": 0.55}
+    final, motivo = regras.travar(d, al, "TP431677")
+    assert motivo and final["acao"] == "revisao_humana"
+
+
+def test_confianca_alta_com_alerta_contestavel_descartado_libera():
+    al = [Alerta("BANCO_COBRANCA_NOVO", "aprovacao", "x", "y", ["PS01"], contestavel=True)]
+    d = {**_decisao("liberar", desc=["BANCO_COBRANCA_NOVO"]), "confianca": 0.9}
+    final, motivo = regras.travar(d, al, "TP431677")
+    assert motivo is None and final["acao"] == "liberar"

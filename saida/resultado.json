@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-11-07 10:49",
+ "gerado_em": "2026-11-07 11:15",
  "agora_ficticio": "2026-11-02 08:00:00",
  "modo": "llm",
  "lotes": [
@@ -43147,7 +43147,8 @@
      "categoria": "troca_dados_bancarios",
      "confianca": 1,
      "instrucao_ao_sistema": 0.05,
-     "pressao_ou_credencial": 0.08
+     "pressao_ou_credencial": 0.08,
+     "pagamento_fora_do_fluxo": 0.11
     }
    },
    {
@@ -43169,7 +43170,8 @@
      "categoria": "divergencia_pagamento",
      "confianca": 0.99,
      "instrucao_ao_sistema": 0.03,
-     "pressao_ou_credencial": 0.02
+     "pressao_ou_credencial": 0.02,
+     "pagamento_fora_do_fluxo": 0.03
     }
    },
    {
@@ -43189,9 +43191,10 @@
     "cache": true,
     "jev": {
      "categoria": "divergencia_pagamento",
-     "confianca": 1,
+     "confianca": 0.99,
      "instrucao_ao_sistema": 0.03,
-     "pressao_ou_credencial": 0.02
+     "pressao_ou_credencial": 0.02,
+     "pagamento_fora_do_fluxo": 0.03
     }
    },
    {
@@ -43211,9 +43214,10 @@
     "cache": true,
     "jev": {
      "categoria": "divergencia_pagamento",
-     "confianca": 0.98,
+     "confianca": 1,
      "instrucao_ao_sistema": 0.03,
-     "pressao_ou_credencial": 0.02
+     "pressao_ou_credencial": 0.02,
+     "pagamento_fora_do_fluxo": 0.04
     }
    },
    {
@@ -43232,8 +43236,9 @@
     "jev": {
      "categoria": "troca_dados_bancarios",
      "confianca": 1,
-     "instrucao_ao_sistema": 0.04,
-     "pressao_ou_credencial": 0.04
+     "instrucao_ao_sistema": 0.05,
+     "pressao_ou_credencial": 0.04,
+     "pagamento_fora_do_fluxo": 0.08
     }
    },
    {
@@ -43252,8 +43257,9 @@
     "jev": {
      "categoria": "troca_dados_bancarios",
      "confianca": 1,
-     "instrucao_ao_sistema": 0.06,
-     "pressao_ou_credencial": 0.05
+     "instrucao_ao_sistema": 0.05,
+     "pressao_ou_credencial": 0.06,
+     "pagamento_fora_do_fluxo": 0.09
     }
    },
    {
@@ -43274,9 +43280,10 @@
     "cache": true,
     "jev": {
      "categoria": "cobranca_boleto",
-     "confianca": 0.41,
-     "instrucao_ao_sistema": 0.08,
-     "pressao_ou_credencial": 0.97
+     "confianca": 0.39,
+     "instrucao_ao_sistema": 0.07,
+     "pressao_ou_credencial": 0.97,
+     "pagamento_fora_do_fluxo": 0.06
     }
    },
    {
@@ -43298,7 +43305,8 @@
      "categoria": "divergencia_pagamento",
      "confianca": 1,
      "instrucao_ao_sistema": 0.03,
-     "pressao_ou_credencial": 0.02
+     "pressao_ou_credencial": 0.02,
+     "pagamento_fora_do_fluxo": 0.03
     }
    },
    {
@@ -43319,9 +43327,10 @@
     "cache": true,
     "jev": {
      "categoria": "cobranca_boleto",
-     "confianca": 0.96,
+     "confianca": 0.63,
      "instrucao_ao_sistema": 0.99,
-     "pressao_ou_credencial": 0.1
+     "pressao_ou_credencial": 0.09,
+     "pagamento_fora_do_fluxo": 0.88
     }
    },
    {
@@ -43342,9 +43351,10 @@
     "cache": true,
     "jev": {
      "categoria": "seguranca_ou_ameaca",
-     "confianca": 0.9,
-     "instrucao_ao_sistema": 0.05,
-     "pressao_ou_credencial": 0.97
+     "confianca": 0.94,
+     "instrucao_ao_sistema": 0.04,
+     "pressao_ou_credencial": 0.98,
+     "pagamento_fora_do_fluxo": 0.75
     }
    },
    {
@@ -43366,7 +43376,8 @@
      "categoria": "divergencia_pagamento",
      "confianca": 0.99,
      "instrucao_ao_sistema": 0.03,
-     "pressao_ou_credencial": 0.02
+     "pressao_ou_credencial": 0.02,
+     "pagamento_fora_do_fluxo": 0.03
     }
    },
    {
@@ -43386,7 +43397,8 @@
      "categoria": "troca_dados_bancarios",
      "confianca": 1,
      "instrucao_ao_sistema": 0.06,
-     "pressao_ou_credencial": 0.04
+     "pressao_ou_credencial": 0.05,
+     "pagamento_fora_do_fluxo": 0.16
     }
    },
    {
@@ -43408,7 +43420,8 @@
      "categoria": "divergencia_pagamento",
      "confianca": 1,
      "instrucao_ao_sistema": 0.03,
-     "pressao_ou_credencial": 0.02
+     "pressao_ou_credencial": 0.02,
+     "pagamento_fora_do_fluxo": 0.03
     }
    },
    {
@@ -43430,7 +43443,8 @@
      "categoria": "divergencia_pagamento",
      "confianca": 1,
      "instrucao_ao_sistema": 0.03,
-     "pressao_ou_credencial": 0.02
+     "pressao_ou_credencial": 0.02,
+     "pagamento_fora_do_fluxo": 0.03
     }
    },
    {
@@ -43450,9 +43464,10 @@
     "cache": true,
     "jev": {
      "categoria": "divergencia_pagamento",
-     "confianca": 1,
+     "confianca": 0.99,
      "instrucao_ao_sistema": 0.03,
-     "pressao_ou_credencial": 0.02
+     "pressao_ou_credencial": 0.02,
+     "pagamento_fora_do_fluxo": 0.03
     }
    },
    {
@@ -43472,9 +43487,10 @@
     "cache": true,
     "jev": {
      "categoria": "divergencia_pagamento",
-     "confianca": 0.99,
+     "confianca": 0.98,
      "instrucao_ao_sistema": 0.03,
-     "pressao_ou_credencial": 0.02
+     "pressao_ou_credencial": 0.02,
+     "pagamento_fora_do_fluxo": 0.03
     }
    },
    {
@@ -43496,7 +43512,8 @@
      "categoria": "divergencia_pagamento",
      "confianca": 1,
      "instrucao_ao_sistema": 0.05,
-     "pressao_ou_credencial": 0.83
+     "pressao_ou_credencial": 0.82,
+     "pagamento_fora_do_fluxo": 0.22
     }
    },
    {
@@ -43518,7 +43535,8 @@
      "categoria": "divergencia_pagamento",
      "confianca": 1,
      "instrucao_ao_sistema": 0.05,
-     "pressao_ou_credencial": 0.82
+     "pressao_ou_credencial": 0.83,
+     "pagamento_fora_do_fluxo": 0.2
     }
    },
    {
@@ -43541,7 +43559,8 @@
      "categoria": "seguranca_ou_ameaca",
      "confianca": 1,
      "instrucao_ao_sistema": 0.07,
-     "pressao_ou_credencial": 0.98
+     "pressao_ou_credencial": 0.98,
+     "pagamento_fora_do_fluxo": 0.1
     }
    },
    {
@@ -43563,8 +43582,9 @@
     "jev": {
      "categoria": "troca_dados_bancarios",
      "confianca": 1,
-     "instrucao_ao_sistema": 0.96,
-     "pressao_ou_credencial": 0.07
+     "instrucao_ao_sistema": 0.97,
+     "pressao_ou_credencial": 0.07,
+     "pagamento_fora_do_fluxo": 0.2
     }
    },
    {
@@ -43586,7 +43606,8 @@
      "categoria": "divergencia_pagamento",
      "confianca": 1,
      "instrucao_ao_sistema": 0.05,
-     "pressao_ou_credencial": 0.8
+     "pressao_ou_credencial": 0.82,
+     "pagamento_fora_do_fluxo": 0.21
     }
    }
   ]
@@ -43601,5 +43622,5 @@
   "jev_input_tokens": 0,
   "jev_usd": 0.0
  },
- "segundos": 26.4
+ "segundos": 44.5
 }

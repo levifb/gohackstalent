@@ -21,6 +21,7 @@ from agente import fonte
 ALCADA_ANALISTA = 5000.0
 ALCADA_APROVADOR = 50000.0
 TOLERANCIA_DUPLICATA = 0.10
+CONFIANCA_MINIMA = 0.7  # abaixo disso o modelo não libera pagamento sozinho
 DIAS_TROCA_RECENTE = 30
 CAMPOS_BANCARIOS = {"banco", "agencia", "conta", "chave_pix"}
 DOMINIOS_PUBLICOS = {"gmail.com", "hotmail.com", "outlook.com", "yahoo.com", "yahoo.com.br", "icloud.com", "live.com",
@@ -434,6 +435,9 @@ def travar(decisao: dict, alertas: list[Alerta], titulo_id: str) -> tuple[dict, 
     base = decisao_por_regras(titulo_id, alertas)
     if descartou_duro:
         return base, f"o modelo tentou descartar alerta que só uma pessoa resolve ({', '.join(descartou_duro)})"
+    if acao in ACOES_QUE_PAGAM and float(decisao.get("confianca", 1.0)) < CONFIANCA_MINIMA:
+        return ({"acao": "revisao_humana", "acionar": ["PS01"], "valor_corrigido": None},
+                f"confiança do modelo {float(decisao.get('confianca', 0)):.2f} abaixo de {CONFIANCA_MINIMA} para deixar o dinheiro sair")
     if acao in ACOES_QUE_PAGAM and duros:
         return base, f"o modelo propôs '{acao}' com alerta {duros[0].codigo} ({duros[0].gravidade}) ativo"
     if acao == "corrigir_lancamento":

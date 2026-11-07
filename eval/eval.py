@@ -101,12 +101,19 @@ def main():
         r = pipeline.processar_titulo(g["titulo_id"], modo=args.modo)
         linhas.append({"g": g, **avaliar_item(g, r)})
     n = len(linhas)
-    print(f"\nEVAL · {n} casos · modo {args.modo} · {time.strftime('%H:%M')}\n")
+    # comparação honesta: o mesmo gabarito com só as regras (sem modelo)
+    so_regras = [{"g": g, **avaliar_item(g, pipeline.processar_titulo(g["titulo_id"], modo="regras"))} for g in gab]
+    print(f"\nEVAL · {ARQUIVO} · {n} casos · {time.strftime('%H:%M')}\n")
+    print(f"  {'etapa':<10} {'agente (' + args.modo + ')':>14} {'só regras':>11}")
     for etapa in ("triagem", "dinheiro", "acao", "pessoas", "valor"):
         k = sum(l["ok"][etapa] for l in linhas)
-        print(f"  {etapa:<9} {k:>2}/{n}  ({100 * k / n:.0f}%)")
+        k2 = sum(l["ok"][etapa] for l in so_regras)
+        print(f"  {etapa:<10} {f'{k}/{n}':>14} {f'{k2}/{n}':>11}")
     certos = sum(all(l["ok"].values()) for l in linhas)
-    print(f"  {'TUDO CERTO':<9} {certos:>2}/{n}  ({100 * certos / n:.0f}%)  [dinheiro + ação + pessoas + valor + triagem]\n")
+    certos_regras = sum(all(l["ok"].values()) for l in so_regras)
+    print(f"  {'TUDO CERTO':<10} {f'{certos}/{n}':>14} {f'{certos_regras}/{n}':>11}  [dinheiro + ação + pessoas + valor + triagem]")
+    dif = [l["g"]["titulo_id"] for l, r in zip(linhas, so_regras) if all(l["ok"].values()) != all(r["ok"].values())]
+    print(f"  casos em que o modelo muda o resultado: {dif or 'nenhum'}\n")
 
     tipos = {}
     for l in linhas:
@@ -146,7 +153,7 @@ def main():
     if not args.casos:  # resumo do eval completo para a tela do app
         web = RAIZ / "web" / "public" / "eval.json"
         atual = json.loads(web.read_text(encoding="utf-8")) if web.exists() else {}
-        atual[ARQUIVO.split(".")[0]] = {"n": n, "tudo_certo": certos, "dinheiro": sum(l["ok"]["dinheiro"] for l in linhas),
+        atual[ARQUIVO.split(".")[0]] = {"n": n, "tudo_certo": certos, "so_regras": certos_regras, "dinheiro": sum(l["ok"]["dinheiro"] for l in linhas),
                                        "placar": placar, "em": time.strftime("%H:%M"), "modo": args.modo}
         web.write_text(json.dumps(atual, ensure_ascii=False, indent=1), encoding="utf-8")
 

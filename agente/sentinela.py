@@ -24,6 +24,7 @@ PERGUNTAS = {
             "divergencia_pagamento": "reclama de pagamento em duplicidade, a menos, parcial ou não identificado",
             "reajuste": "avisa reajuste de preço ou de contrato",
             "seguranca_ou_ameaca": "fala de protesto, negativação, bloqueio, token, senha ou link de acesso",
+            "pedido_de_pagamento_urgente": "alguém pede que se faça um pagamento ou PIX agora, fora do processo normal",
             "outro": "nenhum dos anteriores",
         },
     },
@@ -34,6 +35,10 @@ PERGUNTAS = {
     "pressao_ou_credencial": {
         "type": "noul",
         "instructions": "O texto pressiona por pagamento imediato com ameaça (protesto, multa, bloqueio), pede senha, token, código de segurança, clique em link, ou pede para baixar arquivo compactado ou executável para regularizar algo?",
+    },
+    "pagamento_fora_do_fluxo": {
+        "type": "noul",
+        "instructions": "Alguém pede para fazer um pagamento ou transferência agora, por fora do processo normal, com urgência ou sigilo, ou se apresenta como diretor ou chefe pedindo pagamento?",
     },
 }
 LIMIAR = 0.7
@@ -81,6 +86,7 @@ def analisar_email(e: dict, modo: str = "llm") -> dict:
     conf = resp["categoria"].get("confidence", 1.0)
     instr = resp["instrucao_ao_sistema"]["noul"]
     press = resp["pressao_ou_credencial"]["noul"]
+    fora = resp.get("pagamento_fora_do_fluxo", {}).get("noul", 0.0)
     nome = fonte.fornecedores().loc[fid].nome_fantasia if fid else None
 
     anexo_perigoso = any(x in estado["anexos"].lower() for x in (".zip", ".exe", ".rar", ".js", ".scr"))
@@ -90,6 +96,9 @@ def analisar_email(e: dict, modo: str = "llm") -> dict:
     elif fid and not no_cadastro:
         acao, acionar = "alerta_golpe", ["PS01", "PS08"]
         motivo = f"Remetente imita o domínio cadastrado de {nome} ({fonte.fornecedores().loc[fid].dominio})."
+    elif fora >= LIMIAR and not no_cadastro:
+        acao, acionar = "alerta_golpe", ["PS01", "PS08"]
+        motivo = "Pedido de pagamento urgente ou sigiloso por canal fora do cadastro (golpe do falso diretor): tratar como golpe até confirmação pelo canal oficial."
     elif press >= LIMIAR and (not no_cadastro or cat == "seguranca_ou_ameaca"):
         acao, acionar = "alerta_golpe", ["PS02", "PS08"] if "token" in estado["texto"].lower() or "senha" in estado["texto"].lower() else ["PS01", "PS08"]
         motivo = "Pressão por pagamento ou pedido de credencial vindo de remetente fora do cadastro."
@@ -106,13 +115,13 @@ def analisar_email(e: dict, modo: str = "llm") -> dict:
     elif cat == "divergencia_pagamento":
         acao, acionar = "conciliar", ["PS09"]
         motivo = "Fornecedor aponta pagamento em duplicidade, parcial ou não identificado: conciliar com extrato e títulos (controller, recuperação)."
-    elif conf < LIMIAR:
+    elif conf < LIMIAR and not (no_cadastro and max(instr, press, fora) < 0.3):
         acao, acionar, motivo = "revisao_humana", ["PS01"], f"Jev incerto sobre o assunto (confiança {conf:.2f})."
     else:
         acao, acionar, motivo = "nada", [], "E-mail de rotina."
     return {**_base(e, fid, no_cadastro), "acao": acao, "acionar": acionar, "motivo": motivo, "cache": cache,
             "jev": {"categoria": cat, "confianca": round(conf, 2), "instrucao_ao_sistema": round(instr, 2),
-                    "pressao_ou_credencial": round(press, 2)}}
+                    "pressao_ou_credencial": round(press, 2), "pagamento_fora_do_fluxo": round(fora, 2)}}
 
 
 def _base(e, fid, no_cadastro):

@@ -7,6 +7,7 @@ export const config = { maxDuration: 60 };
 const ACOES = ["liberar", "corrigir_lancamento", "cancelar_titulo", "retirar_do_lote", "bloquear_titulo", "solicitar_aprovacao", "revisao_humana"];
 const PAGAM = new Set(["liberar", "corrigir_lancamento"]);
 const ALCADA_ANALISTA = 5000;
+const CONFIANCA_MINIMA = 0.7;
 
 type Alerta = { codigo: string; gravidade: string; contestavel: boolean; valor_corrigido: number | null };
 type Decisao = Record<string, any> & { acao: string; acionar: string[]; valor_corrigido: number | null };
@@ -33,6 +34,8 @@ function travar(d: Decisao, alertas: Alerta[], valor: number, base: Decisao): { 
   const duros = alertas.filter((a) => ["bloqueio", "aprovacao"].includes(a.gravidade) && !(a.contestavel && descartados.has(a.codigo)) && !resolvido(a));
   const descartouDuro = [...descartados].filter((c) => alertas.some((a) => a.codigo === c && !a.contestavel));
   if (descartouDuro.length) return { final: base, motivo: `o modelo tentou descartar alerta que só uma pessoa resolve (${descartouDuro.join(", ")})` };
+  if (PAGAM.has(d.acao) && Number(d.confianca ?? 1) < CONFIANCA_MINIMA)
+    return { final: { ...base, acao: "revisao_humana", acionar: ["PS01"] }, motivo: `confiança do modelo ${Number(d.confianca).toFixed(2)} abaixo de ${CONFIANCA_MINIMA} para deixar o dinheiro sair` };
   if (PAGAM.has(d.acao) && duros.length) return { final: base, motivo: `o modelo propôs '${d.acao}' com alerta ${duros[0].codigo} (${duros[0].gravidade}) ativo` };
   if (d.acao === "corrigir_lancamento" && (vc == null || Math.max(valor, vc) > ALCADA_ANALISTA)) return { final: base, motivo: "correção acima da alçada do analista (R$ 5 mil) ou sem valor" };
   if (d.acao === "cancelar_titulo" && valor > ALCADA_ANALISTA) return { final: base, motivo: "cancelamento acima da alçada do analista (R$ 5 mil)" };
@@ -48,7 +51,7 @@ async function chamarModelo(usuario: string, extra = ""): Promise<{ texto: strin
     method: "POST",
     headers: { Authorization: `Bearer ${chave}`, "Content-Type": "application/json" },
     body: JSON.stringify({ model: modelo, temperature: 0, messages: [{ role: "system", content: dados.sistema }, { role: "user", content: usuario + extra }] }),
-    signal: AbortSignal.timeout(45000),
+    signal: AbortSignal.timeout(15000),
   });
   if (!r.ok) throw new Error(`proxy HTTP ${r.status}`);
   const j = await r.json();

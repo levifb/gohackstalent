@@ -4,6 +4,10 @@ import type { EmailSentinela, Item, Lote, Resultado, Resumo } from "./tipos";
 type EvalResumo = {
   n: number;
   tudo_certo: number;
+  so_regras?: number;
+  robustez_n?: number;
+  robustez_jev?: number;
+  robustez_sem_jev?: number;
   dinheiro: number;
   em: string;
   placar: Record<"agente" | "assinar_sem_conferir" | "bloquear_todo_alerta", { total: number }>;
@@ -371,31 +375,23 @@ export default function App() {
         <section className="eval">
           <span className="rotulo">CONFERÊNCIA · EVAL</span>
           <p>
-            <b>
-              {evalRes.gabarito.tudo_certo}/{evalRes.gabarito.n}
-            </b>{" "}
-            casos do gabarito com ação, pessoa e valor certos
+            Títulos: <b>{evalRes.gabarito.tudo_certo}/{evalRes.gabarito.n}</b> no gabarito (só regras: {evalRes.gabarito.so_regras}/{evalRes.gabarito.n})
             {evalRes.validacao && (
               <>
-                {" "}
-                · <b>
-                  {evalRes.validacao.tudo_certo}/{evalRes.validacao.n}
-                </b>{" "}
-                na validação cega
+                {" "}· <b>{evalRes.validacao.tudo_certo}/{evalRes.validacao.n}</b> na validação cega
               </>
-            )}{" "}
+            )}
             {evalRes.sentinela && (
               <>
-                {" "}
-                · sentinela <b>
-                  {evalRes.sentinela.tudo_certo}/{evalRes.sentinela.n}
+                {" "}· e-mails: <b>{evalRes.sentinela.tudo_certo}/{evalRes.sentinela.n}</b>; reescritos de outro jeito, Jev{" "}
+                <b>
+                  {evalRes.sentinela.robustez_jev}/{evalRes.sentinela.robustez_n}
                 </b>{" "}
-                e-mails
+                × palavras-chave {evalRes.sentinela.robustez_sem_jev}/{evalRes.sentinela.robustez_n}
               </>
-            )}{" "}
-            · custo no placar da área: agente <b>{brl(evalRes.gabarito.placar.agente.total)}</b>, assinar sem conferir{" "}
-            <b>{brl(evalRes.gabarito.placar.assinar_sem_conferir.total)}</b>, bloquear todo alerta{" "}
-            <b>{brl(evalRes.gabarito.placar.bloquear_todo_alerta.total)}</b>. Primeira versão: 26/29; erros corrigidos no LOG.md.
+            )}
+            . Custo no placar da área: agente <b>{brl(evalRes.gabarito.placar.agente.total)}</b>, assinar sem conferir{" "}
+            <b>{brl(evalRes.gabarito.placar.assinar_sem_conferir.total)}</b>. Dinheiro só sai por regra; o modelo escolhe a pessoa e explica.
           </p>
         </section>
       )}

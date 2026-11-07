@@ -56,7 +56,8 @@ O agente roda sozinho sobre o lote RM20261103-MER (192 títulos), aplica as aç�
 - **Modelo**: AI Proxy do evento, token em `.env` (`AI_PROXY_API_KEY`), chamado só do servidor. Saída em JSON validada com pydantic; uma nova tentativa e, se falhar, `revisao_humana`.
 - **Tokens**: regras determinísticas filtram; o modelo só vê títulos com alerta (estimativa: algumas dezenas por lote, não 192).
 - **App**: React + TypeScript (Vite) na Vercel, lendo o resultado do lote processado; função de servidor em Python na Vercel para reprocessar um título ao vivo. Modo demo com cache.
-- **Canal de aprovação**: fila de aprovação na própria tela (simulada). Telegram ou Slack só se sobrar tempo depois das 14h30.
+- **Canal de aprovação**: fila de aprovação na tela e no Telegram (@guardadolote_bot), com botões Aprovar/Recusar e Manter retido/Liberar; o webhook na Vercel aplica a aprovação dupla para título bloqueado por golpe. Ações simuladas.
+- **Segundo agente**: sentinela de comunicações (Jev) lê a caixa de e-mail inteira e marca golpes, tentativas de instruir o agente, trocas de conta e divergências.
 
 ## Suposições
 
@@ -64,7 +65,7 @@ O agente roda sozinho sobre o lote RM20261103-MER (192 títulos), aplica as aç�
 - As ações (retirar do lote, bloquear, corrigir) são simuladas sobre cópias dos CSVs; nenhum sistema real é tocado.
 - A duplicidade é detectada por fornecedor + número da NF normalizado (sem zeros à esquerda e sem série) + parcela; casos de NF digitada de forma muito diferente podem escapar (a validar no gabarito).
 - O gabarito oficial não é distribuído (`kit_dados/saida/*/interno/`); o nosso gabarito é anotado por mim a partir dos dados e da política.
-- Ainda falta: URL do AI Proxy e o modelo disponível; se a organização permite publicar resultados derivados dos dados fictícios no app público.
+- Resultados derivados dos dados fictícios (cache do modelo, `resultado.json`, `web/api/_casos.ts`) ficam no repositório público por decisão do Levi, porque os dados são fictícios; os CSVs originais ficam fora do git. Pergunta pendente para a organização.
 
 ## Achados dos dados
 
@@ -72,7 +73,7 @@ O agente roda sozinho sobre o lote RM20261103-MER (192 títulos), aplica as aç�
 | --- | --- | --- |
 | Títulos agendados 03/11 a 13/11 | 876, R$ 10.206.764, 17 lotes | `python analise/sonda_lote.py dados/pagamentos` |
 | Lote RM20261103-MER | 192 títulos, R$ 2.241.484 | idem |
-| Duplicidade no lote | 26 títulos, R$ 210.515 | idem |
+| Duplicidade (cópia de título já lançado ou pago) | 13 títulos, R$ 105.264 (a sonda contava 26 porque somava o original) | `python -X utf8 -m agente.rodar` |
 | Valor ≠ duplicata (> R$ 0,10) | 11 de 872 (8 com fator 10 ou 0,1) | idem |
 | Troca bancária sem confirmação | 1 fornecedor (FP4615), 25 títulos no lote, R$ 194.440 | idem |
 | Títulos sem NF no portal | 4 | idem |
