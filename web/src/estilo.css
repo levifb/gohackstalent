@@ -91,3 +91,8 @@ tbody tr:hover { background: #f8f9fc; }
 }
 .eval { margin-top: 16px; background: #fbfbe6; border: 1px solid #e8e88a; border-radius: 12px; padding: 12px 18px; }
 .eval p { margin: 6px 0 0; font-size: 14px; }
+.aovivo { margin-top: 10px; display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+.aovivo label { font-size: 13px; display: flex; gap: 6px; align-items: center; }
+.resposta { background: var(--fundo); border: 1px solid var(--borda); border-radius: 10px; padding: 10px 12px; width: 100%; }
+.resposta p { margin: 4px 0; font-size: 14px; }
+button:disabled { opacity: 0.6; cursor: wait; }

@@ -77,6 +77,71 @@ function Placar({ r, lote }: { r: Resumo; lote?: Lote }) {
   );
 }
 
+type AoVivo = {
+  origem: "ao_vivo" | "cache" | "revisao_humana";
+  aviso?: string;
+  modelo?: string;
+  uso?: { prompt_tokens?: number; completion_tokens?: number };
+  proposta?: { acao: string; confianca: number; motivo: string } | null;
+  final: { acao: string; motivo: string; acionar?: string[] };
+  trava: string | null;
+  ms: number;
+  erro?: string;
+};
+
+function AoVivoBotao({ id }: { id: string }) {
+  const [res, setRes] = useState<AoVivo | null>(null);
+  const [rodando, setRodando] = useState(false);
+  const [demo, setDemo] = useState(false);
+  const rodar = async () => {
+    setRodando(true);
+    setRes(null);
+    try {
+      const r = await fetch("/api/reprocessar", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ titulo_id: id, demo }) });
+      setRes(await r.json());
+    } catch (e) {
+      setRes({ origem: "cache", aviso: `sem conexão (${String(e)})`, final: { acao: "-", motivo: "" }, trava: null, ms: 0 });
+    }
+    setRodando(false);
+  };
+  return (
+    <div className="aovivo">
+      <button onClick={rodar} disabled={rodando}>
+        {rodando ? "Analisando…" : "Reanalisar agora com o modelo"}
+      </button>
+      <label className="sub">
+        <input type="checkbox" checked={demo} onChange={(e) => setDemo(e.target.checked)} /> modo demo (usar cache)
+      </label>
+      {res && (
+        <div className="resposta">
+          {res.erro ? (
+            <p>{res.erro}</p>
+          ) : (
+            <>
+              <p>
+                <span className={`tag tag-${res.origem === "ao_vivo" ? "verde" : "cinza"}`}>{res.origem === "ao_vivo" ? "AO VIVO" : "EM CACHE"}</span>
+                {res.modelo && <span className="sub mono">{res.modelo} · </span>}
+                <span className="sub mono">
+                  {(res.ms / 1000).toFixed(1)} s{res.uso ? ` · ${res.uso.prompt_tokens} + ${res.uso.completion_tokens} tokens` : ""}
+                </span>
+              </p>
+              {res.aviso && <p className="sub">{res.aviso}</p>}
+              {res.proposta && (
+                <p>
+                  Modelo propôs <Tag acao={res.proposta.acao} /> ({Math.round(res.proposta.confianca * 100)}%). {res.proposta.motivo}
+                </p>
+              )}
+              <p>
+                Final após a trava: <Tag acao={res.final.acao} /> {res.trava ? `Trava: ${res.trava}.` : "Trava: ação dentro da política."}
+              </p>
+            </>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function Trilha({ it, fechar }: { it: Item; fechar: () => void }) {
   const e = it.etapas;
   const graves = e.triagem.alertas.filter((a) => a.gravidade !== "atencao");
@@ -139,6 +204,7 @@ function Trilha({ it, fechar }: { it: Item; fechar: () => void }) {
               ) : (
                 <p>Sem resposta válida: {e.analise.erro}</p>
               )}
+              <AoVivoBotao id={it.titulo_id} />
             </li>
           )}
           <li>

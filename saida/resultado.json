@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-11-07 10:45",
+ "gerado_em": "2026-11-07 10:49",
  "agora_ficticio": "2026-11-02 08:00:00",
  "modo": "llm",
  "lotes": [
@@ -4953,7 +4953,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -8551,7 +8551,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -10821,7 +10821,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -11127,7 +11127,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -13037,7 +13037,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -15900,7 +15900,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -17349,7 +17349,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -19500,7 +19500,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -19756,7 +19756,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -20464,7 +20464,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -22839,7 +22839,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -26835,7 +26835,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -29906,7 +29906,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -32550,7 +32550,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -32856,7 +32856,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -35861,7 +35861,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -36431,7 +36431,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -37037,7 +37037,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -37321,7 +37321,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -38197,7 +38197,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -38421,7 +38421,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -38594,7 +38594,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -39788,7 +39788,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -40042,7 +40042,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -41534,7 +41534,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -42393,7 +42393,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -42648,7 +42648,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -43592,14 +43592,14 @@
   ]
  },
  "uso_modelo": {
-  "chamadas": 27,
-  "cache": 1519,
-  "prompt_tokens": 98739,
-  "completion_tokens": 9031,
+  "chamadas": 0,
+  "cache": 1546,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
   "reasoning_tokens": 0,
   "jev_chamadas": 0,
   "jev_input_tokens": 0,
   "jev_usd": 0.0
  },
- "segundos": 122.9
+ "segundos": 26.4
 }

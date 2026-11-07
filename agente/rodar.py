@@ -14,6 +14,34 @@ from agente import fonte, llm, pipeline
 RAIZ = Path(__file__).resolve().parent.parent
 
 
+def exportar_casos_ao_vivo(resultado: dict):
+    """Gera web/api/_casos.ts para a rota /api/reprocessar: prompt do sistema e, por título analisado pelo modelo,
+    a mensagem com o dossiê, os alertas, a decisão por regras (fallback da trava) e a decisão em cache (modo demo)."""
+    from agente import ferramentas, prompts, regras
+    casos = {}
+    for L in resultado["lotes"]:
+        lote_df = fonte.lote(L["lote"])
+        for i in L["itens"]:
+            if "analise" not in i["etapas"]:
+                continue
+            alertas = regras.triagem(i["titulo_id"], lote_df)
+            casos[i["titulo_id"]] = {
+                "usuario": prompts.usuario(ferramentas.montar_dossie(i["titulo_id"], alertas, L["lote"])),
+                "alertas": [{"codigo": a.codigo, "gravidade": a.gravidade, "contestavel": a.contestavel,
+                             "valor_corrigido": a.valor_corrigido} for a in alertas],
+                "valor": i["valor"],
+                "base": regras.decisao_por_regras(i["titulo_id"], alertas),
+                "cache": i["etapas"]["analise"]["proposta"],
+                "final_cache": i["decisao"],
+            }
+    api = RAIZ / "web" / "api"
+    api.mkdir(parents=True, exist_ok=True)
+    corpo = json.dumps({"sistema": prompts.SISTEMA, "casos": casos}, ensure_ascii=False, default=str)
+    (api / "_casos.ts").write_text("// gerado por agente/rodar.py; não editar à mão\nconst dados = " + corpo + " as const;\nexport default dados;\n",
+                                   encoding="utf-8")
+    print(f"casos ao vivo: {len(casos)} títulos em web/api/_casos.ts")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--modo", default="llm", choices=pipeline.MODOS)
@@ -43,6 +71,7 @@ def main():
     web = RAIZ / "web" / "public"
     web.mkdir(parents=True, exist_ok=True)
     (web / "resultado.json").write_text(json.dumps(resultado, ensure_ascii=False, default=str), encoding="utf-8")
+    exportar_casos_ao_vivo(resultado)
     print("semana:", json.dumps(resultado["semana"], ensure_ascii=False))
     print("uso do modelo:", resultado["uso_modelo"], "| segundos:", resultado["segundos"])
 
