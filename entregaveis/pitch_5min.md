@@ -21,7 +21,7 @@ Estrutura do workshop: 0:00 abertura (elevator pitch) · 0:15 dor · 0:50 o que 
 | 0:15 | 2 e 3 | Marcos assina sem conferir; na semana, golpe de R$ 194 mil, 16 pagamentos em dobro, 8 vírgulas, 2 fornecedores trocados |
 | 0:50 | 4 | O que o agente já faz hoje: confere o lote, lê a caixa de e-mail e leva cada caso à pessoa certa no Telegram |
 | 1:20 | 5 | Regras nos 192, modelo nos 13 com alerta, trava; 181 sozinho, 11 para uma pessoa |
-| 2:10 | 6 a 8 | Demo: Antes 192, depois 11. Rodar o agente no site, um caso verde (sozinho) e a Embalarte (escala); Telegram "Liberar mesmo assim" |
+| 2:10 | 6 a 8 | Slide 6: casos que passariam pela assinatura. Slide 7: a fila chega no Telegram, com botões. Slide 8 "Vamos ver funcionando": antes 192, depois 11; rodar o agente no site, um caso verde (sozinho) e a Embalarte (escala); no celular, "Liberar mesmo assim" |
 | 3:30 | 9 | 30/30 × 29/30; 6/6 × 3/6; 12/12 × 1/12; onde a IA errou e o eval pegou |
 | 4:00 | 10 | R$ 530 mil × R$ 0 com a premissa; segunda-feira: modo sombra e autonomia por degraus |
 
