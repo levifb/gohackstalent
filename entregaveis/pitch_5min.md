@@ -1,6 +1,6 @@
 # Pitch de 5 minutos (v2, roteiro do workshop de pitch)
 
-Estrutura do workshop: 0:00 abertura (elevator pitch) · 0:15 dor · 0:50 visão 360 · 1:20 o agente · 2:10 demo · 3:30 como fez · 4:00 impacto. Regra de ouro: se precisar cortar, corte texto, não a demo. A fala completa de cada slide está nas notas do apresentador do [deck](https://docs.google.com/presentation/d/1mVAGrmmNUs4j35EpH_0qqqpnHoZxF41FEcJKkLCvm7A/edit).
+Estrutura do workshop: 0:00 abertura (elevator pitch) · 0:15 dor · 0:50 o que já funciona · 1:20 o agente · 2:10 demo · 3:30 como fez · 4:00 impacto. Regra de ouro: se precisar cortar, corte texto, não a demo. A fala completa de cada slide está nas notas do apresentador do [deck](https://docs.google.com/presentation/d/1mVAGrmmNUs4j35EpH_0qqqpnHoZxF41FEcJKkLCvm7A/edit).
 
 ## Elevator pitch (abertura, submissão e "o que você fez?")
 
@@ -19,7 +19,7 @@ Estrutura do workshop: 0:00 abertura (elevator pitch) · 0:15 dor · 0:50 visão
 | --- | --- | --- |
 | 0:00 | 1 | Elevator pitch acima |
 | 0:15 | 2 e 3 | Marcos assina sem conferir; na semana, golpe de R$ 194 mil, 16 pagamentos em dobro, 8 vírgulas, 2 fornecedores trocados |
-| 0:50 | 4 | Quatro frentes da área; provei as duas que seguram o dinheiro antes de sair (lote e e-mail) |
+| 0:50 | 4 | O que o agente já faz hoje: confere o lote, lê a caixa de e-mail e leva cada caso à pessoa certa no Telegram |
 | 1:20 | 5 | Regras nos 192, modelo nos 13 com alerta, trava; 181 sozinho, 11 para uma pessoa |
 | 2:10 | 6 a 8 | Demo: Antes 192, depois 11. Rodar o agente no site, um caso verde (sozinho) e a Embalarte (escala); Telegram "Liberar mesmo assim" |
 | 3:30 | 9 | 30/30 × 29/30; 6/6 × 3/6; 12/12 × 1/12; onde a IA errou e o eval pegou |

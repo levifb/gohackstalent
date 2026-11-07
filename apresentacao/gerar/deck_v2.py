@@ -209,4 +209,22 @@ elif etapa == "v3":
     ch = 4.25
     img(f"{s}_cel", s, f"{U}/capturas/slide8_celular_v3.png", 6.2, 0.42, ch * 892 / 1265, ch)
 
+elif etapa == "v4":
+    # 07/11 15h: slide 4 só com o que já funciona (sem as frentes "próximo"), a pedido do Levi
+    s = S[3]
+    for oid in ("lbl", "tit", "t0", "t1", "t2", "t3"):
+        R.append({"deleteObject": {"objectId": f"{s}_{oid}"}})
+    rotulo(s, "O QUE JÁ FUNCIONA · TESTADO COM OS DADOS DO EVENTO")
+    titulo(s, "O que o agente já faz hoje.")
+    tiles = [("Lote de remessa", "Confere cada título antes de o dinheiro sair"),
+             ("Caixa de e-mail", "Marca golpe, ordem ao robô e troca de conta"),
+             ("Canal do time", "Leva cada caso à pessoa certa no Telegram, com botões")]
+    for k, (nome, desc) in enumerate(tiles):
+        oid, tag = f"{s}_f{k}", "FUNCIONANDO"
+        t = f"{tag}\n{nome}\n{desc}"
+        texto(oid, s, 0.55 + k * 3.02, 1.95, 2.85, 1.9, t, 15, BRANCO, "Poppins", 400, forma="ROUND_RECTANGLE", fundo=AZUL, borda=False)
+        estilo(oid, 0, len(tag), LIMAO, 700, "JetBrains Mono", 10)
+        a = len(tag) + 1
+        estilo(oid, a, a + len(nome), None, 800, "Poppins", 22)
+
 print(json.dumps(R, ensure_ascii=False))
