@@ -282,6 +282,80 @@ function Sentinela({ s }: { s: NonNullable<Resultado["sentinela"]> }) {
   );
 }
 
+const ROTULO_TG: Record<string, string> = {
+  bloquear_titulo: "🔴 BLOQUEADO",
+  retirar_do_lote: "🔴 RETIRADO DO LOTE",
+  cancelar_titulo: "🟠 CANCELADO (duplicidade)",
+  revisao_humana: "🟠 REVISÃO HUMANA",
+  solicitar_aprovacao: "🔵 AGUARDA APROVAÇÃO",
+};
+
+function Telegram({ lote, fila }: { lote?: Lote; fila: Item[] }) {
+  const exemplo = fila.find((i) => i.decisao.acao === "bloquear_titulo") ?? fila[0];
+  if (!lote || !exemplo) return null;
+  const r = lote.resumo;
+  const bloqueado = exemplo.decisao.acao !== "solicitar_aprovacao";
+  return (
+    <section className="telegram">
+      <div className="tg-texto">
+        <span className="rotulo">CANAL DO TIME · TELEGRAM</span>
+        <h2>A fila chega no celular de quem decide.</h2>
+        <p>
+          Antes do fechamento, o agente publica no <b>@guardadolote_bot</b> o resumo do lote e um cartão por caso, com o motivo e a pessoa. A decisão volta pelo
+          próprio botão:
+        </p>
+        <ul className="tg-regras">
+          <li>
+            <b>Aprovar / Recusar</b> nos casos de alçada: a resposta fica registrada na mensagem, com nome e horário.
+          </li>
+          <li>
+            <b>Liberar mesmo assim</b> num título bloqueado por golpe: o agente recusa e responde que só sai com aprovação dupla e confirmação pelo telefone anterior
+            do cadastro.
+          </li>
+        </ul>
+        <p className="sub">
+          Ações simuladas. O webhook roda na Vercel e só aceita chamadas assinadas pelo Telegram. Envio: <span className="mono">python -m agente.telegram</span>.{" "}
+          <a href="https://t.me/guardadolote_bot" target="_blank" rel="noreferrer">
+            t.me/guardadolote_bot
+          </a>
+        </p>
+      </div>
+      <div className="tg-celular" aria-label="prévia da mensagem enviada pelo agente">
+        <span className="rotulo">PRÉVIA DAS MENSAGENS DESTE LOTE</span>
+        <div className="tg-balao">
+          <b>
+            Guarda do Lote · {lote.banco} · {dataBR(lote.data)} {lote.fechamento}
+          </b>
+          <br />
+          Conferi os {r.titulos} títulos ({brl2(r.valor_total)}).
+          <br />✅ {r.resolvidos_sozinho} resolvidos sozinho · ✋ {r.na_fila_humana} precisam de uma pessoa.
+        </div>
+        <div className="tg-balao">
+          {ROTULO_TG[exemplo.decisao.acao] ?? exemplo.decisao.acao} · <b>{brl2(exemplo.valor)}</b>
+          <br />
+          <b>{exemplo.fornecedor}</b> · {exemplo.titulo_id}
+          <br />
+          <br />
+          {exemplo.decisao.motivo}
+          <br />
+          <br />
+          👤 Para: {exemplo.pessoas.map((p) => p.nome.split(",")[0]).join(", ") || "Renata Paiva"}
+        </div>
+        <div className="tg-botoes">
+          <span>{bloqueado ? "Manter retido" : "Aprovar"}</span>
+          <span>{bloqueado ? "Liberar mesmo assim" : "Recusar"}</span>
+        </div>
+        {bloqueado && (
+          <div className="tg-balao tg-resposta">
+            ⚠️ Liberação de título bloqueado por suspeita de golpe só sai com aprovação dupla (coordenadora + diretora) e confirmação pelo telefone anterior do
+            cadastro. Pedido registrado (simulado).
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
 function CartaoFila({ it, abrir }: { it: Item; abrir: () => void }) {
   const [resposta, setResposta] = useState<string | null>(null);
   return (
@@ -353,7 +427,8 @@ export default function App() {
           <span className="rotulo">GUARDA DO LOTE · AGENTE DE CONTAS A PAGAR</span>
           <h1>O agente confere cada título antes de o dinheiro sair.</h1>
           <p className="sub">
-            Para <b>Marcos Teles, tesoureiro</b>. Libera sozinho o que está certo, corrige ou retira o que tem erro e chama a pessoa certa nos casos de risco.
+            Para <b>Marcos Teles, tesoureiro</b>. Libera sozinho o que está certo, corrige ou retira o que tem erro e chama a pessoa certa nos casos de risco,
+            pelo <b>Telegram do time</b>.
           </p>
         </div>
         <label className="seletor">
@@ -436,6 +511,8 @@ export default function App() {
           </div>
         )}
       </section>
+
+      {loteId !== "semana" && <Telegram lote={lote} fila={fila} />}
 
       {dados.sentinela && <Sentinela s={dados.sentinela} />}
 
