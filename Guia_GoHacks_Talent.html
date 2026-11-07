@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Guia GoHacks Talent</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 13mm 14mm 13mm 14mm; }
+  :root { --navy: #14213d; --gold: #c9a227; --ink: #1d2433; --mut: #5b6475; --line: #dfe3ea; --soft: #f4f6f9; }
+  * { box-sizing: border-box; }
+  body { font-family: Inter, Arial, sans-serif; color: var(--ink); font-size: 9.6pt; line-height: 1.45; margin: 0; background: #fff; }
+  h1 { font-size: 25pt; line-height: 1.15; margin: 0 0 6px; color: #fff; letter-spacing: -0.02em; }
+  h2 { font-size: 15pt; color: var(--navy); margin: 0 0 4px; padding-bottom: 5px; border-bottom: 2px solid var(--gold); letter-spacing: -0.01em; }
+  h2 .n { color: var(--gold); margin-right: 6px; }
+  h3 { font-size: 11pt; color: var(--navy); margin: 14px 0 4px; }
+  p { margin: 5px 0; }
+  ul, ol { margin: 4px 0 6px; padding-left: 18px; }
+  li { margin: 2px 0; }
+  code, .mono { font-family: "JetBrains Mono", Consolas, monospace; font-size: 8.6pt; background: var(--soft); padding: 1px 4px; border-radius: 3px; }
+  pre { font-family: "JetBrains Mono", Consolas, monospace; font-size: 8.3pt; line-height: 1.45; background: var(--soft); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; margin: 6px 0 8px; white-space: pre-wrap; break-inside: avoid; }
+  table { width: 100%; border-collapse: collapse; margin: 6px 0 8px; font-size: 9.2pt; break-inside: avoid; }
+  th { text-align: left; background: var(--navy); color: #fff; font-weight: 600; padding: 5px 7px; }
+  td { padding: 5px 7px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:nth-child(even) td { background: #fafbfc; }
+  .sec { margin-top: 20px; }
+  h2, h3 { break-after: avoid; }
+  .pb { break-before: page; }
+  .lead { color: var(--mut); margin: 6px 0 10px; }
+  .box { border: 1px solid var(--line); border-radius: 7px; padding: 8px 12px; margin: 8px 0; break-inside: avoid; }
+  .box b.t { display: block; color: var(--navy); margin-bottom: 2px; }
+  .gold { border-color: var(--gold); background: #fdf9ec; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .cover { background: var(--navy); color: #fff; border-radius: 10px; padding: 26px 26px 22px; margin-bottom: 14px; }
+  .cover .k { color: var(--gold); font-weight: 700; font-size: 9pt; letter-spacing: .12em; text-transform: uppercase; }
+  .cover p { color: #d6dbe6; margin: 4px 0 0; }
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 10px 0 12px; }
+  .facts div { border: 1px solid var(--line); border-radius: 7px; padding: 7px 9px; }
+  .facts b { display: block; font-size: 13pt; color: var(--navy); }
+  .facts span { font-size: 8.5pt; color: var(--mut); }
+  .tag { display: inline-block; font-size: 7.8pt; font-weight: 600; padding: 0 6px; border-radius: 4px; background: var(--soft); color: var(--navy); border: 1px solid var(--line); }
+  .small { font-size: 8.6pt; color: var(--mut); }
+  .no { color: #9b2c2c; }
+  .ok { color: #22643a; }
+  a { color: var(--navy); }
+</style>
+</head>
+<body>
+
+<!-- ============ CAPA ============ -->
+<div class="cover">
+  <div class="k">GoHacks Talent 2026 · 07 e 08/11 · Gogroup Hub, Fortaleza</div>
+  <h1>Guia de preparação</h1>
+  <p>Prompts, Claude Code, engenharia mínima, agentes, deploy, pitch e um plano de treino até o dia 06/11.</p>
+</div>
+
+<div class="facts">
+  <div><b>Individual</b><span>projeto e prêmio são seus</span></div>
+  <div><b>~6h30</b><span>de construção no sábado</span></div>
+  <div><b>16h30</b><span>prazo da submissão</span></div>
+  <div><b>R$ 5 mil</b><span>1º lugar (2º R$ 2 mil, 3º R$ 1 mil)</span></div>
+</div>
+
+<h3>O que já se sabe</h3>
+<ul>
+  <li>O Gogroup é a holding da <b>Gocase</b> e da <b>Gobeaut</b>: e-commerce de acessórios e beleza. Os desafios vêm "das nossas marcas" e usam dados fictícios. Os exemplos do próprio app falam de reembolso, pedido com problema e reclamação de atendimento. Espere temas de operação de e-commerce: atendimento, logística, devolução, catálogo, marketing.</li>
+  <li>O notebook vem pronto com <b>Claude</b> e a "infraestrutura de IA do grupo". A IA é liberada: <b>eles avaliam como você dirige, confere e corrige a IA</b>.</li>
+  <li>O catálogo de desafios sai entre 03 e 06/11. A escolha é às 9h30 e as vagas por desafio são limitadas.</li>
+  <li><b>Confirme a presença no app até 02/11.</b></li>
+</ul>
+
+<h3>Como a banca dá a nota</h3>
+<table>
+  <tr><th style="width:22%">Critério</th><th style="width:8%">Peso</th><th>O que fazer para pontuar</th></tr>
+  <tr><td><b>Modelagem</b></td><td>40%</td><td>Fluxo de ponta a ponta funcionando, com <b>agente/automação</b> e pouca mão humana. Mostre que conferiu a saída da IA e corrigiu os erros. É o critério de desempate.</td></tr>
+  <tr><td>Adaptabilidade</td><td>20%</td><td>Aprenda rápido o tema da marca, use bem os dados fictícios e explique como seria com dados reais. Mude de rota quando algo não funcionar.</td></tr>
+  <tr><td>Conceito</td><td>20%</td><td>Uma persona com nome, uma dor real do negócio e um problema que dê para entender em 1 minuto.</td></tr>
+  <tr><td>Aderência cultural</td><td>20%</td><td>Chame mentor cedo, aceite feedback do pré-júri e ajuste o projeto na frente deles.</td></tr>
+</table>
+
+<div class="box gold"><b class="t">A estratégia em uma frase</b>
+Escolha <b>uma</b> dor operacional pequena e construa um agente que resolve o caso comum sozinho e manda o caso de risco para um humano. Meça quantos casos ele acertou nos dados fictícios e mostre isso funcionando ao vivo.</div>
+
+<!-- ============ 1. PLANO DO DIA ============ -->
+<div class="sec pb">
+<h2><span class="n">1</span>O sábado, hora a hora</h2>
+<p class="lead">O cronograma oficial está à esquerda. À direita, a meta que você precisa ter batido em cada horário. Se atrasar, corte escopo, nunca a demo.</p>
+<table>
+  <tr><th style="width:15%">Hora</th><th style="width:35%">Oficial</th><th>Sua meta</th></tr>
+  <tr><td>08h30</td><td>Credenciamento</td><td>Login no notebook, abrir o Claude, criar o repositório no GitHub, testar o Git e o deploy (veja a seção 6).</td></tr>
+  <tr><td>09h30</td><td>Escolha do desafio</td><td>Escolha em 5 min. Prefira o desafio cujos dados você entende e cuja demo dá para ver numa tela.</td></tr>
+  <tr><td>09h40–10h10</td><td>Mão na massa</td><td>Escreva o <b>SPEC.md</b>: 1 persona, 1 dor, 1 hipótese, o fluxo atual em 3 passos, o fluxo novo e a métrica. Valide com um mentor de negócio que passar na mesa.</td></tr>
+  <tr><td>10h10–12h</td><td>Mão na massa</td><td>Fluxo principal funcionando de ponta a ponta, ainda feio, com os dados fictícios. <b>Primeiro deploy antes do almoço.</b></td></tr>
+  <tr><td>13h10–14h30</td><td>Bloco 2</td><td>Agente completo: ferramentas, decisão, saída estruturada e casos de risco indo para revisão humana. Rode em todos os casos fictícios e calcule a métrica.</td></tr>
+  <tr><td>14h30–15h20</td><td>Bloco 2</td><td>Interface apresentável, tela de antes e depois e números na tela. Grave o vídeo de 2 min (plano B).</td></tr>
+  <tr><td>15h20</td><td></td><td><b>Feature freeze.</b> Depois disso, só correção de bug.</td></tr>
+  <tr><td>15h20–16h10</td><td></td><td>Slides em PDF (máx. 10), README e textos da submissão. Teste o link do app numa janela anônima.</td></tr>
+  <tr><td>16h10</td><td>Prazo às 16h30</td><td><b>Submeta.</b> Não deixe para o aviso dos 30 minutos.</td></tr>
+  <tr><td>16h45–18h20</td><td>Pré-júri de 10 min</td><td>Pitch de 5 min mais perguntas. Enquanto espera, escreva o relatório individual.</td></tr>
+</table>
+
+<h3>Os textos da submissão (já se sabe o que pedem)</h3>
+<table>
+  <tr><th style="width:26%">Campo</th><th>Como preencher</th></tr>
+  <tr><td>Problema (600 car.)</td><td>O que acontece hoje, quem sofre e quanto custa. Use um número dos dados fictícios.</td></tr>
+  <tr><td>Solução (800)</td><td>Passo a passo do ponto de vista de quem usa, não do código.</td></tr>
+  <tr><td>Como usou a IA (800)</td><td>Ferramentas, em que etapa, qual agente ou automação. Diga também <b>o que você conferiu e corrigiu</b>, por exemplo: "conferi 30 casos à mão, a IA errou 4 em X, ajustei o prompt".</td></tr>
+  <tr><td>Impacto (500)</td><td>Uma métrica de processo (tempo, taxa de acerto) e um impacto no negócio (custo, satisfação).</td></tr>
+  <tr><td>PDF, GitHub e app</td><td>O GitHub precisa ser <b>público</b>. Teste o app sem login numa janela anônima. Mande o vídeo de 2 min também.</td></tr>
+</table>
+<div class="box"><b class="t">Mantenha um <code>LOG.md</code> desde as 9h40</b>
+Uma linha por episódio: "11h05: a IA classificou devolução como troca em 3 de 20 casos; acrescentei exemplos no prompt; caiu para 0 de 20". Isso alimenta a nota de Modelagem, o campo "Como usou a IA", o relatório individual (que pergunta exatamente onde a IA errou) e a sabatina.</div>
+</div>
+
+<!-- ============ 2. PROMPT ENGINEERING ============ -->
+<div class="sec">
+<h2><span class="n">2</span>Prompt engineering</h2>
+<p class="lead">No sábado você escreve dois tipos de prompt: os que <b>dirigem o Claude enquanto ele programa</b> e os que ficam <b>dentro do seu produto</b>, que o agente usa para classificar, decidir e responder. Os princípios são os mesmos.</p>
+
+<h3>Os princípios (guia oficial da Anthropic)</h3>
+<ol>
+  <li><b>Seja claro e direto.</b> Imagine um colega competente que não sabe nada do seu projeto. O que ele precisaria saber? Escreva isso.</li>
+  <li><b>Diga o porquê.</b> "Responda curto, porque o texto vai num WhatsApp" funciona melhor que "responda curto". Com o motivo, o modelo generaliza para casos que você não previu.</li>
+  <li><b>Dê exemplos (few-shot).</b> Dois a cinco exemplos de entrada e saída, variados e com pelo menos um caso difícil. É o jeito mais barato de corrigir um classificador.</li>
+  <li><b>Separe as partes com tags XML:</b> <code>&lt;instrucoes&gt;</code>, <code>&lt;politica&gt;</code>, <code>&lt;pedido&gt;</code>, <code>&lt;exemplos&gt;</code>. Assim o modelo não confunde dado com instrução.</li>
+  <li><b>Peça uma saída estruturada.</b> JSON com campos fixos, validado no código. Sem isso, o agente não se encaixa no resto do sistema.</li>
+  <li><b>Dê uma saída para a dúvida.</b> "Se faltar informação, devolva <code>"acao": "revisao_humana"</code> e o motivo." Isso evita alucinação e mostra o human-in-the-loop para a banca.</li>
+  <li><b>Diga o que fazer em vez de só proibir.</b> Melhor "escreva em parágrafos curtos, sem listas" do que "não use markdown".</li>
+  <li><b>Quebre tarefas grandes em etapas encadeadas.</b> Classificar, depois extrair, depois decidir, depois redigir. Cada etapa fica testável e você vê onde errou.</li>
+  <li><b>Itere com dados.</b> Rode o prompt em todos os casos fictícios, olhe os erros, ajuste e rode de novo. Anote cada rodada no LOG.md.</li>
+</ol>
+
+<h3>Modelo de prompt para o agente do produto</h3>
+<pre>Você faz a triagem de reclamações de clientes da [marca], um e-commerce de capinhas.
+Seu resultado é lido por um sistema, não por uma pessoa: responda só com JSON válido.
+
+&lt;politica&gt;
+- Troca grátis até 7 dias após a entrega se o produto veio com defeito.
+- Reembolso acima de R$ 300 sempre passa por um humano.
+&lt;/politica&gt;
+
+&lt;pedido&gt;{dados do pedido vindos da ferramenta buscar_pedido}&lt;/pedido&gt;
+&lt;mensagem&gt;{texto do cliente}&lt;/mensagem&gt;
+
+Decida a ação seguindo a política. Se a mensagem for ambígua ou faltar dado,
+use "revisao_humana" e explique o motivo em uma frase.
+
+&lt;exemplos&gt; ... 3 casos, um deles ambíguo ... &lt;/exemplos&gt;
+
+Formato:
+{"categoria": "defeito|atraso|arrependimento|outro",
+ "acao": "trocar|reembolsar|responder|revisao_humana",
+ "confianca": 0-1, "motivo": "...", "resposta_ao_cliente": "..."}</pre>
+
+<h3>Prompts para dirigir o Claude enquanto programa</h3>
+<table>
+  <tr><th style="width:42%">Em vez de</th><th>Escreva</th></tr>
+  <tr><td>"faz um app de devoluções"</td><td>"Leia SPEC.md e dados/pedidos.csv. Monte o fluxo: ler a mensagem, chamar <code>buscar_pedido</code>, decidir pela política e gravar o resultado. Sem biblioteca nova além de X. Rode <code>npm test</code> no final e me mostre a saída."</td></tr>
+  <tr><td>"tá dando erro, conserta"</td><td>Cole o erro inteiro e diga onde ele aparece: "Ao clicar em Processar, sai este erro. Escreva um teste que reproduza o erro e depois corrija."</td></tr>
+  <tr><td>"melhora o visual"</td><td>Cole uma captura da tela e diga o objetivo: "Isto vai para um telão. Quero os números de antes e depois em destaque e a lista de casos com status por cor. Siga o padrão de components/Card."</td></tr>
+  <tr><td>"pensa bem nisso"</td><td>Para um raciocínio difícil, escreva <code>ultrathink</code>, que pede um raciocínio mais profundo naquele turno. Para escopo maior, diga <code>be ambitious</code> e liste o que entra: estados de erro, vazio, loading.</td></tr>
+</table>
+<div class="box"><b class="t">Não sabe o que quer ainda? Peça para ser entrevistado</b>
+<code>"Quero resolver [dor]. Me entreviste com perguntas de múltipla escolha até conseguir escrever a especificação, depois grave em SPEC.md."</code> Em 10 minutos você tem a definição do pronto, que serve de base para o agente, os slides e a banca.</div>
+</div>
+
+<!-- ============ 3. CLAUDE CODE / VIBECODING ============ -->
+<div class="sec">
+<h2><span class="n">3</span>Vibecoding com controle: o fluxo com Claude Code</h2>
+<p class="lead">Vibecoding é deixar a IA escrever quase todo o código enquanto você descreve o que quer. Num hackathon de um dia é o caminho certo. O risco é perder o controle do que foi feito, e a banca vai perguntar como funciona. A regra: <b>a IA digita, você decide e confere.</b></p>
+
+<h3>O ciclo: explorar → planejar → implementar → conferir → commitar</h3>
+<ol>
+  <li><b>Explorar:</b> peça para o Claude ler os dados e o enunciado e resumir o que entendeu. Corrija o entendimento antes de qualquer código.</li>
+  <li><b>Planejar:</b> use o <b>plan mode</b> (<code>Shift+Tab</code>). Ele lê e propõe sem editar nada. Edite o plano (<code>Ctrl+G</code>) até concordar.</li>
+  <li><b>Implementar</b> em fatias pequenas e verticais. Primeiro um caso funcionando de ponta a ponta, depois os outros.</li>
+  <li><b>Conferir:</b> dê ao Claude algo que <b>passa ou falha</b>, como teste, build, script que compara a saída com o esperado ou captura de tela. "Rode os testes e continue até passar." Peça evidência: o comando e a saída, não só "deu certo".</li>
+  <li><b>Commitar</b> a cada avanço. O commit é o seu ponto de restauração e o histórico que a banca vê no GitHub.</li>
+</ol>
+
+<h3>Comandos para saber de cor</h3>
+<table>
+  <tr><th style="width:24%">Comando</th><th>Quando usar</th></tr>
+  <tr><td><code>Esc</code></td><td>O Claude saiu do rumo. Pare na hora e redirecione. Vale olhar o primeiro minuto de toda tarefa.</td></tr>
+  <tr><td><code>Esc Esc</code> / <code>/rewind</code></td><td>Voltar código e conversa a um ponto anterior. Isso deixa barato tentar a ideia mais ousada primeiro.</td></tr>
+  <tr><td><code>/clear</code></td><td>Corrigiu a mesma coisa duas vezes e continua errado? Limpe a conversa e escreva um prompt melhor com o que aprendeu. Uma terceira correção raramente resolve.</td></tr>
+  <tr><td><code>@arquivo</code></td><td>Colocar um arquivo inteiro no prompt, como os dados, o SPEC ou um componente de referência.</td></tr>
+  <tr><td><code>/code-review</code></td><td>Revisão do diff por um subagente que não viu a sua conversa. Faça uma por volta das 15h.</td></tr>
+  <tr><td><code>/btw</code></td><td>Pergunta rápida que não entra no histórico.</td></tr>
+  <tr><td><code>CLAUDE.md</code></td><td>Curto: o comando de teste, o comando de deploy e as regras que não dá para ver no código ("dados só de dados/, nunca chamar API real"). Não descreva a estrutura de pastas, porque o Claude lê o repositório sozinho.</td></tr>
+</table>
+
+<h3>O que você confere com os próprios olhos</h3>
+<div class="two">
+<div class="box"><b class="t ok">Pode deixar a IA fazer</b>
+<ul><li>Telas, CSS, componentes</li><li>Leitura de CSV/JSON e boilerplate</li><li>Testes a partir dos casos que você escolheu</li><li>README, textos de interface</li><li>Primeiro rascunho dos prompts do agente</li></ul></div>
+<div class="box"><b class="t no">Você confere sempre</b>
+<ul><li>A lógica de decisão e as regras de negócio</li><li>Os números que vão para o slide: recalcule pelo menos um</li><li>Se a chave de API ficou fora do código e do front</li><li>Se o fluxo mostrado na demo é real ou simulado (diga qual)</li><li>Cada saída do agente nos 10–20 casos de teste</li></ul></div>
+</div>
+
+<h3>Antipadrões que custam o dia</h3>
+<ul>
+  <li>Pedir "o app inteiro" num prompt só. Sai muito código que você não entende e um bug no meio que ninguém acha.</li>
+  <li>Colar erro sem contexto em loop. Depois de duas tentativas, pare, leia o erro, use <code>/clear</code> e reformule.</li>
+  <li>Escrever em CAIXA ALTA e IMPORTANTE nos prompts. Os modelos atuais seguem uma linha simples, e a ênfase faz a regra ser aplicada demais.</li>
+  <li>Trocar de stack às 14h. Use o que você já domina.</li>
+  <li>Acrescentar feature depois das 15h20 em vez de polir a demo.</li>
+</ul>
+</div>
+
+<!-- ============ 4. AGENTES ============ -->
+<div class="sec">
+<h2><span class="n">4</span>Agentes: o que a banca quer ver nos 40%</h2>
+<p class="lead">Um agente é um modelo de linguagem que usa <b>ferramentas</b> (funções que você escreve, como buscar pedido, consultar estoque ou enviar mensagem) em um <b>loop</b> até terminar a tarefa. A banca pergunta "faz o trabalho sozinha ou depende de mão humana?". Mostre autonomia no caso comum e controle no caso de risco.</p>
+
+<h3>Padrões, do mais simples ao mais autônomo</h3>
+<table>
+  <tr><th style="width:24%">Padrão</th><th>Como funciona</th><th style="width:30%">Bom para</th></tr>
+  <tr><td>Cadeia de prompts</td><td>Etapas fixas: classificar → extrair → redigir. O código controla a ordem.</td><td>A base de quase tudo. Previsível e fácil de testar.</td></tr>
+  <tr><td>Roteador</td><td>O modelo classifica a entrada e manda para o tratamento certo.</td><td>Triagem de tickets e e-mails.</td></tr>
+  <tr><td>Agente com ferramentas</td><td>O modelo decide qual ferramenta chamar e quando parar.</td><td>Investigar um pedido, cruzar dados.</td></tr>
+  <tr><td>Avaliador-otimizador</td><td>Um segundo prompt revisa a saída do primeiro e pede correção.</td><td>Respostas ao cliente, descrições de produto.</td></tr>
+  <tr><td>Humano no loop</td><td>Baixa confiança ou alto valor vai para a fila de aprovação.</td><td>Reembolso, cancelamento. Mostra responsabilidade.</td></tr>
+</table>
+<p>Para um projeto de um dia, o melhor costuma ser <b>cadeia ou roteador com uma ou duas ferramentas e um humano no loop</b>. Já é um agente de verdade, e cada etapa pode ser medida. Um agente totalmente livre é difícil de depurar em 6 horas.</p>
+
+<h3>Exemplo de arquitetura (tema provável de e-commerce)</h3>
+<pre>mensagem do cliente
+   │
+   ▼
+[1] classificar  ──► categoria + confiança         (prompt com exemplos, saída JSON)
+   │
+   ▼
+[2] buscar_pedido(id) / buscar_rastreio(id)         (ferramentas: leem os CSVs fictícios)
+   │
+   ▼
+[3] decidir pela política ──► trocar | reembolsar | responder | revisao_humana
+   │                         (regra dura no código para o que não pode errar:
+   │                          valor > R$ 300 → humano)
+   ▼
+[4] redigir resposta ──► [5] revisor confere o tom e a política
+   │
+   ▼
+painel: resolvidos sozinhos x enviados ao humano, tempo médio, acerto</pre>
+
+<h3>Medir é o que separa projeto de demo bonita</h3>
+<ul>
+  <li>Monte um <b>gabarito</b>: separe de 20 a 30 casos fictícios e anote à mão a resposta certa. Leva 15 minutos.</li>
+  <li>Rode o agente em todos e calcule o acerto. Ajuste o prompt e rode de novo. "Acerto foi de 70% para 93% depois de acrescentar 3 exemplos" é a frase ideal para o slide e para a sabatina.</li>
+  <li>Escolha <b>um número de negócio</b>: "Hoje cada ticket leva ~8 min. Com o agente, 80% saem em segundos e o time só revisa os 20% de risco." Diga que é estimativa e de onde veio.</li>
+  <li>Você já faz isso nos seus projetos, como o WAPE contra o modelo da empresa e o gabarito da correção de listas. Use a mesma lógica: linha de base, sua solução e a diferença.</li>
+</ul>
+
+<div class="box gold"><b class="t">Regra dura no código, julgamento no prompt</b>
+O que não pode errar (limite de valor, prazo legal, dado obrigatório) vai num <code>if</code> no código, não no prompt. O prompt fica com o que exige leitura de texto. Explicar essa divisão na sabatina mostra maturidade de engenharia.</div>
+</div>
+
+<!-- ============ 5. ENGENHARIA DE SOFTWARE ============ -->
+<div class="sec">
+<h2><span class="n">5</span>Engenharia de software para um dia</h2>
+<p class="lead">Ninguém espera arquitetura de produção. Espera-se que funcione na demo, que o código seja legível no GitHub e que você saiba explicar. O mínimo que entrega isso:</p>
+
+<h3>Stack: use o que você já domina</h3>
+<table>
+  <tr><th style="width:28%">Opção</th><th>Quando escolher</th></tr>
+  <tr><td><b>React + TypeScript (Vite) + função serverless</b></td><td>Você já fez o Songe com React 19 e TS. É o caminho para um app bonito publicado na Vercel. A chamada ao modelo fica numa rota <code>/api</code>, nunca no navegador.</td></tr>
+  <tr><td><b>Python + Streamlit</b></td><td>Se o desafio for mais de dados ou análise. Painel em minutos, deploy no Streamlit Community Cloud. Menos bonito, muito mais rápido.</td></tr>
+  <tr><td>Next.js</td><td>Só se já estiver confortável. Front e API juntos na Vercel.</td></tr>
+</table>
+<p class="small">Pergunte no credenciamento o que é a "infraestrutura de IA do grupo": um endpoint próprio, uma chave da API da Anthropic, ou só o Claude no navegador ou no Claude Code. Isso define como o seu app chama o modelo.</p>
+
+<h3>Estrutura que cabe no dia</h3>
+<pre>projeto/
+  README.md        o problema, como rodar, o link do app, a métrica
+  SPEC.md          persona, dor, fluxo, definição do pronto
+  LOG.md           cada erro da IA e o que você corrigiu
+  CLAUDE.md        comandos de teste e deploy, regras do projeto
+  dados/           CSV/JSON fictícios do desafio (só estes!)
+  src/agente/      prompts.ts, ferramentas.ts, pipeline.ts
+  src/ui/          telas
+  tests/           gabarito.test.ts: roda os 20 casos e checa o acerto</pre>
+
+<h3>Práticas que valem o tempo</h3>
+<ul>
+  <li><b>Isole o núcleo</b> (o pipeline do agente) numa função pura: <code>processar(mensagem, pedido) → decisão</code>. Testável sem interface e reaproveitável no script de avaliação.</li>
+  <li><b>Valide a saída do modelo.</b> Faça o parse do JSON com tratamento de erro (zod no TS, pydantic no Python). Se vier inválido, tente uma vez de novo e depois mande para revisão humana. O app não pode quebrar na frente da banca.</li>
+  <li><b>Guarde em cache as respostas da demo.</b> Salve as saídas dos casos que você vai mostrar. Se a rede ou a API cair no pitch, a demo continua. Diga que é cache.</li>
+  <li><b>Segredos em variável de ambiente</b> (<code>.env</code> no <code>.gitignore</code>). Repositório público com chave exposta é o erro mais comum de hackathon.</li>
+  <li><b>Commits pequenos e frequentes</b>, com mensagens que contam a história ("agente classifica 20 casos com 93%").</li>
+  <li><b>Testes só no que importa:</b> o gabarito do agente e as regras duras. Não gaste tempo testando a interface.</li>
+  <li><b>Nada de dados reais.</b> O regulamento proíbe e você assina termo de confidencialidade. Na declaração da submissão você afirma que fez tudo no evento, então leve conhecimento e templates na cabeça, não código pronto do projeto.</li>
+</ul>
+</div>
+
+<!-- ============ 6. PRODUÇÃO / DEPLOY ============ -->
+<div class="sec">
+<h2><span class="n">6</span>Produção e deploy</h2>
+<p class="lead">O link do app é opcional, mas a banca valoriza "funciona de verdade". Deixe o deploy pronto no começo do dia, não às 16h.</p>
+
+<h3>Checklist de deploy (treine em casa até sair em 10 min)</h3>
+<ol>
+  <li>Repositório público no GitHub com o primeiro commit às 8h50.</li>
+  <li>Conecte o repositório na <b>Vercel</b> (ou no Streamlit Cloud). Cada <code>git push</code> publica sozinho.</li>
+  <li>Cadastre a chave de API em <b>Environment Variables</b> no painel, nunca no código.</li>
+  <li>Faça a chamada ao modelo numa função de servidor (<code>api/agente.ts</code>). O navegador só chama a sua rota.</li>
+  <li>Abra o link numa <b>janela anônima</b>. Precisa abrir sem login nenhum.</li>
+  <li>Abra no celular também. A banca pode abrir o QR Code.</li>
+</ol>
+
+<h3>O que costuma quebrar na hora</h3>
+<table>
+  <tr><th style="width:38%">Sintoma</th><th>Causa e correção</th></tr>
+  <tr><td>Funciona local, quebra no ar</td><td>Variável de ambiente não cadastrada na Vercel, ou caminho de arquivo relativo. Leia os logs da função no painel.</td></tr>
+  <tr><td>Erro de CORS</td><td>O front chamando a API do modelo direto. Passe pela sua rota <code>/api</code>.</td></tr>
+  <tr><td>Função passa do tempo limite</td><td>Várias chamadas em sequência. Rode os casos em lote no build ou use cache, e mostre um ao vivo.</td></tr>
+  <tr><td>Tela branca</td><td>Erro de build ignorado. Rode <code>npm run build</code> localmente antes do push.</td></tr>
+</table>
+
+<h3>Plano B obrigatório</h3>
+<ul>
+  <li>Vídeo de até 2 min com a solução funcionando, gravado às 15h, no YouTube não listado ou no Drive aberto.</li>
+  <li>Capturas da tela ou um GIF da demo dentro do PDF dos slides.</li>
+  <li>Modo demo com respostas em cache, se a API falhar.</li>
+</ul>
+
+<h2 style="margin-top:18px"><span class="n">7</span>Pitch de 5 minutos e sabatina</h2>
+<table>
+  <tr><th style="width:15%">Tempo</th><th style="width:25%">Bloco</th><th>Conteúdo</th></tr>
+  <tr><td>0:00–0:15</td><td>Abertura</td><td>Você, o projeto e o desafio.</td></tr>
+  <tr><td>0:15–1:20</td><td>Dor e fluxo atual</td><td>Persona com nome: "A Ana, do atendimento da Gocase, abre 3 sistemas para cada reclamação…" e onde está o atrito.</td></tr>
+  <tr><td>1:20–2:10</td><td>Solução</td><td>"Minha solução é [nome]: um agente de IA que [ação], para que [resultado]. Deixa eu mostrar."</td></tr>
+  <tr><td>2:10–3:30</td><td><b>Demo</b></td><td>Mostre em vez de descrever. Um caso comum resolvido sozinho e um de risco indo para o humano.</td></tr>
+  <tr><td>3:30–4:00</td><td>Métrica</td><td>"Antes: 8 min. Depois: segundos. Acerto de 93% em 30 casos conferidos."</td></tr>
+  <tr><td>4:00–5:00</td><td>Implantação</td><td>O que muda no dia a dia, a primeira dependência (ex.: acesso à API de pedidos) e o que você faria na segunda-feira.</td></tr>
+</table>
+<p><b>Perguntas prováveis:</b> como funciona tecnicamente (2 frases e mostre na tela) · quem usaria · o que falta para ir para produção (seja honesto) · como medir sucesso · <b>onde a IA errou e como você percebeu</b> (o LOG.md responde). Se não souber: "Não cheguei lá ainda, mas o próximo passo seria…".</p>
+<p class="small">Slides: no máximo 10, até 3 elementos por slide, exportados em PDF. Se precisar cortar, corte texto, não a demo.</p>
+</div>
+
+<!-- ============ 8. SKILLS ============ -->
+<div class="sec">
+<h2><span class="n">8</span>Skills do Claude para o hackathon</h2>
+<p class="lead">Skills são pacotes de instruções (um <code>SKILL.md</code>) que o Claude carrega quando a tarefa pede. <b>Atenção:</b> o notebook do evento vem configurado pela organização e você pode não conseguir instalar nada. Treine com elas em casa para aprender os métodos, porque o método vai com você mesmo que a skill não esteja lá.</p>
+
+<h3>As mais recomendadas (listas de 2026 e repositório oficial da Anthropic)</h3>
+<table>
+  <tr><th style="width:24%">Skill</th><th style="width:16%">Origem</th><th>Para que serve no sábado</th></tr>
+  <tr><td><b>frontend-design</b></td><td>anthropics/skills</td><td>Interfaces com visual próprio, sem cara de template. A primeira escolha para o app ficar apresentável no telão. <span class="tag">já instalada</span></td></tr>
+  <tr><td><b>superpowers</b></td><td>obra/superpowers</td><td>Pacote de método: brainstorming, writing-plans, executing-plans, TDD, systematic-debugging, code review. É o ciclo da seção 3 em forma de skill.</td></tr>
+  <tr><td><b>webapp-testing</b></td><td>anthropics/skills</td><td>O Claude abre o app com Playwright, clica e confere a tela. Pega o bug da demo antes da banca.</td></tr>
+  <tr><td><b>pptx / pdf</b></td><td>anthropics/skills</td><td>Gerar os slides do pitch e exportar em PDF. <span class="tag">já instaladas</span></td></tr>
+  <tr><td><b>skill-creator</b></td><td>anthropics/skills</td><td>Criar uma skill sua. Treine em casa: uma skill "hackathon" com o seu SPEC, LOG e checklist.</td></tr>
+  <tr><td>mcp-builder</td><td>anthropics/skills</td><td>Construir servidores MCP. Só vale se o desafio pedir integração com sistemas. Para um dia, provavelmente é excesso.</td></tr>
+</table>
+
+<h3>Que você já tem instaladas e combinam com o evento</h3>
+<table>
+  <tr><th style="width:30%">Skill</th><th>Uso</th></tr>
+  <tr><td><code>mattpocock-skills:grilling</code></td><td>O Claude te bombardeia de perguntas sobre a ideia. É o ensaio da sabatina e a validação do problema às 10h.</td></tr>
+  <tr><td><code>mattpocock-skills:prototype</code></td><td>Protótipo descartável para testar se a interface e o fluxo fazem sentido antes de construir.</td></tr>
+  <tr><td><code>mattpocock-skills:tdd</code></td><td>Escrever o teste do gabarito antes do agente. É o "algo que passa ou falha" da seção 3.</td></tr>
+  <tr><td><code>kill-ai-slop</code> e <code>web-design-guidelines</code></td><td>Tirar a cara de "feito por IA" da interface: gradiente roxo, emoji, card dentro de card. A banca vê muitos projetos com o mesmo visual.</td></tr>
+  <tr><td><code>vercel-react-best-practices</code></td><td>Se for React/Next na Vercel.</td></tr>
+  <tr><td><code>dataviz</code></td><td>O gráfico de antes e depois no painel e no slide.</td></tr>
+  <tr><td>Comandos <code>/code-review</code> e <code>/simplify</code></td><td>Revisão independente do diff às 15h e limpeza antes de deixar o repositório público.</td></tr>
+</table>
+
+<h3>Instalar em casa</h3>
+<pre>/plugin marketplace add anthropics/skills
+/plugin install example-skills@anthropic-agent-skills     # frontend-design, webapp-testing, skill-creator...
+/plugin install document-skills@anthropic-agent-skills    # pptx, pdf, docx, xlsx
+/plugin install superpowers@claude-plugins-official</pre>
+<p class="small">Comandos conforme as fontes de out/2026. Reinicie o Claude Code depois de instalar. As listas de "melhores skills" divergem e muitas são conteúdo de SEO. As da Anthropic e a superpowers foram as mais citadas.</p>
+</div>
+
+<!-- ============ 9. TREINO ============ -->
+<div class="sec">
+<h2><span class="n">9</span>Plano de treino: 29/10 a 06/11</h2>
+<table>
+  <tr><th style="width:16%">Dia</th><th>O que fazer</th></tr>
+  <tr><td>Qua 29/10</td><td><b>Confirmar presença no app</b> (prazo 02/11). Ler o toolkit, os critérios e o FAQ do app. Instalar as skills da seção 8.</td></tr>
+  <tr><td>Qui 30/10</td><td>Treino de deploy: projeto vazio React+TS com rota <code>/api</code> chamando o Claude, publicado na Vercel com variável de ambiente. Cronometre. A meta é 10 min.</td></tr>
+  <tr><td>Sex 31/10</td><td>Treino de prompt: invente 20 reclamações de e-commerce, monte o gabarito, escreva o classificador com saída JSON, meça o acerto e ajuste duas vezes. Anote tudo num LOG.md.</td></tr>
+  <tr><td>Sáb 01/11</td><td><b>Simulado completo de 6h30</b>, no horário real (9h40–16h10), com um tema de e-commerce que você não escolheu antes, por exemplo "atrasos de entrega da Gobeaut". Siga as metas da seção 1 e submeta para você mesmo.</td></tr>
+  <tr><td>Dom 02/11</td><td>Revisar o simulado: onde perdeu tempo? Gravar o pitch de 5 min e assistir. Usar <code>grilling</code> para ensaiar a sabatina.</td></tr>
+  <tr><td>Seg–Ter 03–04/11</td><td>Ler o <b>catálogo de desafios</b> assim que sair. Para os 2–3 que mais combinam com você: persona, dor, fluxo atual, ideia de agente e métrica. Pesquise a operação da Gocase e da Gobeaut (site, avaliações de clientes, Reclame Aqui) para entender as dores reais.</td></tr>
+  <tr><td>Qua–Qui 05–06/11</td><td>Segundo simulado, mais curto (3h), com um dos desafios do catálogo usando dados que você inventar. Ler o e-mail de véspera. Separar documento, carregador, garrafinha e casaco.</td></tr>
+  <tr><td>Sex 06/11</td><td>Descanso. Dormir cedo, o credenciamento é às 8h30.</td></tr>
+</table>
+
+<h3>Cartão de bolso (para levar na cabeça)</h3>
+<div class="box gold">
+<ol style="margin:0">
+  <li>Uma persona, uma dor, uma métrica. SPEC.md até 10h10.</li>
+  <li>Ponta a ponta feio antes do almoço, e deploy também.</li>
+  <li>Agente = etapas + ferramentas + humano no caso de risco.</li>
+  <li>Gabarito de 20–30 casos. Acerto medido, prompt ajustado, número no slide.</li>
+  <li>LOG.md de cada erro da IA. Vale nota, alimenta o relatório e responde a sabatina.</li>
+  <li>Regra dura no código, julgamento no prompt, JSON validado.</li>
+  <li>Duas correções falharam? <code>/clear</code> e um prompt melhor.</li>
+  <li>Freeze às 15h20, vídeo de plano B, submissão às 16h10.</li>
+  <li>Chame mentor cedo e aceite o feedback: são 20% da nota.</li>
+</ol>
+</div>
+
+<h3>Fontes</h3>
+<ul class="small">
+  <li>App do evento: gohacks-talent-evento.devgogroup.com (cronograma, critérios, toolkit, FAQ e campos da submissão, via API pública do app)</li>
+  <li>Anthropic: Best practices for Claude Code, code.claude.com/docs/en/best-practices</li>
+  <li>Anthropic: Prompt engineering overview e Prompting best practices, platform.claude.com/docs/en/prompt-engineering</li>
+  <li>Anthropic: repositório de skills, github.com/anthropics/skills</li>
+  <li>Tella: The 12 Best Claude Code Skills in 2026, tella.com/blog/best-claude-code-skills</li>
+  <li>obra/superpowers, github.com/obra/superpowers</li>
+  <li>Diário do Nordeste: grupo cearense dono da Gocase investe R$ 50 milhões (Gogroup, Gocase e Gobeaut)</li>
+</ul>
+</div>
+
+</body>
+</html>
