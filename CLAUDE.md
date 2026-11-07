@@ -15,6 +15,7 @@
 | `agente-guarda-lote` | pipeline, prompts, chamada ao modelo | orquestração e IA | `agente/pipeline.py`, `ferramentas.py`, `llm.py`, `prompts.py`, `esquemas.py` |
 | `eval-gabarito` | gabarito, eval, testes | conferência medida | `eval/gabarito.csv`, `eval/eval.py`, `tests/`, linhas de acerto no LOG |
 | `app-vercel` | tela, API, deploy | interface e publicação | `web/`, `api/`, `vercel.json`, link sem login |
+| `ai-proxy` | toda chamada ao modelo | regras do AI Proxy do evento (endpoints, Jev, custo por chamada, sem deepseek) | seguida por `agente/llm.py` |
 | `apresentacao-pitch` | a partir das 15h20 | slides e roteiros | `apresentacao/` (PDF ≤ 10 slides) |
 
 Fluxo entre skills: achados dos dados → SPEC; IDs de casos estranhos → gabarito; erros do eval → LOG.md e ajuste no prompt ou na regra; números finais (eval, placar) → tela e slides.
@@ -34,5 +35,5 @@ carregar_lote → triagem (regras.py, sem modelo) → montar_dossie (ferramentas
 - Ponta a ponta primeiro, depois melhorar cada etapa. Commits pequenos.
 - Regras que não podem errar no código; o modelo só vê títulos com alerta (economia de tokens).
 - Saída do modelo em JSON validado (pydantic), 1 nova tentativa, depois revisão humana.
-- Python: `.venv/Scripts/python.exe -I`. Dados ficam em `dados/` (fora do git); o app recebe só resultados processados. Token só em `.env` / `vercel env`.
+- Python: `.venv/Scripts/python.exe -X utf8 -m agente.rodar` (módulos do projeto; `-I` só para scripts soltos que leem `dados/`). Modelo: `gpt-6-astra` pelo AI Proxy, chave `AI_PROXY_API_KEY`; informar o custo de cada chamada. App: https://guarda-do-lote.vercel.app (deploy com `vercel deploy --prod` em `web/`). Dados ficam em `dados/` (fora do git); o app recebe só resultados processados. Token só em `.env` / `vercel env`.
 - Todo número com fonte (eval, script ou estimativa explicada). Toda correção da IA vai para o LOG.md.
