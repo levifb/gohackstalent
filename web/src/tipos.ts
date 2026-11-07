@@ -34,6 +34,7 @@ export type Item = {
   origem_decisao: "regras" | "modelo" | "trava" | "revisao_humana";
   fila_humana: boolean;
   pessoas: { id: string; nome: string }[];
+  sistemas?: { sistema: string; status: "ok" | "divergente" | "ausente" | "n/a"; diz: string; nota: string }[];
   etapas: {
     triagem: { alertas: Alerta[]; precisa_analise: boolean };
     dossie?: { fontes: string[] };

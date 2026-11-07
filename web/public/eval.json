@@ -1,9 +1,9 @@
 {
  "gabarito": {
-  "n": 29,
-  "tudo_certo": 29,
-  "so_regras": 28,
-  "dinheiro": 29,
+  "n": 30,
+  "tudo_certo": 30,
+  "so_regras": 29,
+  "dinheiro": 30,
   "placar": {
    "agente": {
     "indevido": 0.0,
@@ -12,10 +12,10 @@
     "total": 0.0
    },
    "assinar_sem_conferir": {
-    "indevido": 517425.48,
+    "indevido": 529805.48,
     "atraso": 0.0,
     "acionamentos": 0.0,
-    "total": 517425.48
+    "total": 529805.48
    },
    "bloquear_todo_alerta": {
     "indevido": 0.0,
@@ -24,7 +24,7 @@
     "total": 1493.16
    }
   },
-  "em": "11:33",
+  "em": "11:54",
   "modo": "llm"
  },
  "validacao": {
@@ -52,7 +52,7 @@
     "total": 0.0
    }
   },
-  "em": "11:33",
+  "em": "11:54",
   "modo": "llm"
  },
  "sentinela": {
@@ -89,7 +89,7 @@
     "total": 5274.24
    }
   },
-  "em": "11:34",
+  "em": "11:55",
   "modo": "llm"
  }
 }

@@ -169,6 +169,35 @@ def verificar_duplicidade(t) -> list[Alerta]:
     return out
 
 
+def fornecedor_trocado(t, f) -> Alerta | None:
+    """Título lançado no fornecedor errado: a NF (e a OC) pertencem a outro fornecedor cadastrado.
+    Erro típico de cadastro manual com nomes parecidos; o dinheiro iria para a conta de outra empresa."""
+    n = fonte.notas()
+    cand = n[(n.nf_norm == t.nf_norm) & (n.raiz != f.raiz)]
+    if cand.empty:
+        return None
+    fs = fonte.fornecedores()
+    for nf in cand.itertuples():
+        dono = fs[fs.raiz == nf.raiz]
+        if dono.empty:
+            continue
+        d = dono.iloc[0]
+        dups = fonte.duplicatas()
+        valores = dups[dups.chave_acesso == nf.chave_acesso].valor
+        if not (abs(valores - t.valor) <= TOLERANCIA_DUPLICATA).any() and abs(nf.valor_total - t.valor) > TOLERANCIA_DUPLICATA:
+            continue  # mesmo número de NF por coincidência, valor não bate
+        oc_txt = ""
+        pcs = fonte.pedidos_compra()
+        if isinstance(t.oc_id, str) and t.oc_id in pcs.index and str(pcs.loc[t.oc_id].cnpj_fornecedor)[:8] == nf.raiz:
+            oc_txt = f" e a OC {t.oc_id}"
+        return Alerta("FORNECEDOR_TROCADO", "bloqueio",
+                      f"A NF {nf.numero_nf}{oc_txt} são de {d.razao_social} ({d.fornecedor_id}, CNPJ {d.cnpj}), mas o título foi lançado em "
+                      f"{f.razao_social} ({f.fornecedor_id}). O pagamento iria para a conta de {f.nome_fantasia} ({t.destino_pagamento}).",
+                      "a raiz do CNPJ da NF deve ser a do fornecedor do título; corrigir o fornecedor exige revisão (muda quem recebe)",
+                      ["PS01"])
+    return None
+
+
 def verificar_tres_vias(t, f) -> list[Alerta]:
     out = []
     if f.categoria == "aluguel":
@@ -179,9 +208,13 @@ def verificar_tres_vias(t, f) -> list[Alerta]:
             out.append(Alerta("SEM_NF", "aprovacao", "Título sem número de NF.",
                               "pagamento sem NF exige aprovação dupla", ["PS01"]))
         else:
-            out.append(Alerta("NF_NAO_ENCONTRADA", "aprovacao",
-                              f"NF {t.numero_nf_digitado} não encontrada no portal NF-e para a raiz do CNPJ do fornecedor.",
-                              "a raiz do CNPJ da NF deve ser a do fornecedor; sem NF exige aprovação dupla", ["PS01"]))
+            trocado = fornecedor_trocado(t, f)
+            if trocado:
+                out.append(trocado)
+            else:
+                out.append(Alerta("NF_NAO_ENCONTRADA", "aprovacao",
+                                  f"NF {t.numero_nf_digitado} não encontrada no portal NF-e para a raiz do CNPJ do fornecedor.",
+                                  "a raiz do CNPJ da NF deve ser a do fornecedor; sem NF exige aprovação dupla", ["PS01"]))
         return out
     nf, dup = loc["nf"], loc["duplicata"]
     if dup is not None:
@@ -412,7 +445,7 @@ def decisao_por_regras(titulo_id: str, alertas: list[Alerta]) -> dict:
             return {"acao": "retirar_do_lote", "acionar": acionar or ["PS01"], "valor_corrigido": a.valor_corrigido}
         if any(a.codigo == "DUPLICIDADE" for a in graves) and t.valor <= ALCADA_ANALISTA and len(graves) == 1:
             return {"acao": "cancelar_titulo", "acionar": [], "valor_corrigido": None}
-        acao = "bloquear_titulo" if any(a.codigo in ("DOMINIO_PARECIDO", "BENEFICIARIO_DIVERGENTE", "TROCA_BANCARIA") for a in graves) else "retirar_do_lote"
+        acao = "bloquear_titulo" if any(a.codigo in ("DOMINIO_PARECIDO", "BENEFICIARIO_DIVERGENTE", "TROCA_BANCARIA", "FORNECEDOR_TROCADO") for a in graves) else "retirar_do_lote"
         return {"acao": acao, "acionar": acionar or ["PS01"], "valor_corrigido": None}
     if all(a.gravidade == "correcao" for a in graves):
         return {"acao": "corrigir_lancamento", "acionar": [], "valor_corrigido": graves[0].valor_corrigido}

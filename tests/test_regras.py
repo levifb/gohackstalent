@@ -75,3 +75,12 @@ def test_confianca_alta_com_alerta_contestavel_descartado_libera():
     d = {**_decisao("liberar", desc=["BANCO_COBRANCA_NOVO"]), "confianca": 0.9}
     final, motivo = regras.travar(d, al, "TP431677")
     assert motivo is None and final["acao"] == "liberar"
+
+
+def test_fornecedor_trocado_por_nome_parecido():
+    lt = fonte.lote("RM20261106-MER") if "TP431946" in set(fonte.lote("RM20261106-MER").titulo_id) else None
+    ag = fonte.agenda()
+    lt = fonte.lote(ag[ag.titulo_id == "TP431946"].lote_remessa.iloc[0])
+    al = {a.codigo: a for a in regras.triagem("TP431946", lt)}
+    assert "FORNECEDOR_TROCADO" in al and "FP6799" in al["FORNECEDOR_TROCADO"].evidencia
+    assert regras.decisao_por_regras("TP431946", list(al.values()))["acao"] == "bloquear_titulo"

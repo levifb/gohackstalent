@@ -163,6 +163,29 @@ function Trilha({ it, fechar }: { it: Item; fechar: () => void }) {
         <p className="sub">
           {it.categoria} · {it.forma} · vence {it.vencimento} · lançado por {it.lancado_por} · lote {it.lote}
         </p>
+        {it.sistemas && (
+          <div className="sistemas">
+            <span className="rotulo">O MESMO TÍTULO EM CADA SISTEMA · O QUE O ANALISTA HOJE CONFERE ABRINDO VÁRIAS TELAS</span>
+            <table>
+              <tbody>
+                {it.sistemas.map((s) => (
+                  <tr key={s.sistema} className={`st-${s.status === "n/a" ? "na" : s.status}`}>
+                    <td className="mono">{s.sistema}</td>
+                    <td>
+                      {s.diz}
+                      {s.nota && <div className="sub">{s.nota}</div>}
+                    </td>
+                    <td>
+                      <span className={`tag tag-${s.status === "ok" ? "verde" : s.status === "divergente" ? "rosa" : s.status === "ausente" ? "ambar" : "cinza"}`}>
+                        {s.status === "n/a" ? "não se aplica" : s.status}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
         <ol className="etapas">
           <li>
             <b>1. Triagem por regras</b>

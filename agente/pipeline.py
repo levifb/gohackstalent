@@ -101,6 +101,7 @@ def processar_titulo(titulo_id: str, lote_df=None, lote_id: str | None = None, m
         "fila_humana": bool(final.get("acionar")) or final["acao"] in ("solicitar_aprovacao", "revisao_humana"),
         "pessoas": [{"id": p, "nome": regras.PESSOAS.get(p, p)} for p in final.get("acionar", [])],
         "etapas": etapas,
+        "sistemas": ferramentas.visao_sistemas(titulo_id, lote_df[lote_df.titulo_id == titulo_id].destino_pagamento.iloc[0]),
     }
 
 

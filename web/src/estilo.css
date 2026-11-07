@@ -106,3 +106,10 @@ button:disabled { opacity: 0.6; cursor: wait; }
 .tg-botoes span { background: rgba(255,255,255,0.7); border-radius: 8px; text-align: center; padding: 7px; font-size: 13px; color: var(--azul); font-weight: 600; }
 .tg-resposta { background: #fff8e6; }
 @media (max-width: 900px) { .telegram { grid-template-columns: 1fr; } }
+.sistemas { margin: 14px 0 4px; }
+.sistemas table { margin-top: 6px; font-size: 13px; }
+.sistemas td { padding: 6px 8px; vertical-align: top; font-size: 13px; }
+.sistemas td:first-child { white-space: nowrap; width: 1%; }
+.sistemas tr.st-divergente td { background: #fff3f8; }
+.sistemas tr.st-ausente td { background: #fffaf0; }
+.modal { max-width: 920px; }
