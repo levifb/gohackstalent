@@ -11,7 +11,7 @@ Dono de: `web/` (Vite + React + TS), `api/` (funções Python da Vercel), `verce
 
 - O lote é processado pelo pipeline Python no notebook (`python -m agente.rodar RM20261103-MER`) e grava `web/public/resultado.json` (só resultado e evidências necessárias, nunca os CSVs). A tela diz: "Lote processado pelo agente às hh:mm".
 - `api/reprocessar.py` (função Python da Vercel): recebe `titulo_id`, carrega o dossiê já montado em `web/public/dossies.json` e chama o modelo via `agente/llm.py` com `AI_PROXY_*` configurados em `vercel env`. Com `?demo=1` ou se o proxy falhar, devolve a decisão em cache e a tela mostra "resposta em cache".
-- Segredos: só `vercel env add AI_PROXY_TOKEN` (e URL, modelo). Nada de `VITE_` com segredo; o front nunca chama o proxy.
+- Segredos: só `vercel env add AI_PROXY_API_KEY` (e URL, modelo). Nada de `VITE_` com segredo; o front nunca chama o proxy.
 - Deploy com a Vercel CLI (`"$APPDATA/npm/vercel.cmd"` até reiniciar o terminal): `vercel --prod`. Conferir o link com `curl -s -o /dev/null -w "%{http_code}"` e numa janela anônima, sem login (desligar Deployment Protection se pedir login).
 
 ## Tela (a história em 10 segundos)
@@ -28,7 +28,7 @@ Estilo: limpo, sem template genérico, sem gradiente roxo, sem emoji, sem card d
 
 - `npm run build` sem erro; deploy abre sem login; a demo funciona com a rede desligada (cache).
 - Todo número na tela vem de `resultado.json` ou do último eval; nada fixo no código.
-- Nenhum segredo no repositório: `git grep -n "gw-tok"` vazio antes de cada push.
+- Nenhum segredo no repositório: `git grep -nE "gw-tok-[A-Za-z0-9]{8}"` vazio antes de cada push.
 
 ## Erros a evitar
 

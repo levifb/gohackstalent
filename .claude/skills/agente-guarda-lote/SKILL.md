@@ -46,7 +46,7 @@ JSON inválido → 1 nova tentativa com o erro de validação no prompt → se f
 
 ## Cliente do modelo (`agente/llm.py`)
 
-- AI Proxy do evento: `AI_PROXY_URL`, `AI_PROXY_TOKEN`, `AI_MODEL` lidos do `.env` (python-dotenv). Nunca no código nem no front.
+- AI Proxy do evento: `AI_PROXY_URL`, `AI_PROXY_API_KEY`, `AI_MODEL` lidos do `.env` (python-dotenv). Nunca no código nem no front.
 - Uma função `chamar(prompt_sistema, prompt_usuario) -> str` isolada, para trocar de provedor num lugar só. Plano B: `claude -p ... --output-format json` em lote.
 - Cache em disco por hash do prompt (`saida/cache_llm/`): reexecutar o eval não gasta token de novo, e o modo demo usa o cache.
 - Orçamento: só títulos com alerta chegam ao modelo; dossiê enxuto (sem colunas irrelevantes); registrar tokens por execução quando o proxy informar.
