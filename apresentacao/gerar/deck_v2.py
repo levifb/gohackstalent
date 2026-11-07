@@ -177,4 +177,36 @@ elif etapa == "d":
     texto(f"{s}_seg", s, 0.55, 3.75, 6.9, 0.9, t, 15, BRANCO)
     estilo(f"{s}_seg", 0, 11, LIMAO)
 
+elif etapa == "v3":
+    # 07/11 tarde: slide 5 com a grade sem o cartão do site e slide 8 com o celular sem fundo e maior
+    # (imagens de apresentacao/gerar/imagens_v3.py). Apaga e recria (mudar escala de imagem no Slides falha).
+    for oid in ("v2s05_img", "v2s05_pas", "v2s08_img", "v2s08_tit", "v2s08_txt"):
+        R.append({"deleteObject": {"objectId": oid}})
+    s = S[4]
+    gw = 6.4
+    img(f"{s}_grd", s, f"{U}/capturas/slide5_grade_v3.png", 0.55, 1.8, gw, gw * 564 / 1716)
+    t = "■ liberado     ■ barrado: erro ou golpe     ■ aguarda a diretora (> R$ 50 mil)"
+    texto(f"{s}_lgd", s, 0.55, 3.98, gw, 0.35, t, 12, TINTA, "Poppins", 500)
+    VERDE = {"red": 0.247, "green": 0.816, "blue": 0.541}
+    CIANO = {"red": 0.239, "green": 0.749, "blue": 0.937}
+    for k, c in enumerate((VERDE, ROSA, CIANO)):
+        i = [j for j, ch in enumerate(t) if ch == "■"][k]
+        estilo(f"{s}_lgd", i, i + 1, c, 800, "Poppins", 16)
+    t = "1  Regras da política, em código, nos 192\n\n2  O modelo lê o dossiê só dos 13 com alerta\n\n3  Trava: dinheiro só sai se a política deixar"
+    texto(f"{s}_pas", s, 7.2, 1.75, 2.3, 2.9, t, 14, TINTA, "Poppins", 500)
+    for n in ("1  ", "2  ", "3  "):
+        i = t.index(n)
+        estilo(f"{s}_pas", i, i + 1, AZUL, 800, "Poppins", 22)
+
+    s = S[7]
+    titulo_ = "A fila chega no celular de quem decide."
+    texto(f"{s}_tit", s, 0.55, 0.85, 5.4, 1.3, titulo_, 30, AZUL, "Poppins", 800)
+    t = ("O @guardadolote_bot manda o resumo do lote e um cartão por caso, com motivo, pessoa e botões.\n\n"
+         "Tentar liberar um golpe não funciona: o bot aplica a política e exige aprovação dupla.")
+    texto(f"{s}_txt", s, 0.55, 2.3, 5.2, 2.4, t, 17, TINTA)
+    i = t.index("Tentar liberar um golpe não funciona")
+    estilo(f"{s}_txt", i, i + 36, ROSA)
+    ch = 4.25
+    img(f"{s}_cel", s, f"{U}/capturas/slide8_celular_v3.png", 6.2, 0.42, ch * 892 / 1265, ch)
+
 print(json.dumps(R, ensure_ascii=False))
