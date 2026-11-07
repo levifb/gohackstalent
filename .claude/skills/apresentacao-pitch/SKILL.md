@@ -33,7 +33,11 @@ Dona de: `apresentacao/` (roteiro, HTML dos slides, PDF final, capturas). Usa fa
 
 Máximo 10 slides, até 3 elementos por slide, PDF ≤ 20 MB. Estrutura do evento: problema, solução, demonstração, impacto, próximos passos; tempos do pitch de 5 min no arquivo de contexto. Legível do fundo da sala: corpo ≥ 24 pt, números de destaque ≥ 96 pt.
 
-## Visual (inspirado no site do evento, sem logotipos nem marcas)
+## Visual: brandbook do Gogroup (enviado pela organização às 12h)
+
+O deck usa os fundos do brandbook (`apresentacao/marca/`, publicados em `guarda-do-lote.vercel.app/marca/`): `marca_conteudo.png` (moldura azul #2659a5, cartão creme, três pontinhos verde-limão, logo gogroup no canto inferior direito) nos slides de conteúdo e `marca_impacto.png` (moldura verde-limão, cartão azul, logo branco) nos slides de impacto. Regras do brandbook: escrever "Gogroup" (G maiúsculo, resto minúsculo); nunca mudar a cor, distorcer ou aplicar efeito no logo; só cores da paleta (#d7d900, #2659a5, #e5381a, #e61782, #e5273c, #f8ae13, #3dbfef, branco); cuidado com contraste (branco sobre amarelo não). Títulos em azul #2659a5 no cartão creme. Rótulos começam depois dos três pontinhos (x ≥ 1,4 in) e textos do rodapé terminam antes do logo (largura ≤ 7 in).
+
+### Visual anterior (referência)
 
 - Cores: azul-marinho `#1b2540` (texto e fundo dos slides de impacto), fundo claro `#f4f6fa`, cartões `#ffffff` com borda `#e5e8ef`, azul `#2659a5`, verde-limão `#d7d900` (destaque), rosa `#e61782` (alerta, pouco), ciano `#3dbfef` e âmbar `#f8ae13` (etiquetas), cinza `#6b7280` (secundário).
 - Fontes: Poppins 800 nos títulos e Poppins no corpo; JetBrains Mono em caixa alta, pequena, com espaçamento, para rótulos ("ANTES", "DEPOIS", "EVAL · 25 CASOS"). Carregar do Google Fonts no HTML.

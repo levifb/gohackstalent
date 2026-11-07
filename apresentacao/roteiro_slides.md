@@ -1,3 +1,5 @@
+> Visual atualizado às 12h20 com o brandbook do Gogroup: fundos com moldura e logo em `apresentacao/marca/`; textos de rodapé dos slides 1, 5, 7 e 9 encurtados para não encostar no logo.
+
 # Roteiro dos slides: Guarda do Lote
 
 Primeira versão. 10 slides, até 3 elementos por slide, título afirmativo de até 8 palavras. Montado no Google Slides "Guarda do Lote · GoHacks Talent 2026 · Pitch" (link em `apresentacao/link_google_slides.txt`); as notas do apresentador de cada slide são a fala e as fontes abaixo.
