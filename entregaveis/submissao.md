@@ -5,7 +5,7 @@ Primeira versão para o Levi revisar e reescrever com as próprias palavras. Con
 | Campo | Caracteres | Limite |
 | --- | --- | --- |
 | Nome do projeto | 77 | 80 |
-| Problema | 549 | 600 |
+| Problema | 581 | 600 |
 | Solução | 739 | 800 |
 | Como usou a IA | 768 | 800 |
 | Impacto | 444 | 500 |
@@ -16,7 +16,7 @@ Primeira versão para o Levi revisar e reescrever com as próprias palavras. Con
 Guarda do Lote: agente que confere cada pagamento antes de o lote ir ao banco
 ```
 
-## Problema (549/600)
+## Problema (581/600)
 
 ```text
 No Gogroup, cerca de 100 títulos por dia útil são lançados à mão e entram sozinhos no lote de remessa. Às 10h e às 14h o arquivo vai ao banco e, pela própria política da área, o tesoureiro assina sem conferir título por título. O lote de 03/11 às 10h tem 192 títulos e R$ 2,24 mi. Nos 876 títulos da semana de 03 a 13/11 (dados fictícios), encontrei um golpe em andamento (conta trocada por e-mail de domínio falso: 25 títulos, R$ 194 mil), 13 duplicidades (R$ 105 mil), 3 boletos já baixados no DDA (R$ 159 mil), 8 valores com a vírgula deslocada e 2 títulos no fornecedor errado.

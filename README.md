@@ -49,7 +49,7 @@ Rodar: `python -X utf8 eval/eval.py` (títulos), `--arquivo validacao.csv` (vali
 | Sentinela, 17 e-mails reais | 17/17 | 17/17 | 16/16 (o 17º foi achado depois) |
 | Robustez da sentinela, 12 e-mails reescritos por mim | 12/12 | 1/12 | 10/12 |
 
-Placar em R$ nos 29 primeiros casos de títulos (regra da área: dinheiro indevido + atraso de pagamento legítimo + R$ 60 por acionamento desnecessário): agente R$ 0; assinar sem conferir R$ 517.425; bloquear todo alerta R$ 1.493.
+Placar em R$ nos 30 casos de títulos (regra da área: dinheiro indevido + atraso de pagamento legítimo + R$ 60 por acionamento desnecessário): agente R$ 0; assinar sem conferir R$ 529.805; bloquear todo alerta R$ 1.493.
 
 ### O que a IA faz de fato (e o que não faz)
 

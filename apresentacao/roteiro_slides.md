@@ -102,7 +102,7 @@ Fundo: claro, quase vazio. Tempo: 2:10 a 3:30.
 O que vai no slide:
 
 1. Rótulo: DEMONSTRAÇÃO · GUARDA-DO-LOTE.VERCEL.APP · @GUARDADOLOTE_BOT
-2. Retângulo tracejado com o texto “CAPTURA: tela do lote 03/11 (apresentacao/capturas/tela_topo.png) e card da Embalarte bloqueado (card_embalarte_bloqueado.png); prévia do Telegram (canal_telegram.png). Plano B se a rede cair.” O Levi insere as imagens à mão (Inserir > Imagem > Fazer upload) ou apaga o retângulo e deixa o slide só com o título.
+2. Capturas reais do app: tela do lote (esquerda), seção do Telegram e cartão da Embalarte bloqueado (direita).
 
 Notas do apresentador (fala):
 
@@ -121,9 +121,9 @@ O que vai no slide:
 
 Notas do apresentador (fala):
 
-> Nos títulos dos dados da organização, quem decide o dinheiro são as regras: o agente acerta 29 de 29, as regras sozinhas 28. Onde há julgamento, criei 6 títulos com alertas contestáveis: o agente acerta 6, as regras 3. E nos e-mails reescritos, a IA acerta 12 de 12, entre golpes e e-mails normais; palavras-chave acertam 1.
+> Nos títulos dos dados da organização, quem decide o dinheiro são as regras: o agente acerta 30 de 30, as regras sozinhas 29. Onde há julgamento, criei 6 títulos com alertas contestáveis: o agente acerta 6, as regras 3. E nos e-mails reescritos, a IA acerta 12 de 12, entre golpes e e-mails normais; palavras-chave acertam 1.
 
-Fonte de cada número: web/public/eval.json: sentinela.robustez_jev 12, robustez_sem_jev 1, robustez_n 12; sinteticos: agente 6/6, só regras 3/6; gabarito: 30/30, so_regras 28. README.md (Eval e O que a IA faz de fato). Limite: os 12 e-mails e os 6 títulos foram escritos por mim, e a v2 da robustez foi ajustada depois de ver os erros da v1 (LOG.md 11:14).
+Fonte de cada número: web/public/eval.json: sentinela.robustez_jev 12, robustez_sem_jev 1, robustez_n 12; sinteticos: agente 6/6, só regras 3/6; gabarito: 30/30, so_regras 29. README.md (Eval e O que a IA faz de fato). Limite: os 12 e-mails e os 6 títulos foram escritos por mim, e a v2 da robustez foi ajustada depois de ver os erros da v1 (LOG.md 11:14).
 
 ## Slide 8: O eval pegou os erros da IA
 
@@ -131,7 +131,7 @@ Fundo: claro. Tempo: 3:50 a 4:00.
 
 O que vai no slide:
 
-1. Número grande: 26 → 29 (acertos em 30 títulos, da v1 à v3 do eval)
+1. Número grande: 26 → 30 (26 de 29 na v1 do eval; 30 de 30 hoje, depois de incluir o 30º caso)
 2. Cartão 10H08 · REGRA ERRADA: A regra de domínio parecido, escrita pelo Claude, bloqueava a Cartonart, fornecedor legítimo.
 3. Cartão 10H30 · GABARITO ERRADO: No TP433196 o gabarito do Claude estava errado. O modelo achou a injeção no e-mail da Flexipack.
 
@@ -139,7 +139,7 @@ Notas do apresentador (fala):
 
 > O eval também pegou a IA errando, inclusive o Claude no meu gabarito. Se houver tempo: a regra de domínio parecido bloqueava 4 títulos legítimos da Cartonart (6 alertas viraram 2); e no TP433196 o modelo achou um e-mail que mandava o assistente de IA liberar sem conferir, que eu não tinha visto.
 
-Fonte de cada número: LOG.md 10:08 (Cartonart, 6 → 2 alertas), 10:29 (eval v1 26/29), 10:30 (TP433196, gabarito corrigido), 10:30 e 10:31 (v2 29/30, regressão TP429834, v3 30/30). Outros episódios para a sabatina: 10:25 (pago fora do lote, 20 de 23 errados), 11:08 (banca simulada), 11:31 (prompt com alçada errada, julgamento 2/6).
+Fonte de cada número: LOG.md 10:08 (Cartonart, 6 → 2 alertas), 10:29 (eval v1 26/29), 10:30 (TP433196, gabarito corrigido), 10:30 e 10:31 (v2 28/29, regressão TP429834, v3 29/29; 11:53 o 30º caso e 30/30). Outros episódios para a sabatina: 10:25 (pago fora do lote, 20 de 23 errados), 11:08 (banca simulada), 11:31 (prompt com alçada errada, julgamento 2/6).
 
 ## Slide 9: Assinar sem conferir custaria R$ 530 mil
 
@@ -177,5 +177,5 @@ Todos os números saem de `README.md`, `SPEC.md`, `LOG.md`, `web/public/eval.jso
 
 ## Pendências
 
-- Slide 6: inserir à mão as capturas de `apresentacao/capturas/` (o conector do Slides só aceita imagem por URL pública) ou apagar o retângulo.
+- Slide 6: capturas reais já inseridas (tela do lote, seção do Telegram, cartão da Embalarte), publicadas em `web/public/capturas/` para o Slides buscar. Falta acrescentar os prints do celular, se o Levi quiser.
 - Ensaiar com cronômetro: a fala tem 630 palavras (cerca de 4,5 min a 140 palavras/min) e a demo precisa de uns 40 s de cliques.

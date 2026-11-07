@@ -6,7 +6,7 @@ Primeira versão. Respostas curtas (2 a 3 frases), na primeira pessoa, para eu d
 
 É um pipeline em Python com etapas nomeadas: carregar o lote, triagem por regras da política, dossiê montado por ferramentas que leem os sistemas, análise do modelo (gpt-6-astra pelo AI Proxy) com saída em JSON validada por pydantic, trava no código, execução simulada e fila humana. O modelo só vê os títulos com alerta: no lote de 03/11, 13 de 192. A fila vai para a tela e para o Telegram (@guardadolote_bot), e um segundo agente, a sentinela, classifica os 246 e-mails da caixa com o Jev.
 
-## 2. Se as regras sozinhas fazem 28 de 29, para que serve o modelo?
+## 2. Se as regras sozinhas fazem 29 de 30, para que serve o modelo?
 
 Nos dados da organização quase todo alerta é duro (golpe, duplicidade, alçada), então as regras decidem o dinheiro e eu escolhi que fosse assim: dinheiro nunca sai por decisão só do modelo. O modelo muda 1 caso no gabarito, acionando o jurídico na injeção da Flexipack (TP433196), escolhe a pessoa e escreve o motivo. Onde há julgamento, testei com 6 títulos que criei com alertas contestáveis: o agente acertou 6 e as regras 3, porque as regras seguram também os legítimos. E na caixa de e-mail, com golpes reescritos, o Jev acertou 12 de 12 e as palavras-chave 1.
 
@@ -26,7 +26,7 @@ Trocar os CSVs pela fonte real em `agente/fonte.py`: ERP, portal de NF-e, DDA e 
 
 Processo: porcentagem do lote resolvida sem humano (hoje 93% da semana nos dados fictícios) e acerto no gabarito por etapa. Negócio: o placar da área, que soma dinheiro que saiu indevido, atraso de pagamento legítimo e R$ 60 por acionamento desnecessário; no gabarito, assinar sem conferir custa R$ 530 mil e o agente R$ 0. No modo sombra eu mediria os erros reais retidos, os legítimos segurados sem motivo e o tempo da equipe por lote.
 
-## 7. O gabarito foi escrito por você e pelo Claude nos mesmos casos em que ajustou as regras. O 29 de 29 não é sobreajuste?
+## 7. O gabarito foi escrito por você e pelo Claude nos mesmos casos em que ajustou as regras. O 30 de 30 não é sobreajuste?
 
 Provavelmente é otimista, e o README diz isso. Por isso anotei 12 títulos sorteados antes de ver a decisão (12 de 12), mas a amostra é pequena e fácil; os 6 de julgamento e os 12 e-mails reescritos também foram escritos por mim. O número que vale de verdade é o do modo sombra com dados reais.
 

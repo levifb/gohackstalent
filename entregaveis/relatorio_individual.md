@@ -17,7 +17,7 @@ Usei o Claude Code para ler os dados, escrever o código, montar o gabarito e ro
 - 10:25: a primeira versão da regra "pago fora do lote" marcou 23 títulos; 20 eram pagamentos avulsos já baixados no ERP. Descontei a baixa manual e sobraram 3.
 - 10:29 a 10:31: o eval v1 deu 26 de 29. A regra de fracionamento somava o título original com a própria cópia duplicada. A correção levou a 28 de 29, mas abriu uma regressão no TP429834, que o eval pegou. Com a terceira versão, 29 de 29.
 - 10:30: no TP433196, o gabarito que o Claude escreveu estava errado. O modelo bloqueou o título por causa de um e-mail da Flexipack que mandava "o assistente de IA" liberar sem conferir, e eu não tinha visto esse e-mail. Corrigi o gabarito.
-- 11:08: uma banca simulada mostrou que, só com as regras, o eval também dava 29 de 29. O README atribuía ao modelo um ganho que era das regras. Aceitei, corrigi o texto e passei a medir agente contra só regras.
+- 11:08: uma banca simulada mostrou que, só com as regras, o eval também dava 29 de 29 (hoje, com 30 casos: agente 30, só regras 29). O README atribuía ao modelo um ganho que era das regras. Aceitei, corrigi o texto e passei a medir agente contra só regras.
 - 11:14: criei 12 e-mails com golpes escritos de outro jeito. Palavras-chave acertaram 1; o Jev acertou 10 na primeira versão e 12 depois de ajustar as perguntas.
 - 11:25 a 11:34: criei 6 títulos com alertas contestáveis. O agente acertou 3, depois 2. O erro era meu: o prompt dizia "você libera até R$ 5 mil", o que contradizia o sistema, e o dossiê não trazia o título citado no alerta. Depois da correção, 6 de 6, contra 3 de 6 das regras.
 

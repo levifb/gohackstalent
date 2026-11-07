@@ -53,7 +53,7 @@ O mesmo caso chegou no Telegram do time, com o motivo e os botões. Se alguém a
 
 ## 3:30 · Métrica (slides 7 e 8)
 
-Nos títulos dos dados da organização, quem decide o dinheiro são as regras: o agente acerta 29 de 29, as regras sozinhas 28. Onde há julgamento, criei 6 títulos com alertas contestáveis: o agente acerta 6, as regras 3. E nos e-mails reescritos, a IA acerta 12 de 12, entre golpes e e-mails normais; palavras-chave acertam 1. [slide 8] O eval também pegou a IA errando, inclusive o Claude no meu gabarito.
+Nos títulos dos dados da organização, quem decide o dinheiro são as regras: o agente acerta 30 de 30, as regras sozinhas 29. Onde há julgamento, criei 6 títulos com alertas contestáveis: o agente acerta 6, as regras 3. E nos e-mails reescritos, a IA acerta 12 de 12, entre golpes e e-mails normais; palavras-chave acertam 1. [slide 8] O eval também pegou a IA errando, inclusive o Claude no meu gabarito.
 
 ## 4:00 · Impacto e segunda-feira (slides 9 e 10)
 
