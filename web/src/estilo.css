@@ -89,3 +89,5 @@ tbody tr:hover { background: #f8f9fc; }
   .seta { display: none; }
   .numeros, .fluxo { grid-template-columns: 1fr 1fr; }
 }
+.eval { margin-top: 16px; background: #fbfbe6; border: 1px solid #e8e88a; border-radius: 12px; padding: 12px 18px; }
+.eval p { margin: 6px 0 0; font-size: 14px; }

@@ -143,6 +143,12 @@ def main():
                                "erros": [{"titulo_id": l["g"]["titulo_id"], "ok": l["ok"], "obtido": l["obtido"]} for l in erros]},
                               ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"salvo em {arq.relative_to(RAIZ)}")
+    if not args.casos:  # resumo do eval completo para a tela do app
+        web = RAIZ / "web" / "public" / "eval.json"
+        atual = json.loads(web.read_text(encoding="utf-8")) if web.exists() else {}
+        atual[ARQUIVO.split(".")[0]] = {"n": n, "tudo_certo": certos, "dinheiro": sum(l["ok"]["dinheiro"] for l in linhas),
+                                       "placar": placar, "em": time.strftime("%H:%M"), "modo": args.modo}
+        web.write_text(json.dumps(atual, ensure_ascii=False, indent=1), encoding="utf-8")
 
 
 if __name__ == "__main__":

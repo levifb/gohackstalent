@@ -1,6 +1,14 @@
 import { useEffect, useMemo, useState } from "react";
 import type { Item, Lote, Resultado, Resumo } from "./tipos";
 
+type EvalResumo = {
+  n: number;
+  tudo_certo: number;
+  dinheiro: number;
+  em: string;
+  placar: Record<"agente" | "assinar_sem_conferir" | "bloquear_todo_alerta", { total: number }>;
+};
+
 const brl = (v: number) => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 });
 const brl2 = (v: number) => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 const pct = (a: number, b: number) => (b ? Math.round((100 * a) / b) : 0);
@@ -30,6 +38,12 @@ function Tag({ acao }: { acao: string }) {
 
 function Placar({ r, lote }: { r: Resumo; lote?: Lote }) {
   const quando = lote ? `às ${lote.fechamento} de ${dataBR(lote.data)}` : "nos lotes de 03/11 a 13/11";
+  const pa = (k: string) => r.por_acao[k] ?? { n: 0, valor: 0 };
+  const barrado = ["bloquear_titulo", "retirar_do_lote", "cancelar_titulo", "revisao_humana"].reduce(
+    (s, k) => ({ n: s.n + pa(k).n, valor: s.valor + pa(k).valor }),
+    { n: 0, valor: 0 }
+  );
+  const alcada = pa("solicitar_aprovacao");
   return (
     <section className="antes-depois">
       <div className="lado antes">
@@ -50,14 +64,12 @@ function Placar({ r, lote }: { r: Resumo; lote?: Lote }) {
             </p>
           </div>
           <div>
-            <p className="grande destaque">{brl(r.valor_retido)}</p>
-            <p>
-              retidos com motivo ({r.retidos} títulos)
-            </p>
+            <p className="grande destaque">{brl(barrado.valor)}</p>
+            <p>barrados por erro ou golpe ({barrado.n} títulos)</p>
           </div>
           <div>
-            <p className="grande">{r.na_fila_humana}</p>
-            <p>casos para a pessoa certa</p>
+            <p className="grande">{brl(alcada.valor)}</p>
+            <p>conferidos, aguardam a alçada ({alcada.n} títulos)</p>
           </div>
         </div>
       </div>
@@ -187,11 +199,17 @@ export default function App() {
   const [filtro, setFiltro] = useState<"todos" | "liberados" | "retidos">("todos");
   const [aberto, setAberto] = useState<Item | null>(null);
 
+  const [evalRes, setEvalRes] = useState<Record<string, EvalResumo> | null>(null);
+
   useEffect(() => {
     fetch("/resultado.json")
       .then((r) => r.json())
       .then(setDados)
       .catch((e) => setErro(String(e)));
+    fetch("/eval.json")
+      .then((r) => r.json())
+      .then(setEvalRes)
+      .catch(() => setEvalRes(null));
   }, []);
 
   const lote = dados?.lotes.find((l) => l.lote === loteId);
@@ -230,6 +248,30 @@ export default function App() {
       </header>
 
       <Placar r={resumo} lote={loteId === "semana" ? undefined : lote} />
+
+      {evalRes?.gabarito && (
+        <section className="eval">
+          <span className="rotulo">CONFERÊNCIA · EVAL</span>
+          <p>
+            <b>
+              {evalRes.gabarito.tudo_certo}/{evalRes.gabarito.n}
+            </b>{" "}
+            casos do gabarito com ação, pessoa e valor certos
+            {evalRes.validacao && (
+              <>
+                {" "}
+                · <b>
+                  {evalRes.validacao.tudo_certo}/{evalRes.validacao.n}
+                </b>{" "}
+                na validação cega
+              </>
+            )}{" "}
+            · custo no placar da área: agente <b>{brl(evalRes.gabarito.placar.agente.total)}</b>, assinar sem conferir{" "}
+            <b>{brl(evalRes.gabarito.placar.assinar_sem_conferir.total)}</b>, bloquear todo alerta{" "}
+            <b>{brl(evalRes.gabarito.placar.bloquear_todo_alerta.total)}</b>. Primeira versão: 26/29; erros corrigidos no LOG.md.
+          </p>
+        </section>
+      )}
 
       <section className="como">
         <span className="rotulo">COMO O AGENTE DECIDIU</span>
@@ -306,7 +348,7 @@ export default function App() {
 
       <footer className="rodape">
         Dados fictícios do GoHacks Talent 2026 (situação em 02/11/2026 08:00). Ações simuladas: nenhum sistema real é alterado. Lotes processados pelo agente
-        em {dados.gerado_em}; respostas do modelo ({dados.lotes[0]?.itens ? "gpt-6-astra via AI Proxy" : ""}) guardadas em cache.
+        em {dados.gerado_em}; respostas do modelo (gpt-6-astra via AI Proxy) guardadas em cache.
       </footer>
 
       {aberto && <Trilha it={aberto} fechar={() => setAberto(null)} />}

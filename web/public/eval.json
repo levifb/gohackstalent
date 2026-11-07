@@ -1,0 +1,56 @@
+{
+ "gabarito": {
+  "n": 29,
+  "tudo_certo": 29,
+  "dinheiro": 29,
+  "placar": {
+   "agente": {
+    "indevido": 0.0,
+    "atraso": 0.0,
+    "acionamentos": 0.0,
+    "total": 0.0
+   },
+   "assinar_sem_conferir": {
+    "indevido": 517425.48,
+    "atraso": 0.0,
+    "acionamentos": 0.0,
+    "total": 517425.48
+   },
+   "bloquear_todo_alerta": {
+    "indevido": 0.0,
+    "atraso": 1253.16,
+    "acionamentos": 240.0,
+    "total": 1493.16
+   }
+  },
+  "em": "10:34",
+  "modo": "llm"
+ },
+ "validacao": {
+  "n": 12,
+  "tudo_certo": 12,
+  "dinheiro": 12,
+  "placar": {
+   "agente": {
+    "indevido": 0.0,
+    "atraso": 0.0,
+    "acionamentos": 0.0,
+    "total": 0.0
+   },
+   "assinar_sem_conferir": {
+    "indevido": 116084.9,
+    "atraso": 0.0,
+    "acionamentos": 0.0,
+    "total": 116084.9
+   },
+   "bloquear_todo_alerta": {
+    "indevido": 0.0,
+    "atraso": 0.0,
+    "acionamentos": 0.0,
+    "total": 0.0
+   }
+  },
+  "em": "10:34",
+  "modo": "llm"
+ }
+}

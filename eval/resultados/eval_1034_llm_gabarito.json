@@ -1,0 +1,43 @@
+{
+ "modo": "llm",
+ "n": 29,
+ "tudo_certo": 29,
+ "por_etapa": {
+  "triagem": 29,
+  "dinheiro": 29,
+  "acao": 29,
+  "pessoas": 29,
+  "valor": 29
+ },
+ "placar": {
+  "agente": {
+   "indevido": 0.0,
+   "atraso": 0.0,
+   "acionamentos": 0.0,
+   "total": 0.0
+  },
+  "assinar_sem_conferir": {
+   "indevido": 517425.48,
+   "atraso": 0.0,
+   "acionamentos": 0.0,
+   "total": 517425.48
+  },
+  "bloquear_todo_alerta": {
+   "indevido": 0.0,
+   "atraso": 1253.16,
+   "acionamentos": 240.0,
+   "total": 1493.16
+  }
+ },
+ "uso_modelo": {
+  "chamadas": 0,
+  "cache": 19,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "reasoning_tokens": 0,
+  "jev_chamadas": 0,
+  "jev_input_tokens": 0,
+  "jev_usd": 0.0
+ },
+ "erros": []
+}
