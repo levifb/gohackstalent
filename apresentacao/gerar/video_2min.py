@@ -149,7 +149,7 @@ def srt_tempo(s):
 def legendas(pasta, marcas, falas):
     linhas, n = [], 1
     for (nome, txt), ini, dur in zip(CENAS, marcas, falas):
-        frases = [f for f in re.split(r"(?<=[.:;])\s+", txt) if f]
+        frases = [f for f in re.split(r"(?<!obs\.)(?<=[.:;])\s+", txt) if f]
         tot = sum(len(f) for f in frases)
         t = ini
         for f in frases:

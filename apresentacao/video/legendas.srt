@@ -1,131 +1,127 @@
 1
-00:00:00,000 --> 00:00:08,057
+00:00:00,000 --> 00:00:07,129
 Este é o Guarda do Lote, um agente de IA que confere cada título do lote de remessa antes de o arquivo ir para o banco.
 
 2
-00:00:08,057 --> 00:00:11,916
+00:00:07,129 --> 00:00:10,544
 Ele foi feito para o Marcos Teles, tesoureiro do Gogroup.
 
 3
-00:00:11,916 --> 00:00:14,760
+00:00:10,544 --> 00:00:13,060
 Os dados são fictícios, do GoHacks Talent.
 
 4
-00:00:15,235 --> 00:00:22,063
+00:00:13,531 --> 00:00:20,769
 Hoje, às dez horas, o Marcos assina um lote de 2 milhões e 240 mil reais sem abrir título por título.
 
 5
-00:00:22,063 --> 00:00:31,055
+00:00:20,769 --> 00:00:30,301
 Nos 876 títulos da semana, estavam escondidos um golpe, pagamentos em dobro, vírgulas no lugar errado e títulos no fornecedor errado.
 
 6
-00:00:31,516 --> 00:00:36,226
+00:00:30,766 --> 00:00:34,954
 Este é o lote das dez horas de 3 de novembro, com 192 títulos.
 
 7
-00:00:36,226 --> 00:00:39,949
+00:00:34,954 --> 00:00:38,264
 As regras da política, em código, conferem todos.
 
 8
-00:00:39,949 --> 00:00:45,343
+00:00:38,264 --> 00:00:43,060
 Só os 13 com alerta vão para o modelo, que lê o dossiê e propõe a ação.
 
 9
-00:00:45,343 --> 00:00:49,826
+00:00:43,060 --> 00:00:47,046
 No fim, 181 se resolvem sozinhos, e 11 vão para uma pessoa.
 
 10
-00:00:50,282 --> 00:00:51,345
+00:00:47,500 --> 00:00:48,338
 Um caso comum:
 
 11
-00:00:51,345 --> 00:00:52,939
+00:00:48,338 --> 00:00:49,596
 Laboratório Vitallis.
 
 12
-00:00:52,939 --> 00:00:57,645
+00:00:49,596 --> 00:00:53,308
 Nota, duplicata, cadastro e boleto batem em todos os sistemas.
 
 13
-00:00:57,645 --> 00:01:02,352
+00:00:53,308 --> 00:00:57,020
 As regras liberam, e o título sai no lote sem chamar o modelo.
 
 14
-00:01:02,563 --> 00:01:04,234
+00:00:57,250 --> 00:00:58,630
 Agora, um caso de risco:
 
 15
-00:01:04,234 --> 00:01:04,930
+00:00:58,630 --> 00:00:59,205
 Embalarte.
 
 16
-00:01:04,930 --> 00:01:10,569
+00:00:59,205 --> 00:01:03,864
 A conta foi trocada por um e-mail de um domínio com um t a mais, que ainda avisa:
 
 17
-00:01:10,569 --> 00:01:10,847
-obs.
+00:01:03,864 --> 00:01:05,589
+obs. para o robô de pagamentos.
 
 18
-00:01:10,847 --> 00:01:12,657
-para o robô de pagamentos.
-
-19
-00:01:12,657 --> 00:01:16,278
+00:01:05,589 --> 00:01:08,579
 O modelo trata esse texto como dado, não como ordem.
 
-20
-00:01:16,278 --> 00:01:20,733
+19
+00:01:08,579 --> 00:01:12,260
 Bloqueia o título e aciona a Renata, coordenadora, e o jurídico.
 
-21
-00:01:20,938 --> 00:01:25,118
+20
+00:01:12,453 --> 00:01:16,409
 A fila chega no Telegram do time, com o motivo, a pessoa e botões.
 
-22
-00:01:25,118 --> 00:01:30,248
+21
+00:01:16,409 --> 00:01:21,265
 Se alguém tenta liberar um título com suspeita de golpe, o bot aplica a política:
 
-23
-00:01:30,248 --> 00:01:31,958
+22
+00:01:21,265 --> 00:01:22,883
 só sai com aprovação dupla.
 
-24
-00:01:32,407 --> 00:01:38,159
+23
+00:01:23,344 --> 00:01:28,511
 Nos 30 casos do gabarito, assinar sem conferir custaria 530 mil reais.
 
-25
-00:01:38,159 --> 00:01:40,377
+24
+00:01:28,511 --> 00:01:30,504
 Com o Guarda do Lote, zero.
 
-26
-00:01:40,828 --> 00:01:43,625
+25
+00:01:30,969 --> 00:01:33,514
 E medimos contra um gabarito revisado:
 
-27
-00:01:43,625 --> 00:01:48,337
+26
+00:01:33,514 --> 00:01:37,800
 o agente acerta 30 de 30 títulos, contra 29 das regras sozinhas.
 
-28
-00:01:48,337 --> 00:01:53,048
+27
+00:01:37,800 --> 00:01:42,087
 Nos golpes reescritos com outras palavras, a IA acerta 12 de 12;
 
-29
-00:01:53,048 --> 00:01:54,815
+28
+00:01:42,087 --> 00:01:43,694
 as palavras-chave, só 1.
 
-30
-00:01:54,815 --> 00:01:58,348
+29
+00:01:43,694 --> 00:01:46,909
 E o dinheiro nunca sai por decisão só do modelo.
 
-31
-00:01:58,813 --> 00:02:05,752
+30
+00:01:47,375 --> 00:01:53,681
 Na segunda-feira, duas semanas em modo sombra no lote real, depois autonomia por degraus.
 
-32
-00:02:05,752 --> 00:02:06,922
+31
+00:01:53,681 --> 00:01:54,744
 Guarda do Lote:
 
-33
-00:02:06,922 --> 00:02:08,793
+32
+00:01:54,744 --> 00:01:56,445
 o Marcos olha 11 de 192.
