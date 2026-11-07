@@ -54,15 +54,26 @@ def duracao(arq):
 
 async def narrar(pasta):
     for k, (nome, txt) in enumerate(CENAS):
+        if list(pasta.glob(f"a{k:02d}_{nome}.*")):  # narração já gerada (ex.: VoiceStudio): reaproveita
+            continue
         await edge_tts.Communicate(txt, VOZ, rate="+13%").save(str(pasta / f"a{k:02d}_{nome}.mp3"))
 
 
-def rolar_para(page, texto, ms=1400):
+def rolar(page, css, texto=None, ms=1400, centro=True, margem=16):
+    """Rola até o elemento (css, opcionalmente com o texto) sem cortar o topo dele.
+
+    Cabe na janela abaixo da barra do site: fica centralizado. Não cabe: o topo fica logo
+    abaixo da barra, com uma margem. Assim a etiqueta e o título da seção nunca somem.
+    """
     page.evaluate(
-        """([t, ms]) => {
-            const el = [...document.querySelectorAll('h1,h2')].find(e => e.textContent.includes(t));
+        """([css, t, ms, centro, margem]) => {
+            const el = [...document.querySelectorAll(css)].find(e => !t || e.textContent.includes(t));
             if (!el) return;
-            const alvo = el.getBoundingClientRect().top + window.scrollY - 90;
+            const nav = document.querySelector('.nav')?.offsetHeight ?? 0;
+            const livre = window.innerHeight - nav;
+            const r = el.getBoundingClientRect();
+            const folga = centro && r.height + 2 * margem <= livre ? (livre - r.height) / 2 : margem;
+            const alvo = Math.max(0, r.top + window.scrollY - nav - folga);
             const ini = window.scrollY, t0 = performance.now();
             const passo = (agora) => {
                 const p = Math.min(1, (agora - t0) / ms), e = p < .5 ? 2*p*p : 1 - Math.pow(-2*p + 2, 2) / 2;
@@ -71,7 +82,7 @@ def rolar_para(page, texto, ms=1400):
             };
             requestAnimationFrame(passo);
         }""",
-        [texto, ms],
+        [css, texto, ms, centro, margem],
     )
 
 
@@ -109,18 +120,20 @@ def gravar(pasta, durs):
                 page.wait_for_timeout(int(resta * 1000))
 
         fim = cena(0); ate(fim)
-        fim = cena(1); rolar_para(page, "O lote é assinado"); page.wait_for_timeout(int(durs[1] * 450)); rolar_para(page, "O que estava escondido", 1200); ate(fim)
-        fim = cena(2); rolar_para(page, "O agente confere os"); page.wait_for_timeout(1700)
-        page.evaluate("window.scrollBy({top: 260, behavior: 'smooth'})"); ate(fim)
+        S = ".h-secao"
+        fim = cena(1); rolar(page, S, "O lote é assinado"); page.wait_for_timeout(int(durs[1] * 450))
+        rolar(page, ".sub-h", "O que estava escondido", 1200, centro=False, margem=24); ate(fim)
+        fim = cena(2); rolar(page, S, "O agente confere os"); page.wait_for_timeout(2600)
+        rolar(page, ".sim", ms=1200); ate(fim)
         fim = cena(3); page.click('button[aria-label^="TP426904"]'); page.wait_for_timeout(1800); rolar_modal(page, 3000); ate(fim - 0.3)
         page.click(".modal .fechar")
         fim = cena(4); page.click('button[aria-label^="TP431502"]'); page.wait_for_timeout(2500); rolar_modal(page, 5000); ate(fim - 0.3)
         page.click(".modal .fechar")
-        fim = cena(5); rolar_para(page, "A fila chega no celular"); ate(fim)
-        fim = cena(6); rolar_para(page, "Do mesmo lote, dois resultados"); page.wait_for_timeout(1700)
+        fim = cena(5); rolar(page, S, "A fila chega no celular"); ate(fim)
+        fim = cena(6); rolar(page, S, "Do mesmo lote, dois resultados"); page.wait_for_timeout(1700)
         page.click("button:has-text(\"Assinar sem conferir\")"); page.wait_for_timeout(int(durs[6] * 550)); page.click("button:has-text(\"Com o Guarda do Lote\")"); ate(fim)
-        fim = cena(7); rolar_para(page, "Medido contra gabarito"); ate(fim)
-        fim = cena(8); rolar_para(page, "Duas semanas em modo sombra"); ate(fim + 0.8)
+        fim = cena(7); rolar(page, S, "Medido contra gabarito"); ate(fim)
+        fim = cena(8); rolar(page, S, "Duas semanas em modo sombra"); ate(fim + 0.8)
         corte = t_pronto - t_criado
         video = page.video.path()
         ctx.close()
@@ -151,7 +164,7 @@ def main():
     pasta, saida = Path(sys.argv[1]), Path(sys.argv[2])
     pasta.mkdir(parents=True, exist_ok=True)
     asyncio.run(narrar(pasta))
-    audios = sorted(pasta.glob("a*_*.mp3"))
+    audios = sorted(a for a in pasta.glob("a*_*.*") if a.suffix in (".mp3", ".wav"))
     falas = [duracao(a) for a in audios]
     durs = [f + FOLGA for f in falas]
     print("cenas (s):", [round(d, 1) for d in durs], "total", round(sum(durs), 1))
