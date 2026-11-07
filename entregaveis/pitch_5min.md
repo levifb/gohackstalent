@@ -57,7 +57,7 @@ Nos títulos dos dados da organização, quem decide o dinheiro são as regras: 
 
 ## 4:00 · Impacto e segunda-feira (slides 9 e 10)
 
-No placar da área, nos 29 casos do gabarito, assinar sem conferir custaria 517 mil reais. Com o agente, zero. Na semana inteira, 93% dos 876 títulos saem sem ninguém tocar, e 648 mil reais deixam de sair por erro, golpe ou documento faltando. Os dados são fictícios e os problemas foram plantados, então esse número mostra o fluxo funcionando; o valor real só sai do modo sombra. [slide 10] Na segunda-feira, eu rodaria o agente em modo sombra por duas semanas, às 9h e às 13h, sobre o lote real, só publicando no canal o que ele faria. O Marcos continua assinando e compara. Depois, autonomia por degraus: primeiro só retirar e acionar a pessoa; depois corrigir até 5 mil reais. Obrigado.
+No placar da área, nos 30 casos do gabarito, assinar sem conferir custaria 530 mil reais. Com o agente, zero. Na semana inteira, 93% dos 876 títulos saem sem ninguém tocar, e 648 mil reais deixam de sair por erro, golpe ou documento faltando. Os dados são fictícios e os problemas foram plantados, então esse número mostra o fluxo funcionando; o valor real só sai do modo sombra. [slide 10] Na segunda-feira, eu rodaria o agente em modo sombra por duas semanas, às 9h e às 13h, sobre o lote real, só publicando no canal o que ele faria. O Marcos continua assinando e compara. Depois, autonomia por degraus: primeiro só retirar e acionar a pessoa; depois corrigir até 5 mil reais. Obrigado.
 
 ## Fontes dos números
 
@@ -72,7 +72,7 @@ No placar da área, nos 29 casos do gabarito, assinar sem conferir custaria 517 
 | 179 sem alerta, 13 ao modelo, 11 na fila, 181 sozinho | `saida/resultado.json` (resumo do lote); tela do app |
 | TP426904 liberado pelas regras; TP431502 bloqueado com PS01 e PS08 | `saida/resultado.json`, itens do lote RM20261103-MER |
 | Telegram: resumo do lote + cartão por caso; "Liberar mesmo assim" exige aprovação dupla | `README.md`, Como funciona, etapa 7; `LOG.md` 10:59 e 11:02; seção "Canal do time · Telegram" do app |
-| 29/29, 28/29; 6/6, 3/6; 12/12, 1/12 | `web/public/eval.json`; `README.md`, "Eval" |
-| R$ 517 mil (R$ 517.425) e R$ 0 | `web/public/eval.json`, gabarito, placar |
+| 30/30, 29/30; 6/6, 3/6; 12/12, 1/12 | `web/public/eval.json`; `README.md`, "Eval" |
+| R$ 530 mil (R$ 529.805) e R$ 0 | `web/public/eval.json`, gabarito, placar |
 | 93% (815 de 876), R$ 648 mil, 49 títulos | `README.md`, "Resultado atual"; `saida/resultado.json`, semana |
 | Modo sombra, degraus, R$ 5 mil | `README.md`, "Implantação" |

@@ -24,7 +24,7 @@ Trocar os CSVs pela fonte real em `agente/fonte.py`: ERP, portal de NF-e, DDA e 
 
 ## 6. Como medir o sucesso?
 
-Processo: porcentagem do lote resolvida sem humano (hoje 93% da semana nos dados fictícios) e acerto no gabarito por etapa. Negócio: o placar da área, que soma dinheiro que saiu indevido, atraso de pagamento legítimo e R$ 60 por acionamento desnecessário; no gabarito, assinar sem conferir custa R$ 517 mil e o agente R$ 0. No modo sombra eu mediria os erros reais retidos, os legítimos segurados sem motivo e o tempo da equipe por lote.
+Processo: porcentagem do lote resolvida sem humano (hoje 93% da semana nos dados fictícios) e acerto no gabarito por etapa. Negócio: o placar da área, que soma dinheiro que saiu indevido, atraso de pagamento legítimo e R$ 60 por acionamento desnecessário; no gabarito, assinar sem conferir custa R$ 530 mil e o agente R$ 0. No modo sombra eu mediria os erros reais retidos, os legítimos segurados sem motivo e o tempo da equipe por lote.
 
 ## 7. O gabarito foi escrito por você e pelo Claude nos mesmos casos em que ajustou as regras. O 29 de 29 não é sobreajuste?
 
@@ -44,9 +44,9 @@ Um título sem nenhum alerta é liberado sem passar pelo modelo, então um golpe
 | Número | Fonte |
 | --- | --- |
 | 13 de 192 ao modelo; 246 e-mails | `saida/resultado.json`; `README.md`, Resultado atual |
-| 29/29, 28/29; 6/6, 3/6; 12/12, 1/12; 12/12 validação cega | `web/public/eval.json`; `README.md`, Eval |
+| 30/30, 29/30; 6/6, 3/6; 12/12, 1/12; 12/12 validação cega | `web/public/eval.json`; `README.md`, Eval |
 | Cartonart (4 títulos); pago fora do lote 23/20; v1 26/29; regressão TP429834; TP433196; prompt R$ 5 mil e 2/6 | `LOG.md` 10:08, 10:25, 10:29 a 10:31, 11:31 |
-| 93%; R$ 517 mil × R$ 0; R$ 60 por acionamento | `README.md`, Resultado atual e Eval; `SPEC.md`, Dor e custo |
+| 93%; R$ 530 mil × R$ 0; R$ 60 por acionamento | `README.md`, Resultado atual e Eval; `SPEC.md`, Dor e custo |
 | Confiança abaixo de 0,7 | `LOG.md` 11:16; `README.md`, O que a IA faz de fato |
 | Pessoas acionadas | `SPEC.md`, Persona |
 | Modo sombra e degraus | `README.md`, Implantação |

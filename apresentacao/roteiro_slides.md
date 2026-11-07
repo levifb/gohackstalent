@@ -14,7 +14,7 @@ Visual: fundo claro #f4f6fa, cartões brancos com borda #e5e8ef, dois slides azu
 | 6 | Vamos ver funcionando | 3 | 2:10 a 3:30 |
 | 7 | A IA acha o golpe reescrito | 6 | 3:30 a 3:50 |
 | 8 | O eval pegou os erros da IA | 7 | 3:50 a 4:00 |
-| 9 | Assinar sem conferir custaria R$ 517 mil | 7 | 4:00 a 4:30 |
+| 9 | Assinar sem conferir custaria R$ 530 mil | 7 | 4:00 a 4:30 |
 | 10 | Na segunda, duas semanas em modo sombra | 7 | 4:30 a 5:00 |
 
 ## Slide 1: O lote das 10h sai sem conferência
@@ -117,13 +117,13 @@ Fundo: claro. Tempo: 3:30 a 3:50.
 O que vai no slide:
 
 1. Dois números grandes lado a lado: 12/12 (azul, “Jev, o classificador do AI Proxy”) e 1/12 (cinza, “palavras-chave escritas depois de ler os e-mails”)
-2. Rodapé: Títulos com alerta contestável, 6 criados por mim: agente 6/6, só regras 3/6. Nos dados da organização, as regras decidem o dinheiro: agente 29/29, só regras 28/29.
+2. Rodapé: Títulos com alerta contestável, 6 criados por mim: agente 6/6, só regras 3/6. Nos dados da organização, as regras decidem o dinheiro: agente 30/30, só regras 29/30.
 
 Notas do apresentador (fala):
 
 > Nos títulos dos dados da organização, quem decide o dinheiro são as regras: o agente acerta 29 de 29, as regras sozinhas 28. Onde há julgamento, criei 6 títulos com alertas contestáveis: o agente acerta 6, as regras 3. E nos e-mails reescritos, a IA acerta 12 de 12, entre golpes e e-mails normais; palavras-chave acertam 1.
 
-Fonte de cada número: web/public/eval.json: sentinela.robustez_jev 12, robustez_sem_jev 1, robustez_n 12; sinteticos: agente 6/6, só regras 3/6; gabarito: 29/29, so_regras 28. README.md (Eval e O que a IA faz de fato). Limite: os 12 e-mails e os 6 títulos foram escritos por mim, e a v2 da robustez foi ajustada depois de ver os erros da v1 (LOG.md 11:14).
+Fonte de cada número: web/public/eval.json: sentinela.robustez_jev 12, robustez_sem_jev 1, robustez_n 12; sinteticos: agente 6/6, só regras 3/6; gabarito: 30/30, so_regras 28. README.md (Eval e O que a IA faz de fato). Limite: os 12 e-mails e os 6 títulos foram escritos por mim, e a v2 da robustez foi ajustada depois de ver os erros da v1 (LOG.md 11:14).
 
 ## Slide 8: O eval pegou os erros da IA
 
@@ -131,7 +131,7 @@ Fundo: claro. Tempo: 3:50 a 4:00.
 
 O que vai no slide:
 
-1. Número grande: 26 → 29 (acertos em 29 títulos, da v1 à v3 do eval)
+1. Número grande: 26 → 29 (acertos em 30 títulos, da v1 à v3 do eval)
 2. Cartão 10H08 · REGRA ERRADA: A regra de domínio parecido, escrita pelo Claude, bloqueava a Cartonart, fornecedor legítimo.
 3. Cartão 10H30 · GABARITO ERRADO: No TP433196 o gabarito do Claude estava errado. O modelo achou a injeção no e-mail da Flexipack.
 
@@ -139,22 +139,22 @@ Notas do apresentador (fala):
 
 > O eval também pegou a IA errando, inclusive o Claude no meu gabarito. Se houver tempo: a regra de domínio parecido bloqueava 4 títulos legítimos da Cartonart (6 alertas viraram 2); e no TP433196 o modelo achou um e-mail que mandava o assistente de IA liberar sem conferir, que eu não tinha visto.
 
-Fonte de cada número: LOG.md 10:08 (Cartonart, 6 → 2 alertas), 10:29 (eval v1 26/29), 10:30 (TP433196, gabarito corrigido), 10:30 e 10:31 (v2 28/29, regressão TP429834, v3 29/29). Outros episódios para a sabatina: 10:25 (pago fora do lote, 20 de 23 errados), 11:08 (banca simulada), 11:31 (prompt com alçada errada, julgamento 2/6).
+Fonte de cada número: LOG.md 10:08 (Cartonart, 6 → 2 alertas), 10:29 (eval v1 26/29), 10:30 (TP433196, gabarito corrigido), 10:30 e 10:31 (v2 29/30, regressão TP429834, v3 30/30). Outros episódios para a sabatina: 10:25 (pago fora do lote, 20 de 23 errados), 11:08 (banca simulada), 11:31 (prompt com alçada errada, julgamento 2/6).
 
-## Slide 9: Assinar sem conferir custaria R$ 517 mil
+## Slide 9: Assinar sem conferir custaria R$ 530 mil
 
 Fundo: azul-marinho #1b2540. Tempo: 4:00 a 4:30.
 
 O que vai no slide:
 
-1. Número principal em verde-limão (110 pt): R$ 0, com a legenda “com o agente, nos mesmos 29 casos. Bloquear todo alerta custaria R$ 1.493.”
+1. Número principal em verde-limão (110 pt): R$ 0, com a legenda “com o agente, nos mesmos 30 casos. Bloquear todo alerta custaria R$ 1.493.”
 2. Rodapé: 93% (verde-limão) dos 876 títulos da semana resolvidos sem humano; R$ 648 mil retidos por erro, golpe ou documento faltando.
 
 Notas do apresentador (fala):
 
-> No placar da área, nos 29 casos do gabarito, assinar sem conferir custaria 517 mil reais. Com o agente, zero. Na semana inteira, 93% dos 876 títulos saem sem ninguém tocar, e 648 mil reais deixam de sair por erro, golpe ou documento faltando. Os dados são fictícios e os problemas foram plantados, então esse número mostra o fluxo funcionando; o valor real só sai do modo sombra.
+> No placar da área, nos 30 casos do gabarito, assinar sem conferir custaria 530 mil reais. Com o agente, zero. Na semana inteira, 93% dos 876 títulos saem sem ninguém tocar, e 648 mil reais deixam de sair por erro, golpe ou documento faltando. Os dados são fictícios e os problemas foram plantados, então esse número mostra o fluxo funcionando; o valor real só sai do modo sombra.
 
-Fonte de cada número: Placar no gabarito de 29 casos: assinar sem conferir R$ 517.425,48, bloquear todo alerta R$ 1.493,16, agente R$ 0 (web/public/eval.json). Regra do placar: dinheiro indevido + atraso + R$ 60 por acionamento desnecessário (SPEC.md, parametros.md). Semana: 815 de 876 (93%), 49 títulos e R$ 648 mil retidos (README.md, Resultado atual). Dados fictícios e problemas plantados pela organização.
+Fonte de cada número: Placar no gabarito de 30 casos: assinar sem conferir R$ 529.805,48, bloquear todo alerta R$ 1.493,16, agente R$ 0 (web/public/eval.json). Regra do placar: dinheiro indevido + atraso + R$ 60 por acionamento desnecessário (SPEC.md, parametros.md). Semana: 815 de 876 (93%), 49 títulos e R$ 648 mil retidos (README.md, Resultado atual). Dados fictícios e problemas plantados pela organização.
 
 ## Slide 10: Na segunda, duas semanas em modo sombra
 
