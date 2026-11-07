@@ -7,7 +7,7 @@ Primeira versão para o Levi revisar e reescrever com as próprias palavras. Con
 | Nome do projeto | 77 | 80 |
 | Problema | 581 | 600 |
 | Solução | 739 | 800 |
-| Como usou a IA | 768 | 800 |
+| Como usou a IA | 779 | 800 |
 | Impacto | 444 | 500 |
 
 ## Nome do projeto (77/80)
@@ -28,10 +28,10 @@ No Gogroup, cerca de 100 títulos por dia útil são lançados à mão e entram 
 Guarda do Lote é um agente de IA que roda antes de cada fechamento sobre o lote inteiro. Regras da política em código conferem cada título: duplicidade, NF x duplicata x pedido, DDA, troca de conta sem confirmação, alçada. Só os títulos com alerta vão ao modelo (gpt-6-astra via AI Proxy), que lê o dossiê e devolve em JSON validado a ação, a pessoa a acionar e o motivo. Uma trava no código impede que o modelo libere o que a política segura. Os casos de risco chegam no Telegram do time (@guardadolote_bot), com motivo e botões; liberar um título com golpe exige aprovação dupla. Um segundo agente lê a caixa de e-mail e marca golpes e tentativas de dar ordem ao robô. Lote de 03/11: 181 de 192 resolvidos sozinho, 11 na fila com motivo.
 ```
 
-## Como usou a IA (768/800)
+## Como usou a IA (779/800)
 
 ```text
-Medi tudo com eval e gabaritos que revisei. Títulos: agente 30/30, só regras 29/30 (o modelo muda 1 caso: aciona o jurídico numa injeção de e-mail). Em 6 títulos com alerta contestável: agente 6/6, só regras 3/6. E-mails reescritos: IA 12/12, palavras-chave 1/12. Erros corrigidos: a regra de domínio parecido escrita pelo Claude bloqueava um fornecedor legítimo; a regra de pago fora do lote marcou 23 títulos, 20 errados; o eval v1 deu 26/29 e a correção abriu uma regressão, pega pelo eval; o gabarito do Claude estava errado num caso e o modelo, certo; meu prompt dizia "você libera até R$ 5 mil" e derrubou o julgamento para 2/6. Uma banca simulada mostrou que o README dava ao modelo um ganho das regras; passei a medir os dois. Limite: ajustei nos mesmos casos.
+No produto, o modelo gpt-6-astra (AI Proxy) analisa só os títulos com alerta e devolve JSON validado, e o Jev classifica os e-mails. No desenvolvimento, usei o Claude Code para escrever código e textos, e conferi tudo com eval e gabaritos que revisei: títulos, agente 30/30 e só regras 29/30; julgamento, 6/6 e 3/6; e-mails reescritos, IA 12/12 e palavras-chave 1/12. Erros pegos: a regra de domínio parecido do Claude bloqueava um fornecedor legítimo; a de pago fora do lote marcou 23 títulos, 20 errados; o gabarito do Claude errou num caso em que o modelo acertou; meu prompt dizia "você libera até R$ 5 mil" e derrubou o julgamento para 2/6. Uma banca simulada mostrou que o README dava ao modelo um ganho das regras; passei a medir os dois. Limite: ajustei nos mesmos casos.
 ```
 
 ## Impacto (444/500)
@@ -54,7 +54,7 @@ Os cinco pontos que precisam aparecer no resumo estão escritos de forma explíc
 1. Problema: o tesoureiro assina o lote de remessa sem conferir; lote de 03/11 com 192 títulos e R$ 2,24 mi (campo Problema).
 2. Solução: regras em código + modelo só nos títulos com alerta + trava + fila da pessoa certa no Telegram do time, com botões e aprovação dupla para golpe (campo Solução).
 3. Número do eval: 30/30 (só regras 29/30), julgamento 6/6 (só regras 3/6), e-mails reescritos 12/12 (palavras-chave 1/12) (campo Como usou a IA).
-4. Onde a IA errou: regra de domínio do Claude, pago fora do lote 20 de 23 errados, eval v1 26/29 e regressão, gabarito do Claude errado, prompt com alçada errada (2/6) (campo Como usou a IA).
+4. Como a IA foi usada e onde errou: gpt-6-astra nos títulos com alerta, Jev nos e-mails, Claude Code no desenvolvimento; regra de domínio do Claude, pago fora do lote 20 de 23 errados, gabarito do Claude errado, prompt com alçada errada (2/6) (campo Como usou a IA).
 5. Impacto: 93% sem humano; R$ 661 mil retidos na semana; placar R$ 530 mil × R$ 0 (campo Impacto).
 
 ## Fontes
