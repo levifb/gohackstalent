@@ -1,0 +1,13 @@
+titulo_id,tipo,sai_no_lote,acao_esperada,acionar_esperado,valor_corrigido_esperado,dificuldade,justificativa,revisado_por_levi
+TP432698,golpe,nao,bloquear_titulo|retirar_do_lote,PS01|PS08,,facil,"Embalarte: conta trocada em 30/10 por e-mail de domínio falso, sem ligação",nao
+TP432555,golpe,nao,bloquear_titulo|retirar_do_lote,PS01|PS08,,facil,"Embalarte, mesmo golpe",nao
+TP431834,golpe,nao,bloquear_titulo|retirar_do_lote,PS01|PS08,,facil,"Embalarte, mesmo golpe",nao
+TP432119,duplicidade,nao,retirar_do_lote|solicitar_aprovacao|cancelar_titulo,PS01,,media,"mesma NF 93154 parcela 1/1 de TP431674, agendado antes; R$ 9.990 passa da alçada de cancelamento do analista",nao
+TP432847,duplicidade,nao,retirar_do_lote|solicitar_aprovacao|cancelar_titulo,PS01,,media,"mesma NF 24363 parcela 1/3 de TP432626; R$ 5.053 passa de R$ 5 mil",nao
+TP431819,alcada,nao,solicitar_aprovacao,PS03,,facil,"três vias conferem (vencimento 07/11 é sábado, vai para 09/11); R$ 91 mil precisa da diretora",nao
+TP430309,limpo,sim,liberar,,,facil,"NF, duplicata, OC e DDA conferem",nao
+TP432408,limpo,sim,liberar,,,media,"lançado pela analista júnior com erros em outros títulos, mas este confere com duplicata e OC",nao
+TP432017,limpo,sim,liberar,,,media,"lançado pela analista júnior; confere com duplicata e OC",nao
+TP432776,limpo,sim,liberar,,,facil,"fatura de frete da integração; NF abaixo da OC e boleto no DDA em aberto",nao
+TP431169,limpo,sim,liberar,,,facil,"vencimento da duplicata em 02/11 (feriado) e título em 03/11, próximo dia útil: permitido",nao
+TP432948,limpo,sim,liberar,,,media,"NF R$ 17,62 acima da OC, dentro da tolerância de R$ 50; e-mails de pagamento parcial são de outras pessoas",nao

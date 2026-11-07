@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-11-07 10:31",
+ "gerado_em": "2026-11-07 10:33",
  "agora_ficticio": "2026-11-02 08:00:00",
  "modo": "llm",
  "lotes": [
@@ -178,26 +178,7 @@
      "pessoas": [],
      "etapas": {
       "triagem": {
-       "alertas": [
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 75221' de contato.helenagurgel@gmail.com em 2026-10-23 17:14:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        },
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 52573' de contato.liviaalbuquerque@gmail.com em 2026-10-30 10:32:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        }
-       ],
+       "alertas": [],
        "precisa_analise": false
       },
       "trava": {
@@ -238,26 +219,7 @@
      "pessoas": [],
      "etapas": {
       "triagem": {
-       "alertas": [
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 75221' de contato.helenagurgel@gmail.com em 2026-10-23 17:14:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        },
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 52573' de contato.liviaalbuquerque@gmail.com em 2026-10-30 10:32:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        }
-       ],
+       "alertas": [],
        "precisa_analise": false
       },
       "trava": {
@@ -298,26 +260,7 @@
      "pessoas": [],
      "etapas": {
       "triagem": {
-       "alertas": [
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 75221' de contato.helenagurgel@gmail.com em 2026-10-23 17:14:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        },
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 52573' de contato.liviaalbuquerque@gmail.com em 2026-10-30 10:32:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        }
-       ],
+       "alertas": [],
        "precisa_analise": false
       },
       "trava": {
@@ -358,26 +301,7 @@
      "pessoas": [],
      "etapas": {
       "triagem": {
-       "alertas": [
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 75221' de contato.helenagurgel@gmail.com em 2026-10-23 17:14:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        },
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 52573' de contato.liviaalbuquerque@gmail.com em 2026-10-30 10:32:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        }
-       ],
+       "alertas": [],
        "precisa_analise": false
       },
       "trava": {
@@ -418,26 +342,7 @@
      "pessoas": [],
      "etapas": {
       "triagem": {
-       "alertas": [
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 75221' de contato.helenagurgel@gmail.com em 2026-10-23 17:14:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        },
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 52573' de contato.liviaalbuquerque@gmail.com em 2026-10-30 10:32:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        }
-       ],
+       "alertas": [],
        "precisa_analise": false
       },
       "trava": {
@@ -487,15 +392,6 @@
          "acionar": [],
          "valor_corrigido": null,
          "contestavel": false
-        },
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 52573' de contato.liviaalbuquerque@gmail.com em 2026-10-30 10:32:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
         }
        ],
        "precisa_analise": false
@@ -538,26 +434,7 @@
      "pessoas": [],
      "etapas": {
       "triagem": {
-       "alertas": [
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 75221' de contato.helenagurgel@gmail.com em 2026-10-23 17:14:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        },
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 52573' de contato.liviaalbuquerque@gmail.com em 2026-10-30 10:32:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        }
-       ],
+       "alertas": [],
        "precisa_analise": false
       },
       "trava": {
@@ -598,26 +475,7 @@
      "pessoas": [],
      "etapas": {
       "triagem": {
-       "alertas": [
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 75221' de contato.helenagurgel@gmail.com em 2026-10-23 17:14:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        },
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 52573' de contato.liviaalbuquerque@gmail.com em 2026-10-30 10:32:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        }
-       ],
+       "alertas": [],
        "precisa_analise": false
       },
       "trava": {
@@ -658,26 +516,7 @@
      "pessoas": [],
      "etapas": {
       "triagem": {
-       "alertas": [
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 75221' de contato.helenagurgel@gmail.com em 2026-10-23 17:14:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        },
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 52573' de contato.liviaalbuquerque@gmail.com em 2026-10-30 10:32:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        }
-       ],
+       "alertas": [],
        "precisa_analise": false
       },
       "trava": {
@@ -718,26 +557,7 @@
      "pessoas": [],
      "etapas": {
       "triagem": {
-       "alertas": [
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 75221' de contato.helenagurgel@gmail.com em 2026-10-23 17:14:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        },
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 52573' de contato.liviaalbuquerque@gmail.com em 2026-10-30 10:32:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        }
-       ],
+       "alertas": [],
        "precisa_analise": false
       },
       "trava": {
@@ -778,26 +598,7 @@
      "pessoas": [],
      "etapas": {
       "triagem": {
-       "alertas": [
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 75221' de contato.helenagurgel@gmail.com em 2026-10-23 17:14:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        },
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 52573' de contato.liviaalbuquerque@gmail.com em 2026-10-30 10:32:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        }
-       ],
+       "alertas": [],
        "precisa_analise": false
       },
       "trava": {
@@ -838,26 +639,7 @@
      "pessoas": [],
      "etapas": {
       "triagem": {
-       "alertas": [
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 75221' de contato.helenagurgel@gmail.com em 2026-10-23 17:14:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        },
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 52573' de contato.liviaalbuquerque@gmail.com em 2026-10-30 10:32:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        }
-       ],
+       "alertas": [],
        "precisa_analise": false
       },
       "trava": {
@@ -2808,7 +2590,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -6814,7 +6596,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -9591,26 +9373,7 @@
      "pessoas": [],
      "etapas": {
       "triagem": {
-       "alertas": [
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 75221' de contato.helenagurgel@gmail.com em 2026-10-23 17:14:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        },
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 52573' de contato.liviaalbuquerque@gmail.com em 2026-10-30 10:32:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        }
-       ],
+       "alertas": [],
        "precisa_analise": false
       },
       "trava": {
@@ -9743,26 +9506,7 @@
      "pessoas": [],
      "etapas": {
       "triagem": {
-       "alertas": [
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 75221' de contato.helenagurgel@gmail.com em 2026-10-23 17:14:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        },
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 52573' de contato.liviaalbuquerque@gmail.com em 2026-10-30 10:32:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        }
-       ],
+       "alertas": [],
        "precisa_analise": false
       },
       "trava": {
@@ -9803,26 +9547,7 @@
      "pessoas": [],
      "etapas": {
       "triagem": {
-       "alertas": [
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 75221' de contato.helenagurgel@gmail.com em 2026-10-23 17:14:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        },
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 52573' de contato.liviaalbuquerque@gmail.com em 2026-10-30 10:32:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        }
-       ],
+       "alertas": [],
        "precisa_analise": false
       },
       "trava": {
@@ -9863,26 +9588,7 @@
      "pessoas": [],
      "etapas": {
       "triagem": {
-       "alertas": [
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 75221' de contato.helenagurgel@gmail.com em 2026-10-23 17:14:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        },
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 52573' de contato.liviaalbuquerque@gmail.com em 2026-10-30 10:32:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        }
-       ],
+       "alertas": [],
        "precisa_analise": false
       },
       "trava": {
@@ -14693,26 +14399,7 @@
      "pessoas": [],
      "etapas": {
       "triagem": {
-       "alertas": [
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 75221' de contato.helenagurgel@gmail.com em 2026-10-23 17:14:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        },
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 52573' de contato.liviaalbuquerque@gmail.com em 2026-10-30 10:32:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        }
-       ],
+       "alertas": [],
        "precisa_analise": false
       },
       "trava": {
@@ -14794,26 +14481,7 @@
      "pessoas": [],
      "etapas": {
       "triagem": {
-       "alertas": [
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 75221' de contato.helenagurgel@gmail.com em 2026-10-23 17:14:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        },
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 52573' de contato.liviaalbuquerque@gmail.com em 2026-10-30 10:32:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        }
-       ],
+       "alertas": [],
        "precisa_analise": false
       },
       "trava": {
@@ -18916,26 +18584,7 @@
      "pessoas": [],
      "etapas": {
       "triagem": {
-       "alertas": [
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 75221' de contato.helenagurgel@gmail.com em 2026-10-23 17:14:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        },
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 52573' de contato.liviaalbuquerque@gmail.com em 2026-10-30 10:32:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        }
-       ],
+       "alertas": [],
        "precisa_analise": false
       },
       "trava": {
@@ -19004,26 +18653,7 @@
      "pessoas": [],
      "etapas": {
       "triagem": {
-       "alertas": [
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 75221' de contato.helenagurgel@gmail.com em 2026-10-23 17:14:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        },
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 52573' de contato.liviaalbuquerque@gmail.com em 2026-10-30 10:32:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        }
-       ],
+       "alertas": [],
        "precisa_analise": false
       },
       "trava": {
@@ -23279,26 +22909,7 @@
      "pessoas": [],
      "etapas": {
       "triagem": {
-       "alertas": [
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 75221' de contato.helenagurgel@gmail.com em 2026-10-23 17:14:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        },
-        {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Pagamento parcial NF 52573' de contato.liviaalbuquerque@gmail.com em 2026-10-30 10:32:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        }
-       ],
+       "alertas": [],
        "precisa_analise": false
       },
       "trava": {
@@ -31507,7 +31118,7 @@
        ]
       },
       "analise": {
-       "cache": false,
+       "cache": true,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -43095,14 +42706,14 @@
   }
  },
  "uso_modelo": {
-  "chamadas": 3,
-  "cache": 67,
-  "prompt_tokens": 10307,
-  "completion_tokens": 797,
+  "chamadas": 0,
+  "cache": 70,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
   "reasoning_tokens": 0,
   "jev_chamadas": 0,
   "jev_input_tokens": 0,
   "jev_usd": 0.0
  },
- "segundos": 36.3
+ "segundos": 21.4
 }

@@ -20,10 +20,11 @@ from agente import fonte, llm, pipeline  # noqa: E402
 RELACIONAMENTO = {"produto": 3000, "frete": 1500, "embalagens": 800, "insumos_capa": 800, "aluguel": 500, "ti_saas": 400,
                   "utilidades": 400, "servicos": 300, "marketing_agencia": 300, "influenciador": 250}
 CUSTO_ACIONAMENTO = 60.0
+ARQUIVO = "gabarito.csv"
 
 
 def carregar_gabarito():
-    with open(RAIZ / "eval" / "gabarito.csv", encoding="utf-8") as f:
+    with open(RAIZ / "eval" / ARQUIVO, encoding="utf-8") as f:
         return list(csv.DictReader(f))
 
 
@@ -87,7 +88,10 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--modo", default="llm", choices=pipeline.MODOS)
     ap.add_argument("--casos", default="")
+    ap.add_argument("--arquivo", default="gabarito.csv", help="gabarito.csv ou validacao.csv")
     args = ap.parse_args()
+    global ARQUIVO
+    ARQUIVO = args.arquivo
     gab = carregar_gabarito()
     if args.casos:
         gab = [g for g in gab if g["titulo_id"] in args.casos.split(",")]
@@ -132,7 +136,7 @@ def main():
 
     out = RAIZ / "eval" / "resultados"
     out.mkdir(parents=True, exist_ok=True)
-    arq = out / f"eval_{time.strftime('%H%M')}_{args.modo}.json"
+    arq = out / f"eval_{time.strftime('%H%M')}_{args.modo}_{ARQUIVO.split('.')[0]}.json"
     arq.write_text(json.dumps({"modo": args.modo, "n": n, "tudo_certo": certos,
                                "por_etapa": {e: sum(l["ok"][e] for l in linhas) for e in ("triagem", "dinheiro", "acao", "pessoas", "valor")},
                                "placar": placar, "uso_modelo": dict(llm.USO),

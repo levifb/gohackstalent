@@ -23,6 +23,8 @@ ALCADA_APROVADOR = 50000.0
 TOLERANCIA_DUPLICATA = 0.10
 DIAS_TROCA_RECENTE = 30
 CAMPOS_BANCARIOS = {"banco", "agencia", "conta", "chave_pix"}
+DOMINIOS_PUBLICOS = {"gmail.com", "hotmail.com", "outlook.com", "yahoo.com", "yahoo.com.br", "icloud.com", "live.com",
+                     "bol.com.br", "uol.com.br", "terra.com.br"}
 
 PESSOAS = {
     "PS01": "Renata Paiva, coordenadora de contas a pagar",
@@ -119,9 +121,13 @@ def comunicacoes_do_fornecedor(fornecedor_id: str) -> pd.DataFrame:
     c = fonte.comunicacoes()
     if not f.dominio:
         return c.iloc[0:0].assign(dominio_parecido=False)
+    if f.dominio in DOMINIOS_PUBLICOS:
+        # gmail, hotmail...: o domínio não identifica o fornecedor; só vale o endereço exato do cadastro
+        return c[c.remetente.str.lower() == str(f.email_cadastrado).lower()].assign(dominio_parecido=False)
     dominios_cadastrados = set(fs.dominio)
     # domínio de outro fornecedor cadastrado não é "parecido" (ex.: cartonart.com.br x cartonar.com.br)
-    dist = c.dominio.map(lambda d: 0 if d == f.dominio else (99 if (not d or d in dominios_cadastrados) else _levenshtein(d, f.dominio)))
+    dist = c.dominio.map(lambda d: 0 if d == f.dominio else (99 if (not d or d in dominios_cadastrados or d in DOMINIOS_PUBLICOS)
+                                                             else _levenshtein(d, f.dominio)))
     return c[dist <= 2].assign(dominio_parecido=dist[dist <= 2] > 0)
 
 

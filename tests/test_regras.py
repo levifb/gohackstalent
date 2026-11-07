@@ -54,3 +54,10 @@ def test_golpe_embalarte_detectado():
     lt = fonte.lote("RM20261103-MER")
     codigos = {a.codigo for a in regras.triagem("TP431502", lt)}
     assert {"TROCA_BANCARIA", "DOMINIO_PARECIDO"} <= codigos
+
+
+def test_dominio_publico_nao_junta_pessoas_diferentes():
+    # Bia Montenegro (gmail): e-mails de outros endereços gmail não são dela
+    c = regras.comunicacoes_do_fornecedor(fonte.titulos().loc["TP432948"].fornecedor_id)
+    f = fonte.fornecedores().loc[fonte.titulos().loc["TP432948"].fornecedor_id]
+    assert (c.remetente.str.lower() == f.email_cadastrado.lower()).all()
