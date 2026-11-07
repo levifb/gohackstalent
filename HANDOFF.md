@@ -1,4 +1,4 @@
-# Passagem de sessão (07/11/2026, ~13h50)
+# Passagem de sessão (07/11/2026, atualizado ~16h)
 
 Leia primeiro: `CLAUDE.md` (importa `prompts/claude_contexto_hackathon.md`), `SPEC.md`, `README.md`, `LOG.md` e este arquivo. Prazos do dia: congelamento 15h20 (só correção de bug, textos, slides, pitch), **submissão 16h30**, pré-júri 16h35 a 18h10 (horário no app do evento).
 
@@ -40,11 +40,16 @@ Segredos ficam só em `.env` (fora do git) e no `vercel env`: `AI_PROXY_API_KEY`
 - Ids dos slides: `v2s01` … `v2s10`. Imagens: `v2s02_img` (dor), `v2s03_img2` (achados), `v2s05_img` (192 quadradinhos), `v2s07_img` (casos), `v2s08_img` (celular), `v2s09_img` (eval). Notas do apresentador já preenchidas com tempos e fontes.
 - Atenção no Slides: mudar a escala de uma imagem com `updatePageElementTransform` aplica sobre o tamanho nativo (a imagem pode virar um ponto); para redimensionar, apagar e recriar com `createImage` e `size` em EMU. "R$ 661 mil" e similares usam espaço não separável (`\u00a0`) no texto; `replaceAllText` precisa do mesmo caractere. Conferir sempre pela miniatura (`read_slide_page_thumbnail`).
 
-## Tarefas pedidas pelo Levi para a próxima sessão
+## Estado no fim do dia (07/11, ~16h)
 
-1. **Slide 8 (Telegram, `v2s08_img`)**: o celular está pequeno, com cara de recorte, com fundo verde-limão em volta e os três pontinhos do carrossel embaixo. Fazer um PNG do celular **sem fundo** (transparente) e **sem os pontinhos**, e colocá-lo **maior** no slide. Caminho sugerido: no site, um modo de captura que esconda `.celular-pontos` e deixe o fundo transparente (ex.: `?so=telegram&limpo=1`, com `body`, `.h-pagina` e `.h-secao.limao` transparentes), e capturar com o Edge usando `--default-background-color=00000000`; depois recortar só o celular (bounding box dos pixels não transparentes). Alternativa: montar no PIL uma moldura de celular arredondada com o print real `apresentacao/capturas/tg_politica.png` dentro, com alpha. Altura sugerida no slide: cerca de 4,2 in, à direita, sem invadir o logo do canto inferior direito (x de 7,66 a 8,6 in, y de 4,75 a 4,97 in).
-2. **Slide 5 (192 quadradinhos, `v2s05_img`)**: a imagem está pequena e com cara de recorte (borda e fundo azul do cartão do site). Deixar maior e integrada ao slide: por exemplo, recapturar só a grade (`.sim-grade`) e os números com fundo transparente, ou montar a grade direto no slide; o texto das 3 etapas pode ir para baixo ou ficar mais estreito. Manter as cores (verde = liberado, rosa = barrado, azul = aguarda a diretora).
-3. Depois de cada mudança: conferir as miniaturas dos 10 slides, registrar no `LOG.md` e fazer commit + push (com a linha `Co-Authored-By` que o sistema indicar).
+Submissão feita pelo Levi. Tudo commitado e publicado; o que fica fora do git é de propósito: `.env` (segredos), `dados/` (dados do evento, confidenciais) e o MP4 do vídeo (está no YouTube; refazer com os scripts abaixo).
+
+- Deck final (Google Slides, mesmo id acima), ordem: 1 abertura · 2 dor · 3 custo · 4 o que já funciona (lote, e-mail, Telegram) · 5 o agente (grade dos 192) · 6 casos · 7 Telegram (print com botões) · 8 demo "192 → 11" · 9 eval em cartões (30/30 × 29/30, 6/6 × 3/6, 12/12 × 1/12, cega 12/12) · 10 impacto (R$ 530 mil × R$ 0). PDF exportado e conferido página a página (o PDF quebrava "R$ 0" e "30/30"; corrigido).
+- Textos da submissão: `entregaveis/submissao.md` (Impacto com R$ 661 mil / 50 títulos; "Como usou a IA" reescrito, 779/800).
+- Pré-júri: `entregaveis/roteiro_prejuri.md` (fala de 5 min com a demo), `entregaveis/preparacao_banca.md`, `entregaveis/sabatina.md`.
+- Vídeo de 2 min: `apresentacao/gerar/video_2min.py` (grava o site com Playwright/Edge e monta com ffmpeg) + `apresentacao/gerar/narrar_voicestudio.py` (voz do VoiceStudio local, OmniVoice; licença CC-BY-NC aceita pelo Levi). Roteiro em `entregaveis/video_2min.md`.
+- Imagens dos slides 5 e 8: `apresentacao/gerar/imagens_v3.py` e `apresentacao/capturas/tg_botoes_recorte.png`; gerador do deck `apresentacao/gerar/deck_v2.py` (etapas v3, v4, v5).
+- Pendências conhecidas: casos sintéticos (`eval/sinteticos.csv`) ainda com `revisado_por_levi = nao`; builds automáticos da Vercel pelo GitHub falham (constroem da raiz, o site está em `web/`): inofensivo, o site publicado vem do deploy pelo terminal; para corrigir, Root Directory = `web` no projeto da Vercel. No notebook do evento ficaram instalados o VoiceStudio e o Visual C++ Redistributable.
 
 ## Comandos úteis
 
