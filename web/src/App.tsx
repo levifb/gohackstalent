@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import type { Item, Lote, Resultado, Resumo } from "./tipos";
+import type { EmailSentinela, Item, Lote, Resultado, Resumo } from "./tipos";
 
 type EvalResumo = {
   n: number;
@@ -160,6 +160,58 @@ function Trilha({ it, fechar }: { it: Item; fechar: () => void }) {
   );
 }
 
+const SENT: Record<string, { rotulo: string; cor: string; ordem: number }> = {
+  alerta_golpe: { rotulo: "Golpe provável", cor: "rosa", ordem: 0 },
+  alerta_injecao: { rotulo: "Tentou dar ordem ao agente", cor: "rosa", ordem: 1 },
+  pedir_confirmacao_troca: { rotulo: "Confirmar troca de conta", cor: "ambar", ordem: 2 },
+  revisao_humana: { rotulo: "Revisão humana", cor: "ambar", ordem: 3 },
+  conciliar: { rotulo: "Conciliar pagamento", cor: "azul", ordem: 4 },
+  troca_confirmada: { rotulo: "Troca já confirmada", cor: "verde", ordem: 5 },
+};
+const NOMES: Record<string, string> = { PS01: "Renata Paiva", PS02: "Marcos Teles", PS03: "Helena Duarte", PS08: "Lívia Campos (jurídico)", PS09: "Rafael Nunes (controller)" };
+
+function Sentinela({ s }: { s: NonNullable<Resultado["sentinela"]> }) {
+  const [todos, setTodos] = useState(false);
+  const itens = [...s.itens].sort((a, b) => (SENT[a.acao]?.ordem ?? 9) - (SENT[b.acao]?.ordem ?? 9));
+  const graves = itens.filter((e: EmailSentinela) => (SENT[e.acao]?.ordem ?? 9) <= 3);
+  const mostrar = todos ? itens : graves;
+  return (
+    <section>
+      <h2>
+        Sentinela de comunicações <span className="sub">(segundo agente · {s.resumo.emails} e-mails lidos · {s.resumo.para_humano} para uma pessoa)</span>
+      </h2>
+      <p className="sub">
+        Lê a caixa de e-mail da área. O Jev (classificador rápido do AI Proxy) diz o assunto, se o texto tenta dar ordem ao sistema e se há pressão ou pedido de
+        credencial; o código confere o remetente com o cadastro e as trocas de conta registradas. As marcas viram contexto para o Guarda do Lote.
+      </p>
+      <div className="grade">
+        {mostrar.map((e) => (
+          <article className="cartao" key={e.comunicacao_id}>
+            <header>
+              <span className={`tag tag-${SENT[e.acao]?.cor ?? "cinza"}`}>{SENT[e.acao]?.rotulo ?? e.acao}</span>
+              <span className="sub mono">{e.data_hora.slice(0, 10)}</span>
+            </header>
+            <h3>{e.assunto}</h3>
+            <p className="sub mono">
+              {e.remetente} {e.remetente_no_cadastro ? "· no cadastro" : "· fora do cadastro"}
+            </p>
+            <p className="motivo">“{e.texto.slice(0, 180)}{e.texto.length > 180 ? "…" : ""}”</p>
+            <p className="motivo">{e.motivo}</p>
+            {e.acionar.length > 0 && (
+              <p className="pessoas">
+                <span className="rotulo">PARA</span> {e.acionar.map((p) => NOMES[p] ?? p).join(" · ")}
+              </p>
+            )}
+          </article>
+        ))}
+      </div>
+      <button className="sec" style={{ marginTop: 10 }} onClick={() => setTodos(!todos)}>
+        {todos ? "Mostrar só os de risco" : `Mostrar também conciliações e trocas confirmadas (${itens.length - graves.length})`}
+      </button>
+    </section>
+  );
+}
+
 function CartaoFila({ it, abrir }: { it: Item; abrir: () => void }) {
   const [resposta, setResposta] = useState<string | null>(null);
   return (
@@ -266,6 +318,15 @@ export default function App() {
                 na validação cega
               </>
             )}{" "}
+            {evalRes.sentinela && (
+              <>
+                {" "}
+                · sentinela <b>
+                  {evalRes.sentinela.tudo_certo}/{evalRes.sentinela.n}
+                </b>{" "}
+                e-mails
+              </>
+            )}{" "}
             · custo no placar da área: agente <b>{brl(evalRes.gabarito.placar.agente.total)}</b>, assinar sem conferir{" "}
             <b>{brl(evalRes.gabarito.placar.assinar_sem_conferir.total)}</b>, bloquear todo alerta{" "}
             <b>{brl(evalRes.gabarito.placar.bloquear_todo_alerta.total)}</b>. Primeira versão: 26/29; erros corrigidos no LOG.md.
@@ -308,6 +369,8 @@ export default function App() {
           </div>
         )}
       </section>
+
+      {dados.sentinela && <Sentinela s={dados.sentinela} />}
 
       <section>
         <div className="titulo-lista">

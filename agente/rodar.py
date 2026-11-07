@@ -31,6 +31,11 @@ def main():
         resultado["lotes"].append(r)
     todos = [i for r in resultado["lotes"] for i in r["itens"]]
     resultado["semana"] = pipeline.resumo(todos)
+    from agente import sentinela
+    emails = sentinela.rodar(args.modo)
+    resultado["sentinela"] = {"resumo": sentinela.resumo(emails),
+                              "itens": [e for e in emails if e["acao"] not in ("nada",)]}
+    print("sentinela:", resultado["sentinela"]["resumo"])
     resultado["uso_modelo"] = dict(llm.USO)
     resultado["segundos"] = round(time.time() - ini, 1)
     (RAIZ / "saida").mkdir(exist_ok=True)

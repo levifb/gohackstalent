@@ -68,7 +68,22 @@ export type Lote = {
   itens: Item[];
 };
 
+export type EmailSentinela = {
+  comunicacao_id: string;
+  data_hora: string;
+  remetente: string;
+  assunto: string;
+  texto: string;
+  fornecedor: string | null;
+  remetente_no_cadastro: boolean;
+  acao: string;
+  acionar: string[];
+  motivo: string;
+  jev: { categoria: string; confianca: number; instrucao_ao_sistema: number; pressao_ou_credencial: number } | null;
+};
+
 export type Resultado = {
+  sentinela?: { resumo: { emails: number; por_acao: Record<string, number>; para_humano: number }; itens: EmailSentinela[] };
   gerado_em: string;
   agora_ficticio: string;
   modo: string;
