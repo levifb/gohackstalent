@@ -10,9 +10,10 @@ export default function App() {
     window.addEventListener("hashchange", f);
     return () => window.removeEventListener("hashchange", f);
   }, []);
+  const so = new URLSearchParams(location.search).get("so");
   return (
     <>
-      <nav className="nav">
+      {!so && <nav className="nav">
         <a href="#" className="nav-marca" onClick={() => window.scrollTo({ top: 0 })}>
           <img src="/marca/logo_azul.png" alt="Gogroup" />
           <span>Guarda do Lote</span>
@@ -31,7 +32,7 @@ export default function App() {
             GitHub
           </a>
         </div>
-      </nav>
+      </nav>}
       {rota === "painel" ? <Painel /> : <Historia />}
     </>
   );

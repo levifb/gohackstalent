@@ -7,6 +7,9 @@ type EvalBloco = { n: number; tudo_certo: number; so_regras?: number; sem_jev?: 
 type Evals = Record<string, EvalBloco>;
 
 const LOTE = "RM20261103-MER";
+// ?so=<seção> mostra uma seção só, no estado final (capturas para os slides)
+const SO = new URLSearchParams(location.search).get("so");
+const ver = (k: string) => !SO || SO === k;
 const GH = "https://github.com/levifb/gohackstalent/blob/main/";
 const PAGAM = new Set(["liberar", "corrigir_lancamento"]);
 const BARRA = new Set(["bloquear_titulo", "retirar_do_lote", "cancelar_titulo", "revisao_humana"]);
@@ -69,7 +72,7 @@ function Secao({ id, classe = "", children }: { id?: string; classe?: string; ch
 type Fase = "parado" | "triagem" | "modelo" | "pronto";
 
 function Simulacao({ itens, abrir }: { itens: Item[]; abrir: (i: Item) => void }) {
-  const [fase, setFase] = useState<Fase>("parado");
+  const [fase, setFase] = useState<Fase>(SO === "simulacao" ? "pronto" : "parado");
   const [k, setK] = useState(0);
   const [ref, vis] = useVisivel<HTMLDivElement>(0.4);
   const alerta = (i: Item) => !!i.etapas.analise;
@@ -233,12 +236,12 @@ export default function Historia() {
   const [refHero, visHero] = useVisivel<HTMLDivElement>(0.2);
   const [refDor, visDor] = useVisivel<HTMLDivElement>(0.3);
   const [refEval, visEval] = useVisivel<HTMLDivElement>(0.3);
-  const [tg, setTg] = useState(0);
+  const [tg, setTg] = useState(SO ? 2 : 0);
 
   useEffect(() => {
     fetch("/resultado.json").then((r) => r.json()).then(setDados).catch(() => setDados(null));
     fetch("/eval.json").then((r) => r.json()).then(setEv).catch(() => setEv(null));
-    const t = setInterval(() => setTg((x) => (x + 1) % 3), 3200);
+    const t = setInterval(() => !SO && setTg((x) => (x + 1) % 3), 3200);
     return () => clearInterval(t);
   }, []);
 
@@ -281,6 +284,7 @@ export default function Historia() {
 
   return (
     <main className="h-pagina">
+      {ver("hero") && (<>
       {/* HERO */}
       <div className="hero" ref={refHero}>
         <img className="flutua foguete" src="/marca/foguete.png" alt="" aria-hidden />
@@ -306,7 +310,9 @@ export default function Historia() {
         </div>
       </div>
 
+      </>)}
       {/* DOR */}
+      {ver("dor") && (
       <Secao classe="creme">
         <span className="etq etq-azul">A DOR · MARCOS TELES, TESOUREIRO</span>
         <h2>O lote é assinado sem abrir título por título.</h2>
@@ -332,8 +338,10 @@ export default function Historia() {
           <div className="achado cor-ciano"><b>{visDor ? <Conta ate={troc.n} ativo /> : "-"}</b><span>títulos no fornecedor errado ({brl(troc.v)})</span></div>
         </div>
       </Secao>
+      )}
 
       {/* SIMULAÇÃO */}
+      {ver("simulacao") && (
       <Secao id="simulacao" classe="azul">
         <span className="etq etq-limao">A SOLUÇÃO EM AÇÃO</span>
         <h2>O agente confere os {r.titulos} títulos antes das 10h.</h2>
@@ -343,8 +351,10 @@ export default function Historia() {
         </p>
         <Simulacao itens={lote.itens} abrir={setAberto} />
       </Secao>
+      )}
 
       {/* CASOS */}
+      {ver("casos") && (
       <Secao classe="creme">
         <span className="etq etq-azul">O QUE O AGENTE PEGOU</span>
         <h2>Cinco casos que passariam pela assinatura.</h2>
@@ -366,8 +376,10 @@ export default function Historia() {
           )}
         </div>
       </Secao>
+      )}
 
       {/* TELEGRAM */}
+      {ver("telegram") && (
       <Secao classe="limao">
         <div className="tg-bloco">
           <div>
@@ -388,8 +400,10 @@ export default function Historia() {
           </div>
         </div>
       </Secao>
+      )}
 
       {/* ANTES × DEPOIS */}
+      {ver("impacto") && (
       <Secao classe="azul">
         <span className="etq etq-limao">IMPACTO</span>
         <h2>Do mesmo lote, dois resultados.</h2>
@@ -423,8 +437,10 @@ export default function Historia() {
           )}
         </div>
       </Secao>
+      )}
 
       {/* PROVA */}
+      {ver("prova") && (
       <Secao classe="creme">
         <span className="etq etq-azul">COMO SABEMOS QUE FUNCIONA</span>
         <h2>Medido contra gabarito, não no olho.</h2>
@@ -456,8 +472,10 @@ export default function Historia() {
           organização. Nos dados da organização quem decide o dinheiro são as regras; o modelo julga os alertas contestáveis, escolhe a pessoa e explica.
         </p>
       </Secao>
+      )}
 
       {/* CRITÉRIOS */}
+      {ver("criterios") && (
       <Secao classe="azul">
         <span className="etq etq-limao">OS CRITÉRIOS DA BANCA</span>
         <h2>Onde está cada prova.</h2>
@@ -498,8 +516,10 @@ export default function Historia() {
           ))}
         </div>
       </Secao>
+      )}
 
       {/* SEGUNDA-FEIRA */}
+      {ver("fim") && (
       <Secao classe="creme fim">
         <img className="flutua trofeu" src="/marca/trofeu.png" alt="" aria-hidden />
         <span className="etq etq-azul">NA SEGUNDA-FEIRA</span>
@@ -515,6 +535,7 @@ export default function Historia() {
         </div>
         <p className="nota">Levi · Ciência da Computação, UFC · Dados fictícios do GoHacks Talent 2026 · ações simuladas, nenhum sistema real é alterado.</p>
       </Secao>
+      )}
 
       {aberto && <Trilha it={aberto} fechar={() => setAberto(null)} />}
     </main>
