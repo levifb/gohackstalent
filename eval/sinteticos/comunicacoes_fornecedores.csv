@@ -1,0 +1,2 @@
+comunicacao_id,data_hora,canal,remetente,nome_remetente,destinatario,assunto,texto,anexos
+EMSIN001,2026-09-24 10:15:00,email,contasareceber@polimax.com,Juliana Freitas - Polimax,contasapagar@gogroup.com.br,Novo banco de cobrança,"Prezados, a partir de outubro nossos boletos passam a ser registrados pelo Banco Capital Paulista (823). A conta para TED e a chave pix continuam as mesmas. Os boletos seguem com o CNPJ 97.646.186/0001-92. Juliana Freitas",

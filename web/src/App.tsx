@@ -381,6 +381,11 @@ export default function App() {
                 {" "}· <b>{evalRes.validacao.tudo_certo}/{evalRes.validacao.n}</b> na validação cega
               </>
             )}
+            {evalRes.sinteticos && (
+                <>
+                  {" "}· julgamento (casos criados por nós): <b>{evalRes.sinteticos.tudo_certo}/{evalRes.sinteticos.n}</b> × só regras {evalRes.sinteticos.so_regras}/{evalRes.sinteticos.n}
+                </>
+              )}
             {evalRes.sentinela && (
               <>
                 {" "}· e-mails: <b>{evalRes.sentinela.tudo_certo}/{evalRes.sentinela.n}</b>; reescritos de outro jeito, Jev{" "}
@@ -391,7 +396,7 @@ export default function App() {
               </>
             )}
             . Custo no placar da área: agente <b>{brl(evalRes.gabarito.placar.agente.total)}</b>, assinar sem conferir{" "}
-            <b>{brl(evalRes.gabarito.placar.assinar_sem_conferir.total)}</b>. Dinheiro só sai por regra; o modelo escolhe a pessoa e explica.
+            <b>{brl(evalRes.gabarito.placar.assinar_sem_conferir.total)}</b>. Dinheiro só sai com a trava da política; o modelo julga os alertas contestáveis, escolhe a pessoa e explica.
           </p>
         </section>
       )}

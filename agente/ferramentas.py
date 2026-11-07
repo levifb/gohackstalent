@@ -63,15 +63,38 @@ def consultar_boleto_dda(titulo_id: str) -> dict | None:
                                                                     "numero_documento", "valor", "vencimento", "situacao")}})
 
 
+SENSIVEL = r"banc|conta|pix|cobran[cç]a|duplicidade|parcial|n[aã]o identificad|reajuste|protesto|urgente|assistente|rob[oô]"
+
+
 def listar_comunicacoes(fornecedor_id: str, limite: int = 6) -> list[dict]:
-    c = regras.comunicacoes_do_fornecedor(fornecedor_id).sort_values("data_hora", ascending=False).head(limite)
+    """E-mails do fornecedor: primeiro os sensíveis (banco, conta, pagamento, reajuste, instrução), depois os mais recentes."""
+    c = regras.comunicacoes_do_fornecedor(fornecedor_id)
+    sens = c[c.assunto.str.contains(SENSIVEL, case=False, na=False) | c.texto.str.contains(SENSIVEL, case=False, na=False) | c.dominio_parecido]
+    rotina = c.drop(sens.index)
+    c = pd.concat([sens.sort_values("data_hora", ascending=False).head(limite),
+                   rotina.sort_values("data_hora", ascending=False)]).head(max(limite, min(len(sens), 10)))
     return [{"data_hora": r.data_hora, "remetente": r.remetente, "dominio_parecido_com_cadastro": bool(r.dominio_parecido),
              "assunto": r.assunto, "texto": str(r.texto)[:700]} for r in c.itertuples()]
+
+
+def titulos_relacionados(titulo_id: str, alertas: list) -> list[dict]:
+    """Outros títulos citados nos alertas (ex.: suspeita de duplicidade), com NF e OC, para comparar lado a lado."""
+    import re
+    ids = sorted({x for a in alertas for x in re.findall(r"T[PS]\d{6}", a.evidencia)} - {titulo_id})
+    out = []
+    for x in ids[:3]:
+        if x not in fonte.titulos().index:
+            continue
+        t = fonte.titulos().loc[x]
+        out.append({"titulo": consultar_titulo(x), "status": t.status, "nota_fiscal": consultar_nf(x),
+                    "pedido_compra": consultar_pedido_compra(t.oc_id)})
+    return out
 
 
 def montar_dossie(titulo_id: str, alertas: list, lote_id: str) -> dict:
     t = fonte.titulos().loc[titulo_id]
     return {
+        "titulos_relacionados": titulos_relacionados(titulo_id, alertas),
         "lote": lote_id,
         "titulo": consultar_titulo(titulo_id),
         "alertas_da_triagem": [{k: v for k, v in a.dict().items() if k != "valor_corrigido" or v is not None} for a in alertas],

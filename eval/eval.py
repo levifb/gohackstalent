@@ -62,7 +62,9 @@ def avaliar_item(g: dict, r: dict) -> dict:
     esperados = set(filter(None, g["acionar_esperado"].split("|")))
     graves = [a for a in r["etapas"]["triagem"]["alertas"] if a["gravidade"] != "atencao"]
     ok = {
-        "triagem": bool(graves) == (g["sai_no_lote"] == "nao" or bool(g["valor_corrigido_esperado"])),
+        # triagem certa: segura o que não deve sair; no que deve sair, só alerta contestável (pedido de julgamento) é aceito
+        "triagem": (bool(graves) if (g["sai_no_lote"] == "nao" or g["valor_corrigido_esperado"])
+                    else all(a.get("contestavel") for a in graves)),
         "dinheiro": sai == (g["sai_no_lote"] == "sim"),
         "acao": d["acao"] in acoes_ok,
         "pessoas": esperados <= acionados if esperados else not acionados,
@@ -92,6 +94,9 @@ def main():
     args = ap.parse_args()
     global ARQUIVO
     ARQUIVO = args.arquivo
+    if ARQUIVO == "sinteticos.csv":
+        import os
+        os.environ["INCLUIR_SINTETICOS"] = "1"  # lote fictício criado por nós (eval/sinteticos/gerar.py)
     gab = carregar_gabarito()
     if args.casos:
         gab = [g for g in gab if g["titulo_id"] in args.casos.split(",")]

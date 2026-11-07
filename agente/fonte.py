@@ -17,8 +17,16 @@ DADOS = Path(os.environ.get("DADOS_DIR", RAIZ_PROJETO / "dados" / "pagamentos"))
 AGORA = pd.Timestamp("2026-11-02 08:00:00")  # "agora" do ambiente fictício
 
 
+SINTETICOS = RAIZ_PROJETO / "eval" / "sinteticos"
+
+
 def _csv(nome: str) -> pd.DataFrame:
-    return pd.read_csv(DADOS / f"{nome}.csv", dtype=str, encoding="utf-8")
+    df = pd.read_csv(DADOS / f"{nome}.csv", dtype=str, encoding="utf-8")
+    extra = SINTETICOS / f"{nome}.csv"
+    if os.environ.get("INCLUIR_SINTETICOS") == "1" and extra.exists():
+        # casos fictícios criados por nós para o eval de julgamento (eval/sinteticos/gerar.py); nunca entram no lote real
+        df = pd.concat([df, pd.read_csv(extra, dtype=str, encoding="utf-8")], ignore_index=True)
+    return df
 
 
 # ---------- normalizações (uma vez, aqui) ----------

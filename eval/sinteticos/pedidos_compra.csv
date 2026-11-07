@@ -1,0 +1,5 @@
+oc_id,cod_fornecedor_compras,cnpj_fornecedor,nome_fornecedor,data_emissao,descricao,tipo,valor_total,valor_mensal,condicao_pagamento,centro_custo,aprovado_por,data_aprovacao,status
+OC-SIN01,FCSIN,97646186000192,POLIMAX PLASTICOS TE,2026-10-10,Peças técnicas injetadas - lote 4,pontual,18450.00,,28 ddl,CC-2110,cmenezes,2026-10-10,aprovada
+OC-SIN02,FCSIN,60360748000127,KRAFTBOX EMBALAGENS ,2026-10-10,Caixas kraft 30x20 - 3.000 un,pontual,6120.00,,28 ddl,CC-2110,cmenezes,2026-10-10,aprovada
+OC-SIN03,FCSIN,14343478000129,ECOPRINT SACOLAS PER,2026-10-10,Sacolas kraft P - 2.000 un,pontual,1840.00,,28 ddl,CC-2110,cmenezes,2026-10-10,aprovada
+OC-SIN04,FCSIN,14343478000129,ECOPRINT SACOLAS PER,2026-10-10,Sacolas kraft G - 1.000 un,pontual,1840.00,,28 ddl,CC-2110,cmenezes,2026-10-10,aprovada

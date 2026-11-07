@@ -1,0 +1,3 @@
+dda_id,data_registro,cnpj_pagador,banco_cobrador,nome_banco_cobrador,beneficiario,cnpj_beneficiario,numero_documento,nosso_numero,valor,vencimento,linha_digitavel,situacao,data_situacao
+DDASIN001,2026-10-30 03:00:00,41208533000221,823,Banco Capital Paulista,Polimax Plasticos Tecnicos Ltda,97.646.186/0001-92,72001/1,00000072001,18450.00,2026-11-16,82391234567890123456789012345678916320001845000,em aberto,2026-10-30
+DDASIN002,2026-10-30 03:00:00,41208533000221,905,Nubra Pagamentos,Kraftbox Embalagens Ltda,60.360.748/0001-27,9801/1,00000009801,6120.00,2026-11-16,90591234567890123456789012345678916320000612000,em aberto,2026-10-30

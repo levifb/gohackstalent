@@ -1,0 +1,7 @@
+titulo_id,fornecedor_id,numero_nf_digitado,oc_id,parcela,valor,vencimento,forma_pagamento,linha_digitavel,cnpj_beneficiario_boleto,origem_lancamento,lancado_por,data_lancamento,status,banco_pagador,lote_remessa,historico
+TS900001,FP2838,72001,OC-SIN01,1/1,18450.00,2026-11-16,boleto,82391234567890123456789012345678916320001845000,97.646.186/0001-92,xml_portal,usuario_08,2026-10-30 10:00:00,agendado,Banco Meridiano,RM20261116-SIN,NF 72001 parc 1/1 - Polimax
+TS900002,FP1748,9801,OC-SIN02,1/1,6120.00,2026-11-16,boleto,90591234567890123456789012345678916320000612000,60.360.748/0001-27,xml_portal,usuario_08,2026-10-30 10:00:00,agendado,Banco Meridiano,RM20261116-SIN,NF 9801 parc 1/1 - Kraftbox
+TS900003,FP3172,66601,OC-SIN03,1/1,1840.00,2026-11-16,ted,,,xml_portal,usuario_08,2026-10-30 10:00:00,agendado,Banco Meridiano,RM20261116-SIN,NF 66601 parc 1/1 - Ecoprint
+TS900004,FP3172,66602,OC-SIN04,1/1,1840.00,2026-11-16,ted,,,xml_portal,usuario_08,2026-10-30 10:00:00,agendado,Banco Meridiano,RM20261116-SIN,NF 66602 parc 1/1 - Ecoprint
+TS900005,FP1103,50120,OC-35892,1/1,2640.75,2026-11-16,pix,,,xml_portal,usuario_08,2026-10-30 10:00:00,agendado,Banco Meridiano,RM20261116-SIN,NF 50120 parc 1/1 - Vitrine
+TS900006,FP4977,30551,,1/1,7800.00,2026-11-16,ted,,,xml_portal,usuario_08,2026-10-30 10:00:00,agendado,Banco Meridiano,RM20261116-SIN,NF 30551 parc 1/1 - Talentos

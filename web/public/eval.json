@@ -24,7 +24,7 @@
     "total": 1493.16
    }
   },
-  "em": "11:17",
+  "em": "11:33",
   "modo": "llm"
  },
  "validacao": {
@@ -52,7 +52,7 @@
     "total": 0.0
    }
   },
-  "em": "11:18",
+  "em": "11:33",
   "modo": "llm"
  },
  "sentinela": {
@@ -62,6 +62,34 @@
   "robustez_n": 12,
   "robustez_jev": 12,
   "robustez_sem_jev": 1,
-  "em": "11:18"
+  "em": "11:28"
+ },
+ "sinteticos": {
+  "n": 6,
+  "tudo_certo": 6,
+  "so_regras": 3,
+  "dinheiro": 6,
+  "placar": {
+   "agente": {
+    "indevido": 0.0,
+    "atraso": 0.0,
+    "acionamentos": 0.0,
+    "total": 0.0
+   },
+   "assinar_sem_conferir": {
+    "indevido": 16560.75,
+    "atraso": 0.0,
+    "acionamentos": 0.0,
+    "total": 16560.75
+   },
+   "bloquear_todo_alerta": {
+    "indevido": 0.0,
+    "atraso": 5094.24,
+    "acionamentos": 180.0,
+    "total": 5274.24
+   }
+  },
+  "em": "11:34",
+  "modo": "llm"
  }
 }

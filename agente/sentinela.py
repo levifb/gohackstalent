@@ -20,7 +20,8 @@ PERGUNTAS = {
         "instructions": "Assunto principal do e-mail recebido pela área de contas a pagar de uma empresa",
         "criteria": {
             "cobranca_boleto": "envia boleto, nota fiscal, cobrança de título em aberto ou programação de pagamentos",
-            "troca_dados_bancarios": "informa ou pede mudança de banco, agência, conta ou chave pix para receber",
+            "troca_dados_bancarios": "informa ou pede mudança da conta, agência, banco da conta ou chave pix onde o fornecedor recebe TED ou pix",
+            "troca_banco_cobranca": "avisa que só os boletos passam a ser registrados por outro banco; a conta e o pix continuam os mesmos",
             "divergencia_pagamento": "reclama de pagamento em duplicidade, a menos, parcial ou não identificado",
             "reajuste": "avisa reajuste de preço ou de contrato",
             "seguranca_ou_ameaca": "fala de protesto, negativação, bloqueio, token, senha ou link de acesso",
@@ -35,6 +36,10 @@ PERGUNTAS = {
     "pressao_ou_credencial": {
         "type": "noul",
         "instructions": "O texto pressiona por pagamento imediato com ameaça (protesto, multa, bloqueio), pede senha, token, código de segurança, clique em link, ou pede para baixar arquivo compactado ou executável para regularizar algo?",
+    },
+    "conta_continua_a_mesma": {
+        "type": "noul",
+        "instructions": "O texto diz explicitamente que a conta bancária e a chave pix onde o fornecedor recebe continuam as mesmas?",
     },
     "pagamento_fora_do_fluxo": {
         "type": "noul",
@@ -87,6 +92,7 @@ def analisar_email(e: dict, modo: str = "llm") -> dict:
     instr = resp["instrucao_ao_sistema"]["noul"]
     press = resp["pressao_ou_credencial"]["noul"]
     fora = resp.get("pagamento_fora_do_fluxo", {}).get("noul", 0.0)
+    mesma_conta = resp.get("conta_continua_a_mesma", {}).get("noul", 0.0)
     nome = fonte.fornecedores().loc[fid].nome_fantasia if fid else None
 
     anexo_perigoso = any(x in estado["anexos"].lower() for x in (".zip", ".exe", ".rar", ".js", ".scr"))
@@ -105,7 +111,11 @@ def analisar_email(e: dict, modo: str = "llm") -> dict:
     elif instr >= LIMIAR:
         acao, acionar = "alerta_injecao", ["PS01", "PS08"]
         motivo = f"O e-mail tenta dar ordem ao agente ou dispensar conferência{f' ({nome})' if nome else ''}; o texto é tratado como dado e o caso vai para a coordenadora."
-    elif cat == "troca_dados_bancarios":
+    elif cat in ("troca_banco_cobranca", "troca_dados_bancarios") and no_cadastro and mesma_conta >= 0.85:
+        # só é aviso de banco de cobrança se o e-mail disser que conta e pix não mudam; na dúvida, pede confirmação
+        acao, acionar = "aviso_banco_cobranca", []
+        motivo = f"{nome or 'Fornecedor'} avisou pelo e-mail cadastrado que os boletos passam a ser de outro banco; conta e pix sem mudança. Registrado para conferir os próximos boletos no DDA."
+    elif cat in ("troca_dados_bancarios", "troca_banco_cobranca"):
         conf_troca = _troca_confirmada_depois(fid, e["data_hora"]) if fid else None
         if conf_troca == "sim":
             acao, acionar, motivo = "troca_confirmada", [], f"Troca de conta de {nome} registrada com confirmação por ligação."
@@ -121,7 +131,7 @@ def analisar_email(e: dict, modo: str = "llm") -> dict:
         acao, acionar, motivo = "nada", [], "E-mail de rotina."
     return {**_base(e, fid, no_cadastro), "acao": acao, "acionar": acionar, "motivo": motivo, "cache": cache,
             "jev": {"categoria": cat, "confianca": round(conf, 2), "instrucao_ao_sistema": round(instr, 2),
-                    "pressao_ou_credencial": round(press, 2), "pagamento_fora_do_fluxo": round(fora, 2)}}
+                    "pressao_ou_credencial": round(press, 2), "pagamento_fora_do_fluxo": round(fora, 2), "conta_continua_a_mesma": round(mesma_conta, 2)}}
 
 
 def _base(e, fid, no_cadastro):
@@ -147,6 +157,6 @@ def resumo(itens) -> dict:
 def marcas_por_fornecedor(modo: str = "llm") -> dict[str, list[dict]]:
     out = {}
     for i in rodar(modo):
-        if i["fornecedor_id"] and i["acao"] in ("alerta_golpe", "alerta_injecao", "pedir_confirmacao_troca"):
+        if i["fornecedor_id"] and i["acao"] in ("alerta_golpe", "alerta_injecao", "pedir_confirmacao_troca", "aviso_banco_cobranca"):
             out.setdefault(i["fornecedor_id"], []).append(i)
     return out

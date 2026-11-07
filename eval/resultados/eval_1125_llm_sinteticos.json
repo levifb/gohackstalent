@@ -1,0 +1,97 @@
+{
+ "modo": "llm",
+ "n": 6,
+ "tudo_certo": 3,
+ "por_etapa": {
+  "triagem": 3,
+  "dinheiro": 5,
+  "acao": 5,
+  "pessoas": 5,
+  "valor": 6
+ },
+ "placar": {
+  "agente": {
+   "indevido": 0.0,
+   "atraso": 3412.05,
+   "acionamentos": 60.0,
+   "total": 3472.05
+  },
+  "assinar_sem_conferir": {
+   "indevido": 16560.75,
+   "atraso": 0.0,
+   "acionamentos": 0.0,
+   "total": 16560.75
+  },
+  "bloquear_todo_alerta": {
+   "indevido": 0.0,
+   "atraso": 5094.24,
+   "acionamentos": 180.0,
+   "total": 5274.24
+  }
+ },
+ "uso_modelo": {
+  "chamadas": 6,
+  "cache": 247,
+  "prompt_tokens": 17896,
+  "completion_tokens": 1884,
+  "reasoning_tokens": 0,
+  "jev_chamadas": 0,
+  "jev_input_tokens": 0,
+  "jev_usd": 0.0
+ },
+ "erros": [
+  {
+   "titulo_id": "TS900001",
+   "ok": {
+    "triagem": false,
+    "dinheiro": false,
+    "acao": false,
+    "pessoas": false,
+    "valor": true
+   },
+   "obtido": {
+    "acao": "bloquear_titulo",
+    "acionar": [
+     "PS01"
+    ],
+    "sai": false,
+    "origem": "modelo",
+    "motivo": "O DDA confirma o beneficiário, mas há pedido de troca bancária sem confirmação por ligação e o aviso prévio citado no histórico não está disponível para conferência. Bloqueado até Renata confirmar pelo telefone anterior "
+   }
+  },
+  {
+   "titulo_id": "TS900003",
+   "ok": {
+    "triagem": false,
+    "dinheiro": true,
+    "acao": true,
+    "pessoas": true,
+    "valor": true
+   },
+   "obtido": {
+    "acao": "liberar",
+    "acionar": [],
+    "sai": true,
+    "origem": "modelo",
+    "motivo": "A NF 66601, sua duplicata e a OC aprovada conferem em R$ 1.840,00, dentro da alçada do analista. Descarto a suspeita de duplicidade: o outro título se refere à NF 66602, e o histórico registra entregas distintas; a coinc"
+   }
+  },
+  {
+   "titulo_id": "TS900004",
+   "ok": {
+    "triagem": false,
+    "dinheiro": true,
+    "acao": true,
+    "pessoas": true,
+    "valor": true
+   },
+   "obtido": {
+    "acao": "liberar",
+    "acionar": [],
+    "sai": true,
+    "origem": "modelo",
+    "motivo": "A NF 66602 confirma o número lançado, e a duplicata e a OC aprovada conferem com os R$ 1.840,00 do título. Descartei o alerta porque valor e vencimento iguais aos de TS900003, com NF diferente, não caracterizam duplicida"
+   }
+  }
+ ]
+}

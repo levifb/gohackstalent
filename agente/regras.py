@@ -97,9 +97,14 @@ def _idx_dda_linha() -> dict[str, dict]:
 
 
 @lru_cache(maxsize=None)
-def _bancos_cobranca_historicos() -> dict[str, set[str]]:
+def _bancos_cobranca_por_raiz() -> dict[str, list[tuple[str, str]]]:
     d = fonte.dda()
-    return d.groupby("raiz").banco_cobrador.agg(set).to_dict()
+    return d.groupby("raiz").apply(lambda g: list(zip(g.linha_digitavel, g.banco_cobrador)), include_groups=False).to_dict()
+
+
+def _bancos_cobranca_historicos(raiz: str, exceto_linha: str | None = None) -> set[str]:
+    """Bancos que o fornecedor já usou para cobrar, sem contar o próprio boleto em conferência."""
+    return {b for linha, b in _bancos_cobranca_por_raiz().get(raiz, []) if linha != exceto_linha}
 
 
 def _levenshtein(a: str, b: str) -> int:
@@ -271,7 +276,7 @@ def verificar_boleto(t, f) -> list[Alerta]:
                           f"CNPJ do beneficiário do boleto {t.cnpj_beneficiario_boleto} não é do fornecedor ({f.cnpj}).",
                           "banco e CNPJ do beneficiário do boleto devem bater com o fornecedor", ["PS01", "PS08"]))
     banco = fonte.banco_da_linha(t.linha_digitavel)
-    hist = _bancos_cobranca_historicos().get(f.raiz, set())
+    hist = _bancos_cobranca_historicos(f.raiz, t.linha_digitavel)
     if banco and banco != f.banco and banco not in hist:
         out.append(Alerta("BANCO_COBRANCA_NOVO", "aprovacao",
                           f"Boleto pelo banco {banco}; o fornecedor usa {sorted(hist) or 'nenhum'} no DDA e conta no banco {f.banco}.",

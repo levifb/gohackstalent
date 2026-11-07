@@ -1,0 +1,120 @@
+{
+ "modo": "llm",
+ "n": 6,
+ "tudo_certo": 2,
+ "por_etapa": {
+  "triagem": 6,
+  "dinheiro": 3,
+  "acao": 2,
+  "pessoas": 3,
+  "valor": 6
+ },
+ "placar": {
+  "agente": {
+   "indevido": 0.0,
+   "atraso": 5094.24,
+   "acionamentos": 180.0,
+   "total": 5274.24
+  },
+  "assinar_sem_conferir": {
+   "indevido": 16560.75,
+   "atraso": 0.0,
+   "acionamentos": 0.0,
+   "total": 16560.75
+  },
+  "bloquear_todo_alerta": {
+   "indevido": 0.0,
+   "atraso": 5094.24,
+   "acionamentos": 180.0,
+   "total": 5274.24
+  }
+ },
+ "uso_modelo": {
+  "chamadas": 6,
+  "cache": 247,
+  "prompt_tokens": 17809,
+  "completion_tokens": 1833,
+  "reasoning_tokens": 0,
+  "jev_chamadas": 0,
+  "jev_input_tokens": 0,
+  "jev_usd": 0.0
+ },
+ "erros": [
+  {
+   "titulo_id": "TS900001",
+   "ok": {
+    "triagem": true,
+    "dinheiro": false,
+    "acao": false,
+    "pessoas": false,
+    "valor": true
+   },
+   "obtido": {
+    "acao": "solicitar_aprovacao",
+    "acionar": [
+     "PS01"
+    ],
+    "sai": false,
+    "origem": "modelo",
+    "motivo": "Descartei o alerta de banco novo: a mudança foi avisada pelo e-mail cadastrado e o boleto está em aberto no DDA com o CNPJ do fornecedor, sem alteração de conta ou Pix. Os valores conferem, mas R$ 18.450,00 excedem minha"
+   }
+  },
+  {
+   "titulo_id": "TS900002",
+   "ok": {
+    "triagem": true,
+    "dinheiro": true,
+    "acao": false,
+    "pessoas": true,
+    "valor": true
+   },
+   "obtido": {
+    "acao": "bloquear_titulo",
+    "acionar": [
+     "PS01"
+    ],
+    "sai": false,
+    "origem": "modelo",
+    "motivo": "O boleto está no DDA com o CNPJ correto, mas usa banco novo sem confirmação da mudança; bloqueado até Renata validar pelo telefone cadastrado anteriormente. Após a validação, o pagamento de R$ 6.120,00 também precisa de "
+   }
+  },
+  {
+   "titulo_id": "TS900003",
+   "ok": {
+    "triagem": true,
+    "dinheiro": false,
+    "acao": false,
+    "pessoas": false,
+    "valor": true
+   },
+   "obtido": {
+    "acao": "revisao_humana",
+    "acionar": [
+     "PS01"
+    ],
+    "sai": false,
+    "origem": "modelo",
+    "motivo": "O título confere com a NF e a OC, mas falta a documentação do TS900004 para confirmar se são notas distintas ou a mesma NF digitada de outro jeito. Renata deve comparar as NFs e parcelas antes da liberação; a duplicidade"
+   }
+  },
+  {
+   "titulo_id": "TS900004",
+   "ok": {
+    "triagem": true,
+    "dinheiro": false,
+    "acao": false,
+    "pessoas": false,
+    "valor": true
+   },
+   "obtido": {
+    "acao": "revisao_humana",
+    "acionar": [
+     "PS01"
+    ],
+    "sai": false,
+    "origem": "modelo",
+    "motivo": "O título confere com a NF 66602 e a OC, mas falta a documentação do TS900003 para excluir duplicidade. Renata deve comparar a NF e a parcela dos dois títulos antes da liberação."
+   }
+  }
+ ]
+}

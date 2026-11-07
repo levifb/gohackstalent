@@ -1,0 +1,7 @@
+titulo_id,tipo,sai_no_lote,acao_esperada,acionar_esperado,valor_corrigido_esperado,dificuldade,justificativa,revisado_por_levi
+TS900001,julgamento_liberar,sim,liberar,,,dificil,"banco de cobrança novo (823), mas o boleto está registrado no DDA com o CNPJ do fornecedor e a troca foi avisada em 24/09 pelo e-mail cadastrado; a conta de TED não mudou. Alerta contestável: liberar",nao
+TS900002,julgamento_reter,nao,solicitar_aprovacao|revisao_humana|retirar_do_lote|bloquear_titulo,PS01,,dificil,"banco de cobrança novo (905) sem nenhum aviso; a política pede confirmação no canal do cadastro antes de pagar boleto com banco diferente",nao
+TS900003,julgamento_liberar,sim,liberar,,,media,"mesmo valor e vencimento de TS900004, mas NFs, OCs e produtos diferentes (sacolas P e G); não é duplicidade",nao
+TS900004,julgamento_liberar,sim,liberar,,,media,"par do TS900003; entrega diferente",nao
+TS900005,julgamento_reter,nao,solicitar_aprovacao|revisao_humana|retirar_do_lote,PS11,,dificil,"NF 5% acima do contrato (R$ 2.640,75 × R$ 2.515,00); o próprio fornecedor avisou que o reajuste só vale a partir de dezembro: acionar a dona do contrato",nao
+TS900006,julgamento_reter,nao,solicitar_aprovacao|revisao_humana|retirar_do_lote,PS01,,media,"serviço avulso sem OC de fornecedor sem contrato; pagamento sem OC aprovada exige aprovação dupla",nao

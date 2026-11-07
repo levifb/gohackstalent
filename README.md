@@ -43,6 +43,7 @@ Rodar: `python -X utf8 eval/eval.py` (títulos), `--arquivo validacao.csv` (vali
 | --- | --- | --- | --- |
 | Gabarito de títulos, 29 casos | 29/29 | 28/29 | 26/29 |
 | Validação cega de títulos, 12 casos | 12/12 | 12/12 | |
+| Julgamento, 6 títulos fictícios criados por mim com alertas contestáveis (`eval/sinteticos/`) | 6/6 | 3/6 | 3/6 |
 | Sentinela, 17 e-mails reais | 17/17 | 17/17 | 16/16 (o 17º foi achado depois) |
 | Robustez da sentinela, 12 e-mails reescritos por mim | 12/12 | 1/12 | 10/12 |
 
@@ -50,7 +51,8 @@ Placar em R$ nos 29 casos de títulos (regra da área: dinheiro indevido + atras
 
 ### O que a IA faz de fato (e o que não faz)
 
-- **Nos títulos, quem decide se o dinheiro sai são as regras.** Nos 29 casos, as regras sozinhas também acertam a decisão de dinheiro. O modelo do chat (`gpt-6-astra`) muda o resultado em 1 caso: aciona o jurídico quando o e-mail do fornecedor tenta instruir o "assistente de IA" (TP433196). No resto, escolhe a pessoa, escreve o motivo para o tesoureiro e propõe a correção; a trava impede que ele libere algo que a política segura. Isso é uma escolha: dinheiro não sai por decisão só do modelo.
+- **Nos títulos dos dados da organização, quem decide se o dinheiro sai são as regras.** Nos 29 casos, as regras sozinhas também acertam a decisão de dinheiro, porque quase todo alerta ali é duro (golpe, duplicidade, alçada). O modelo do chat (`gpt-6-astra`) muda o resultado em 1 caso: aciona o jurídico quando o e-mail do fornecedor tenta instruir o "assistente de IA" (TP433196). No resto, escolhe a pessoa, escreve o motivo para o tesoureiro e propõe a correção; a trava impede que ele libere algo que a política segura. Isso é uma escolha: dinheiro não sai por decisão só do modelo.
+- **Onde a regra não decide sozinha, o modelo decide melhor.** Criei 6 títulos fictícios com alertas contestáveis (banco de cobrança novo avisado pelo e-mail cadastrado, duas NFs diferentes com mesmo valor e vencimento, reajuste antecipado, título sem OC). As regras seguram os 6 (3/6: atrasam os 3 legítimos); o agente acerta 6/6, liberando os 3 legítimos com justificativa e segurando os 3 de risco. Placar nesses 6: agente R$ 0, bloquear todo alerta R$ 5.274, assinar sem conferir R$ 16.561.
 - **Na caixa de e-mail, a IA é o que funciona fora do roteiro.** Nos e-mails dos dados fictícios, palavras-chave escritas depois de ler os e-mails também acertam tudo. Quando o mesmo golpe vem com outras palavras (injeção sem a palavra "robô", troca de conta sem "dados bancários", golpe do falso diretor por gmail) e quando e-mails normais contêm as palavras-gatilho, as palavras-chave acertam 1 de 12 e o Jev acerta 12 de 12.
 - A confiança do modelo entra no código: abaixo de 0,7, ele não deixa dinheiro sair (vai para revisão humana).
 

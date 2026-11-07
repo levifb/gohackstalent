@@ -1,0 +1,7 @@
+lote_remessa,banco_pagador,data_prevista,horario_fechamento,titulo_id,fornecedor_id,valor,vencimento,forma_pagamento,destino_pagamento
+RM20261116-SIN,Banco Meridiano,2026-11-16,10:00,TS900001,FP2838,18450.00,2026-11-16,boleto,boleto banco 823
+RM20261116-SIN,Banco Meridiano,2026-11-16,10:00,TS900002,FP1748,6120.00,2026-11-16,boleto,boleto banco 905
+RM20261116-SIN,Banco Meridiano,2026-11-16,10:00,TS900003,FP3172,1840.00,2026-11-16,ted,ted 146/2758/9837556-8
+RM20261116-SIN,Banco Meridiano,2026-11-16,10:00,TS900004,FP3172,1840.00,2026-11-16,ted,ted 146/2758/9837556-8
+RM20261116-SIN,Banco Meridiano,2026-11-16,10:00,TS900005,FP1103,2640.75,2026-11-16,pix,pix 244c83bc-a736-4fff-afa2-6e12fdcf5242
+RM20261116-SIN,Banco Meridiano,2026-11-16,10:00,TS900006,FP4977,7800.00,2026-11-16,ted,ted 612/9860/8504373-2
