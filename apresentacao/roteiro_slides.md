@@ -150,13 +150,13 @@ Fundo: azul-marinho #1b2540. Tempo: 4:00 a 4:30.
 O que vai no slide:
 
 1. Número principal em verde-limão (110 pt): R$ 0, com a legenda “com o agente, nos mesmos 30 casos. Bloquear todo alerta custaria R$ 1.493.”
-2. Rodapé: 93% (verde-limão) dos 876 títulos da semana resolvidos sem humano; R$ 648 mil retidos por erro, golpe ou documento faltando.
+2. Rodapé: 93% (verde-limão) dos 876 títulos da semana resolvidos sem humano; R$ 661 mil retidos por erro, golpe ou documento faltando.
 
 Notas do apresentador (fala):
 
-> No placar da área, nos 30 casos do gabarito, assinar sem conferir custaria 530 mil reais. Com o agente, zero. Na semana inteira, 93% dos 876 títulos saem sem ninguém tocar, e 648 mil reais deixam de sair por erro, golpe ou documento faltando. Os dados são fictícios e os problemas foram plantados, então esse número mostra o fluxo funcionando; o valor real só sai do modo sombra.
+> No placar da área, nos 30 casos do gabarito, assinar sem conferir custaria 530 mil reais. Com o agente, zero. Na semana inteira, 93% dos 876 títulos saem sem ninguém tocar, e 661 mil reais deixam de sair por erro, golpe ou documento faltando. Os dados são fictícios e os problemas foram plantados, então esse número mostra o fluxo funcionando; o valor real só sai do modo sombra.
 
-Fonte de cada número: Placar no gabarito de 30 casos: assinar sem conferir R$ 529.805,48, bloquear todo alerta R$ 1.493,16, agente R$ 0 (web/public/eval.json). Regra do placar: dinheiro indevido + atraso + R$ 60 por acionamento desnecessário (SPEC.md, parametros.md). Semana: 815 de 876 (93%), 49 títulos e R$ 648 mil retidos (README.md, Resultado atual). Dados fictícios e problemas plantados pela organização.
+Fonte de cada número: Placar no gabarito de 30 casos: assinar sem conferir R$ 529.805,48, bloquear todo alerta R$ 1.493,16, agente R$ 0 (web/public/eval.json). Regra do placar: dinheiro indevido + atraso + R$ 60 por acionamento desnecessário (SPEC.md, parametros.md). Semana: 815 de 876 (93%), 50 títulos e R$ 661 mil retidos (README.md, Resultado atual). Dados fictícios e problemas plantados pela organização.
 
 ## Slide 10: Na segunda, duas semanas em modo sombra
 

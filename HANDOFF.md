@@ -38,7 +38,7 @@ Segredos ficam só em `.env` (fora do git) e no `vercel env`: `AI_PROXY_API_KEY`
 - O Google Slides só insere imagem por URL pública: copiar o PNG para `web/public/capturas/`, publicar (`vercel deploy --prod --yes` em `web/`) e usar `https://guarda-do-lote.vercel.app/capturas/<arquivo>.png`. Use um nome novo a cada versão (cache).
 - Gerador das requisições: `apresentacao/gerar/deck_v2.py` (geometria em polegadas; página 10 × 5,625 in).
 - Ids dos slides: `v2s01` … `v2s10`. Imagens: `v2s02_img` (dor), `v2s03_img2` (achados), `v2s05_img` (192 quadradinhos), `v2s07_img` (casos), `v2s08_img` (celular), `v2s09_img` (eval). Notas do apresentador já preenchidas com tempos e fontes.
-- Atenção no Slides: mudar a escala de uma imagem com `updatePageElementTransform` aplica sobre o tamanho nativo (a imagem pode virar um ponto); para redimensionar, apagar e recriar com `createImage` e `size` em EMU. "R$ 648 mil" e similares usam espaço não separável (`\u00a0`) no texto; `replaceAllText` precisa do mesmo caractere. Conferir sempre pela miniatura (`read_slide_page_thumbnail`).
+- Atenção no Slides: mudar a escala de uma imagem com `updatePageElementTransform` aplica sobre o tamanho nativo (a imagem pode virar um ponto); para redimensionar, apagar e recriar com `createImage` e `size` em EMU. "R$ 661 mil" e similares usam espaço não separável (`\u00a0`) no texto; `replaceAllText` precisa do mesmo caractere. Conferir sempre pela miniatura (`read_slide_page_thumbnail`).
 
 ## Tarefas pedidas pelo Levi para a próxima sessão
 

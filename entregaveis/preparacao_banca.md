@@ -60,7 +60,7 @@ Mais casos ambíguos no gabarito, o pré-lançamento do título a partir do XML 
 ## 3. Números para ter na ponta da língua
 
 - Lote das 10h de 03/11: 192 títulos, R$ 2,24 mi; 181 resolvidos sozinho, 13 analisados pelo modelo, 11 para uma pessoa.
-- Semana: 876 títulos, R$ 10,2 mi; 93% sem humano; R$ 648 mil retidos por erro, golpe ou documento faltando.
+- Semana: 876 títulos, R$ 10,2 mi; 93% sem humano; R$ 661 mil retidos por erro, golpe ou documento faltando.
 - Golpe da Embalarte: 25 títulos, R$ 194 mil.
 - Eval: 30/30 (só regras 29/30); julgamento 6/6 (só regras 3/6); e-mails reescritos 12/12 (palavras-chave 1/12); validação cega 12/12; v1 do eval 26/29.
 - Placar nos 30 casos: assinar sem conferir R$ 530 mil; bloquear todo alerta R$ 1.493; agente R$ 0.

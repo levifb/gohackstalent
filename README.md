@@ -33,7 +33,7 @@ carregar_lote → triagem (regras, sem modelo) → montar_dossie (ferramentas) �
 
 ## Resultado atual
 
-Semana de 03/11 a 13/11 (`saida/resultado.json`, dados fictícios): 876 títulos (R$ 10,2 mi). **815 resolvidos sem humano (93%)**; 49 títulos (R$ 648 mil) retidos por erro, golpe ou documento faltando; 17 títulos conferidos (R$ 1,32 mi) aguardando a diretora por passarem de R$ 50 mil. 70 títulos passaram pelo modelo. A sentinela leu os 246 e-mails e mandou 17 para uma pessoa (4 golpes, 1 tentativa de instruir o agente, 12 conciliações).
+Semana de 03/11 a 13/11 (`saida/resultado.json`, dados fictícios): 876 títulos (R$ 10,2 mi). **815 resolvidos sem humano (93%)**; 50 títulos (R$ 661 mil) retidos por erro, golpe ou documento faltando; 16 títulos conferidos (R$ 1,31 mi) aguardando a diretora por passarem de R$ 50 mil. 70 títulos passaram pelo modelo. A sentinela leu os 246 e-mails e mandou 17 para uma pessoa (4 golpes, 1 tentativa de instruir o agente, 12 conciliações).
 
 No lote de demonstração (Banco Meridiano, 03/11, 10h): 192 títulos, R$ 2,24 mi, 181 resolvidos sozinho, 11 na fila com pessoa e motivo, publicados também no Telegram (@guardadolote_bot) com botões de aprovação.
 

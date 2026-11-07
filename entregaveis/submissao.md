@@ -37,7 +37,7 @@ Medi tudo com eval e gabaritos que revisei. Títulos: agente 30/30, só regras 2
 ## Impacto (444/500)
 
 ```text
-Processo: 93% dos 876 títulos da semana resolvidos sem humano (815); do lote de 192, só 11 chegam a uma pessoa, já com motivo. Negócio: na semana, R$ 648 mil deixariam de sair por erro, golpe ou documento faltando (49 títulos), incluindo R$ 194 mil para a conta do golpista. No placar da área, nos 30 casos do gabarito, assinar sem conferir custa R$ 530 mil; o agente, R$ 0. Dados fictícios; o próximo passo é rodar duas semanas em modo sombra.
+Processo: 93% dos 876 títulos da semana resolvidos sem humano (815); do lote de 192, só 11 chegam a uma pessoa, já com motivo. Negócio: na semana, R$ 661 mil deixariam de sair por erro, golpe ou documento faltando (50 títulos), incluindo R$ 194 mil para a conta do golpista. No placar da área, nos 30 casos do gabarito, assinar sem conferir custa R$ 530 mil; o agente, R$ 0. Dados fictícios; o próximo passo é rodar duas semanas em modo sombra.
 ```
 
 ## Links
@@ -55,7 +55,7 @@ Os cinco pontos que precisam aparecer no resumo estão escritos de forma explíc
 2. Solução: regras em código + modelo só nos títulos com alerta + trava + fila da pessoa certa no Telegram do time, com botões e aprovação dupla para golpe (campo Solução).
 3. Número do eval: 30/30 (só regras 29/30), julgamento 6/6 (só regras 3/6), e-mails reescritos 12/12 (palavras-chave 1/12) (campo Como usou a IA).
 4. Onde a IA errou: regra de domínio do Claude, pago fora do lote 20 de 23 errados, eval v1 26/29 e regressão, gabarito do Claude errado, prompt com alçada errada (2/6) (campo Como usou a IA).
-5. Impacto: 93% sem humano; R$ 648 mil retidos na semana; placar R$ 530 mil × R$ 0 (campo Impacto).
+5. Impacto: 93% sem humano; R$ 661 mil retidos na semana; placar R$ 530 mil × R$ 0 (campo Impacto).
 
 ## Fontes
 
@@ -66,7 +66,7 @@ Os cinco pontos que precisam aparecer no resumo estão escritos de forma explíc
 | 876 títulos; golpe 25 títulos R$ 194 mil; 13 duplicidades R$ 105 mil; 3 boletos R$ 159 mil; 8 vírgulas | `README.md`, Problema; `SPEC.md`, Achados dos dados |
 | 30/30, 29/30; 6/6, 3/6; 12/12, 1/12 | `web/public/eval.json` (gabarito, sinteticos, sentinela); `README.md`, Eval |
 | Cartonart; pago fora do lote 23/20; v1 26/29; regressão TP429834; gabarito TP433196; prompt R$ 5 mil e 2/6; banca simulada | `LOG.md` 10:08, 10:25, 10:29 a 10:31, 11:08 a 11:11, 11:31 |
-| 93% (815 de 876); R$ 648 mil (49 títulos) | `README.md`, Resultado atual; `saida/resultado.json`, semana |
+| 93% (815 de 876); R$ 661 mil (R$ 660.502, 50 títulos) | `README.md`, Resultado atual; `saida/resultado.json`, semana |
 | R$ 530 mil (R$ 529.805,48) × R$ 0 | `web/public/eval.json`, gabarito, placar |
 | Telegram: cartão por caso, botões, aprovação dupla para golpe | `README.md`, Como funciona, etapa 7; `LOG.md` 10:59 e 11:02 |
 | gpt-6-astra via AI Proxy | `README.md`, Como funciona; `LOG.md` 10:05 |
