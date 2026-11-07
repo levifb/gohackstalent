@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-11-07 11:54",
+ "gerado_em": "2026-11-07 11:56",
  "agora_ficticio": "2026-11-02 08:00:00",
  "modo": "llm",
  "lotes": [
@@ -39604,13 +39604,14 @@
        "PS01"
       ],
       "alertas_descartados": [],
-      "confianca": 0.95,
-      "motivo": "O título está lançado em fornecedor diferente do indicado pela triagem para a NF e a OC, e a TED iria ao destinatário errado. Retirado do lote para Renata conferir a NF ausente e decidir a correção do fornecedor, pois o título supera R$ 5 mil.",
+      "confianca": 0.99,
+      "motivo": "A NF é da Gráfica Cartonar, mas o título pagaria à Cartonart, outro CNPJ. Retirado do lote para Renata Paiva decidir a correção do fornecedor, pois muda o recebedor e o título supera a alçada de R$ 5 mil.",
       "evidencias": [
-       "O alerta FORNECEDOR_TROCADO identifica a NF 49704 e a OC-40703 como pertencentes à Gráfica Cartonar Ltda, FP6799, CNPJ 86.532.498/0001-59.",
-       "O título de R$ 9.870,50 foi lançado em Cartonart Gráfica e Editora Ltda, FP5079, CNPJ 74.149.911/0001-11, com TED para sua conta 368/0786/8675068-5.",
-       "A nota fiscal não está disponível no dossiê.",
-       "A troca bancária de Cartonart tem confirmação registrada por ligação ao telefone cadastrado em 05/10/2026, mas isso não resolve a divergência de fornecedor."
+       "NF 49704 emitida por Gráfica Cartonar Ltda, CNPJ 86.532.498/0001-59, fornecedor FP6799.",
+       "Título lançado para FP5079, Cartonart Gráfica e Editora Ltda, CNPJ 74.149.911/0001-11.",
+       "A TED seria destinada à conta da Cartonart: banco 368, agência 0786, conta 8675068-5.",
+       "Título, NF e OC-40703 têm valor de R$ 9.870,50; a divergência é de fornecedor, não de valor.",
+       "A alteração bancária da Cartonart tem confirmação registrada por ligação ao telefone cadastrado em 05/10/2026, mas isso não resolve a divergência do recebedor."
       ],
       "instrucao_suspeita_no_texto": false
      },
@@ -39655,6 +39656,7 @@
         "alertas_da_triagem",
         "fornecedor",
         "alteracoes_cadastro_60d",
+        "nota_fiscal",
         "pedido_compra",
         "comunicacoes_do_fornecedor",
         "lancador"
@@ -39673,13 +39675,14 @@
          "PS01"
         ],
         "alertas_descartados": [],
-        "confianca": 0.95,
-        "motivo": "O título está lançado em fornecedor diferente do indicado pela triagem para a NF e a OC, e a TED iria ao destinatário errado. Retirado do lote para Renata conferir a NF ausente e decidir a correção do fornecedor, pois o título supera R$ 5 mil.",
+        "confianca": 0.99,
+        "motivo": "A NF é da Gráfica Cartonar, mas o título pagaria à Cartonart, outro CNPJ. Retirado do lote para Renata Paiva decidir a correção do fornecedor, pois muda o recebedor e o título supera a alçada de R$ 5 mil.",
         "evidencias": [
-         "O alerta FORNECEDOR_TROCADO identifica a NF 49704 e a OC-40703 como pertencentes à Gráfica Cartonar Ltda, FP6799, CNPJ 86.532.498/0001-59.",
-         "O título de R$ 9.870,50 foi lançado em Cartonart Gráfica e Editora Ltda, FP5079, CNPJ 74.149.911/0001-11, com TED para sua conta 368/0786/8675068-5.",
-         "A nota fiscal não está disponível no dossiê.",
-         "A troca bancária de Cartonart tem confirmação registrada por ligação ao telefone cadastrado em 05/10/2026, mas isso não resolve a divergência de fornecedor."
+         "NF 49704 emitida por Gráfica Cartonar Ltda, CNPJ 86.532.498/0001-59, fornecedor FP6799.",
+         "Título lançado para FP5079, Cartonart Gráfica e Editora Ltda, CNPJ 74.149.911/0001-11.",
+         "A TED seria destinada à conta da Cartonart: banco 368, agência 0786, conta 8675068-5.",
+         "Título, NF e OC-40703 têm valor de R$ 9.870,50; a divergência é de fornecedor, não de valor.",
+         "A alteração bancária da Cartonart tem confirmação registrada por ligação ao telefone cadastrado em 05/10/2026, mas isso não resolve a divergência do recebedor."
         ],
         "instrucao_suspeita_no_texto": false
        }
@@ -58935,14 +58938,14 @@
        "PS01"
       ],
       "alertas_descartados": [],
-      "confianca": 0.97,
-      "motivo": "O título está em fornecedor diferente do indicado pela triagem para a NF e a OC, e a TED iria para o destinatário errado. Retirado do lote; Renata deve conferir a NF ausente no dossiê e decidir a correção do fornecedor, pois o título supera R$ 5 mil.",
+      "confianca": 0.99,
+      "motivo": "A NF e a OC são da Polifilm Filmes Técnicos, mas o título pagaria à Polyfilm Brasil, outro CNPJ. Retirei do lote para Renata revisar e autorizar a correção do fornecedor, pois o título de R$ 12.380,00 excede a alçada do analista.",
       "evidencias": [
-       "Alerta FORNECEDOR_TROCADO identifica a NF 36431 e a OC-41231 como pertencentes à Polifilm Filmes Técnicos Ltda, FP3302, CNPJ 40.572.902/0001-17.",
-       "Título de R$ 12.380,00 lançado em FP3614, Polyfilm Brasil Embalagens Ltda, CNPJ 15.924.488/0001-10.",
-       "A TED está destinada ao banco 551, agência 7839, conta 6546286-2 de Polyfilm Brasil.",
-       "A alteração bancária de Polyfilm Brasil tem confirmação registrada por ligação ao telefone cadastrado, mas isso não resolve a divergência de fornecedor.",
-       "Nota fiscal não disponibilizada no dossiê."
+       "NF 36431 emitida por Polifilm Filmes Técnicos Ltda, CNPJ 40.572.902/0001-17, fornecedor FP3302.",
+       "Título lançado no fornecedor FP3614, Polyfilm Brasil Embalagens Ltda, CNPJ 15.924.488/0001-10.",
+       "Triagem identifica a OC-41231 como pertencente à Polifilm Filmes Técnicos e aponta TED para a conta da Polyfilm Brasil.",
+       "Título, NF e OC têm valor de R$ 12.380,00; o erro identificado é o fornecedor destinatário.",
+       "Alteração bancária da Polyfilm Brasil confirmada por ligação ao telefone cadastrado em 13/10/2026; isso não valida o pagamento de uma NF de outro fornecedor."
       ],
       "instrucao_suspeita_no_texto": false
      },
@@ -58987,6 +58990,7 @@
         "alertas_da_triagem",
         "fornecedor",
         "alteracoes_cadastro_60d",
+        "nota_fiscal",
         "pedido_compra",
         "comunicacoes_do_fornecedor",
         "lancador"
@@ -59005,14 +59009,14 @@
          "PS01"
         ],
         "alertas_descartados": [],
-        "confianca": 0.97,
-        "motivo": "O título está em fornecedor diferente do indicado pela triagem para a NF e a OC, e a TED iria para o destinatário errado. Retirado do lote; Renata deve conferir a NF ausente no dossiê e decidir a correção do fornecedor, pois o título supera R$ 5 mil.",
+        "confianca": 0.99,
+        "motivo": "A NF e a OC são da Polifilm Filmes Técnicos, mas o título pagaria à Polyfilm Brasil, outro CNPJ. Retirei do lote para Renata revisar e autorizar a correção do fornecedor, pois o título de R$ 12.380,00 excede a alçada do analista.",
         "evidencias": [
-         "Alerta FORNECEDOR_TROCADO identifica a NF 36431 e a OC-41231 como pertencentes à Polifilm Filmes Técnicos Ltda, FP3302, CNPJ 40.572.902/0001-17.",
-         "Título de R$ 12.380,00 lançado em FP3614, Polyfilm Brasil Embalagens Ltda, CNPJ 15.924.488/0001-10.",
-         "A TED está destinada ao banco 551, agência 7839, conta 6546286-2 de Polyfilm Brasil.",
-         "A alteração bancária de Polyfilm Brasil tem confirmação registrada por ligação ao telefone cadastrado, mas isso não resolve a divergência de fornecedor.",
-         "Nota fiscal não disponibilizada no dossiê."
+         "NF 36431 emitida por Polifilm Filmes Técnicos Ltda, CNPJ 40.572.902/0001-17, fornecedor FP3302.",
+         "Título lançado no fornecedor FP3614, Polyfilm Brasil Embalagens Ltda, CNPJ 15.924.488/0001-10.",
+         "Triagem identifica a OC-41231 como pertencente à Polifilm Filmes Técnicos e aponta TED para a conta da Polyfilm Brasil.",
+         "Título, NF e OC têm valor de R$ 12.380,00; o erro identificado é o fornecedor destinatário.",
+         "Alteração bancária da Polyfilm Brasil confirmada por ligação ao telefone cadastrado em 13/10/2026; isso não valida o pagamento de uma NF de outro fornecedor."
         ],
         "instrucao_suspeita_no_texto": false
        }
@@ -82185,12 +82189,12 @@
  "uso_modelo": {
   "chamadas": 2,
   "cache": 1544,
-  "prompt_tokens": 6566,
-  "completion_tokens": 663,
+  "prompt_tokens": 6777,
+  "completion_tokens": 678,
   "reasoning_tokens": 0,
   "jev_chamadas": 0,
   "jev_input_tokens": 0,
   "jev_usd": 0.0
  },
- "segundos": 48.2
+ "segundos": 50.8
 }

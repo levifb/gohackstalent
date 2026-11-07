@@ -77,6 +77,23 @@ def listar_comunicacoes(fornecedor_id: str, limite: int = 6) -> list[dict]:
              "assunto": r.assunto, "texto": str(r.texto)[:700]} for r in c.itertuples()]
 
 
+def nf_em_outro_fornecedor(titulo_id: str) -> dict | None:
+    """Quando a NF do título não é do fornecedor dele: a NF com esse número emitida por outro fornecedor cadastrado."""
+    t = fonte.titulos().loc[titulo_id]
+    if not t.nf_norm:
+        return None
+    f = fonte.fornecedores().loc[t.fornecedor_id]
+    n = fonte.notas()
+    o = n[(n.nf_norm == t.nf_norm) & (n.raiz != f.raiz)]
+    if o.empty:
+        return None
+    o = o.iloc[0]
+    dono = fonte.fornecedores()[fonte.fornecedores().raiz == o.raiz]
+    return {"atencao": "esta NF NÃO é do fornecedor do título", "numero_nf": o.numero_nf, "cnpj_emitente": o.cnpj_emitente,
+            "razao_social_emitente": o.razao_social_emitente, "valor_total": o.valor_total, "oc_informada": o.oc_informada,
+            "fornecedor_cadastrado_dono_da_nf": dono.iloc[0].fornecedor_id + " " + dono.iloc[0].razao_social if len(dono) else None}
+
+
 def titulos_relacionados(titulo_id: str, alertas: list) -> list[dict]:
     """Outros títulos citados nos alertas (ex.: suspeita de duplicidade), com NF e OC, para comparar lado a lado."""
     import re
@@ -100,7 +117,7 @@ def montar_dossie(titulo_id: str, alertas: list, lote_id: str) -> dict:
         "alertas_da_triagem": [{k: v for k, v in a.dict().items() if k != "valor_corrigido" or v is not None} for a in alertas],
         "fornecedor": consultar_fornecedor(t.fornecedor_id),
         "alteracoes_cadastro_60d": consultar_historico_cadastro(t.fornecedor_id),
-        "nota_fiscal": consultar_nf(titulo_id),
+        "nota_fiscal": consultar_nf(titulo_id) or nf_em_outro_fornecedor(titulo_id),
         "pedido_compra": consultar_pedido_compra(t.oc_id),
         "boleto_dda": consultar_boleto_dda(titulo_id),
         "comunicacoes_do_fornecedor": listar_comunicacoes(t.fornecedor_id),
