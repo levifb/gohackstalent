@@ -50,4 +50,4 @@ Segredos ficam só em `.env` (fora do git) e no `vercel env`: `AI_PROXY_API_KEY`
 
 - Python: `.venv/Scripts/python.exe -X utf8 -m agente.rodar --modo llm` (tudo em cache; não gasta token se nada mudou) · `-m pytest -q tests` · `eval/eval.py`, `eval/eval.py --arquivo validacao.csv`, `eval/eval.py --arquivo sinteticos.csv`, `eval/eval_sentinela.py`.
 - Telegram, publicar o lote de novo: `.venv/Scripts/python.exe -X utf8 -m agente.telegram --lote RM20261103-MER`.
-- Conferir segredos antes de push: `git grep -cE "AAGwjKkB|gw-tok-[A-Za-z0-9]{8}"` deve dar vazio.
+- Conferir segredos antes de push: `git grep -nE "gw-tok-[A-Za-z0-9]{8}|[0-9]{9,10}:AA[A-Za-z0-9_-]{20,}"` deve dar vazio (chave do proxy e token do bot).
