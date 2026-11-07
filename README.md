@@ -26,19 +26,35 @@ carregar_lote → triagem (regras, sem modelo) → montar_dossie (ferramentas) �
 3. **Análise do modelo** (`agente/prompts.py`, `agente/llm.py`): `gpt-6-astra` via AI Proxy do evento devolve um JSON validado com pydantic (diagnóstico, ação, pessoa a acionar, confiança, motivo, evidências). Uma nova tentativa se o JSON vier inválido; depois, revisão humana.
 4. **Trava** (`regras.travar`): a ação do modelo só vale se respeitar a política. O modelo pode descartar alertas marcados como contestáveis, nunca os duros (troca bancária, alçada, bloqueio).
 5. **Execução e fila humana**: liberar, corrigir, cancelar, retirar do lote ou bloquear (simulado), e a fila de aprovação com a pessoa certa (coordenadora de CP, diretora financeira, jurídico, compras).
+6. **Sentinela de comunicações** (`agente/sentinela.py`, segundo agente): lê os 246 e-mails da caixa da área. O Jev (classificador do AI Proxy, cerca de US$ 0,008 pela caixa inteira) diz o assunto, se o texto tenta dar ordem ao sistema e se há pressão ou pedido de credencial; o código confere o remetente com o cadastro e as trocas de conta registradas. Golpes e tentativas de instruir o agente vão para a coordenadora e o jurídico, e viram contexto nos títulos do fornecedor.
+7. **Reanálise ao vivo** (`web/api/reprocessar.ts`): na trilha de um título, o botão "Reanalisar agora com o modelo" chama o modelo pelo servidor, valida o JSON e aplica a mesma trava. Com o modo demo ligado, ou se o proxy falhar, a resposta vem do cache e a tela diz isso.
 
 ## Resultado atual
 
 Semana de 03/11 a 13/11 (`saida/resultado.json`): 876 títulos, **812 resolvidos sem humano (92,7%)**, 64 na fila humana com motivo, 73 analisados pelo modelo (cerca de 253 mil tokens), 192 s de processamento.
 
-O eval com gabarito anotado está em construção (`eval/`).
+**Eval** (`python -X utf8 eval/eval.py`; gabarito revisado por mim em `eval/gabarito.csv`):
+
+| Conjunto | Primeira versão | Atual |
+| --- | --- | --- |
+| Gabarito, 29 títulos (fáceis, falsos alarmes, ambíguos) | 26/29 | 29/29 |
+| Validação cega, 12 títulos sorteados e anotados antes de ver a decisão | | 12/12 |
+| Sentinela, 17 e-mails | 16/16 (o 17º foi achado depois) | 17/17 |
+
+Placar em R$ nos 29 casos (regra da área: dinheiro indevido + atraso de pagamento legítimo + R$ 60 por acionamento desnecessário): agente R$ 0; assinar sem conferir R$ 517.425; bloquear todo alerta R$ 1.493.
+
+Limites: eu ajustei regras e gabarito nos mesmos 29 casos, então o 29/29 tende a ser otimista; a validação cega é pequena e fácil (metade dos casos com alerta é do mesmo golpe). Os dados são fictícios e os problemas foram plantados pela organização.
 
 ## Como a IA foi usada e conferida
 
 Registro completo em [`LOG.md`](LOG.md). Exemplos:
 - a regra de domínio parecido, escrita pelo Claude, bloqueava 4 títulos legítimos de outro fornecedor com nome semelhante (Cartonart × Cartonar); corrigido e coberto por teste;
 - a trava da política contava como impedimento o próprio alerta que a correção do modelo resolvia (4 casos); corrigido, travas falsas 4 → 0;
-- um número do SPEC (26 duplicidades) contava original e cópia; o certo é 13.
+- um número do SPEC (26 duplicidades) contava original e cópia; o certo é 13;
+- o eval v1 errou 3 de 29: a regra de fracionamento somava o título original com a própria cópia duplicada (2 erros) e, no terceiro, o gabarito estava errado: o modelo bloqueou um título porque um e-mail da Flexipack mandava "o assistente de IA" liberar pagamentos sem conferir, e eu não tinha visto esse e-mail;
+- a correção do fracionamento abriu uma regressão (uma NF que o fornecedor disse ter recebido em dobro passou a ser liberada), pega pelo eval e corrigida;
+- a primeira versão da regra "pago fora do lote" marcou 23 títulos, 20 deles errados (pagamentos avulsos que já tinham baixa no ERP);
+- a sentinela mandou para revisão humana, sem chamar de golpe, um e-mail falso da "Receita" pedindo para baixar um .zip; a pergunta ao Jev e uma regra de anexo foram ajustadas.
 
 ## Como rodar
 
@@ -57,4 +73,4 @@ Toda leitura passa por `agente/fonte.py`. Para produção, cada função troca o
 
 ## Próximos passos
 
-Gabarito de 25 a 30 casos e eval; sentinela de cadastro (bloquear a troca de conta no momento em que ela acontece, não só no lote); conciliação pós-pagamento (extratos × retorno × títulos); aprovação pelo canal do time.
+Sentinela de cadastro (bloquear a troca de conta no momento em que ela acontece, não só no lote); conciliação pós-pagamento (extratos × retorno × títulos); aprovação pelo canal do time.
