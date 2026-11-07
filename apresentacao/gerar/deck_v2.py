@@ -227,4 +227,29 @@ elif etapa == "v4":
         a = len(tag) + 1
         estilo(oid, a, a + len(nome), None, 800, "Poppins", 22)
 
+elif etapa == "v5":
+    # 07/11 tarde: slide 9 otimista, com o resultado no título e cartões nativos no lugar da captura
+    # (números de web/public/eval.json e README.md). Notas do apresentador trocadas à parte.
+    s = S[8]
+    for oid in ("lbl", "tit", "img"):
+        R.append({"deleteObject": {"objectId": f"{s}_{oid}"}})
+    rotulo(s, "COMO MEDI · GABARITO REVISADO PELO LEVI")
+    titulo(s, "O agente acerta 30 de 30 no gabarito.")
+    cartoes = [("GABARITO", "30/30", "30 títulos dos dados do evento", "só regras: 29/30"),
+               ("JULGAMENTO", "6/6", "6 títulos com alerta contestável", "só regras: 3/6"),
+               ("GOLPES REESCRITOS", "12/12", "12 e-mails de golpe com outras palavras", "palavras-chave: 1/12"),
+               ("VALIDAÇÃO CEGA", "12/12", "12 títulos sorteados", "anotados antes de ver o agente")]
+    for k, (tag, num, desc, comp) in enumerate(cartoes):
+        oid = f"{s}_c{k}"
+        t = f"{tag}\n{num}\n{desc}\n{comp}"
+        texto(oid, s, 0.55 + k * 2.28, 1.8, 2.06, 2.4, t, 13, BRANCO, "Poppins", 400, forma="ROUND_RECTANGLE", fundo=AZUL, borda=False)
+        estilo(oid, 0, len(tag), LIMAO, 700, "JetBrains Mono", 10)
+        a = len(tag) + 1
+        estilo(oid, a, a + len(num), None, 800, "Poppins", 40)
+        a += len(num) + 1
+        estilo(oid, a, a + len(desc), None, 600, "Poppins", 13)
+        a += len(desc) + 1
+        estilo(oid, a, a + len(comp), LIMAO, 500, "Poppins", 12)
+    legenda(s, "Cada erro da IA virou correção registrada no LOG.md.", 4.45, 16)
+
 print(json.dumps(R, ensure_ascii=False))
