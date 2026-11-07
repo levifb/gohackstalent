@@ -5,3 +5,4 @@ node_modules/
 __pycache__/
 .venv/
 !.env.example
+apresentacao/video/*.mp4

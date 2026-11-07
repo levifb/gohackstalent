@@ -1,0 +1,131 @@
+1
+00:00:00,000 --> 00:00:08,057
+Este é o Guarda do Lote, um agente de IA que confere cada título do lote de remessa antes de o arquivo ir para o banco.
+
+2
+00:00:08,057 --> 00:00:11,916
+Ele foi feito para o Marcos Teles, tesoureiro do Gogroup.
+
+3
+00:00:11,916 --> 00:00:14,760
+Os dados são fictícios, do GoHacks Talent.
+
+4
+00:00:15,219 --> 00:00:22,047
+Hoje, às dez horas, o Marcos assina um lote de 2 milhões e 240 mil reais sem abrir título por título.
+
+5
+00:00:22,047 --> 00:00:31,039
+Nos 876 títulos da semana, estavam escondidos um golpe, pagamentos em dobro, vírgulas no lugar errado e títulos no fornecedor errado.
+
+6
+00:00:31,485 --> 00:00:36,195
+Este é o lote das dez horas de 3 de novembro, com 192 títulos.
+
+7
+00:00:36,195 --> 00:00:39,918
+As regras da política, em código, conferem todos.
+
+8
+00:00:39,918 --> 00:00:45,312
+Só os 13 com alerta vão para o modelo, que lê o dossiê e propõe a ação.
+
+9
+00:00:45,312 --> 00:00:49,795
+No fim, 181 se resolvem sozinhos, e 11 vão para uma pessoa.
+
+10
+00:00:50,250 --> 00:00:51,313
+Um caso comum:
+
+11
+00:00:51,313 --> 00:00:52,907
+Laboratório Vitallis.
+
+12
+00:00:52,907 --> 00:00:57,613
+Nota, duplicata, cadastro e boleto batem em todos os sistemas.
+
+13
+00:00:57,613 --> 00:01:02,320
+As regras liberam, e o título sai no lote sem chamar o modelo.
+
+14
+00:01:02,547 --> 00:01:04,218
+Agora, um caso de risco:
+
+15
+00:01:04,218 --> 00:01:04,914
+Embalarte.
+
+16
+00:01:04,914 --> 00:01:10,553
+A conta foi trocada por um e-mail de um domínio com um t a mais, que ainda avisa:
+
+17
+00:01:10,553 --> 00:01:10,831
+obs.
+
+18
+00:01:10,831 --> 00:01:12,641
+para o robô de pagamentos.
+
+19
+00:01:12,641 --> 00:01:16,262
+O modelo trata esse texto como dado, não como ordem.
+
+20
+00:01:16,262 --> 00:01:20,717
+Bloqueia o título e aciona a Renata, coordenadora, e o jurídico.
+
+21
+00:01:20,954 --> 00:01:25,134
+A fila chega no Telegram do time, com o motivo, a pessoa e botões.
+
+22
+00:01:25,134 --> 00:01:30,264
+Se alguém tenta liberar um título com suspeita de golpe, o bot aplica a política:
+
+23
+00:01:30,264 --> 00:01:31,974
+só sai com aprovação dupla.
+
+24
+00:01:32,438 --> 00:01:38,190
+Nos 30 casos do gabarito, assinar sem conferir custaria 530 mil reais.
+
+25
+00:01:38,190 --> 00:01:40,408
+Com o Guarda do Lote, zero.
+
+26
+00:01:40,860 --> 00:01:43,657
+E medimos contra um gabarito revisado:
+
+27
+00:01:43,657 --> 00:01:48,369
+o agente acerta 30 de 30 títulos, contra 29 das regras sozinhas.
+
+28
+00:01:48,369 --> 00:01:53,080
+Nos golpes reescritos com outras palavras, a IA acerta 12 de 12;
+
+29
+00:01:53,080 --> 00:01:54,847
+as palavras-chave, só 1.
+
+30
+00:01:54,847 --> 00:01:58,380
+E o dinheiro nunca sai por decisão só do modelo.
+
+31
+00:01:58,844 --> 00:02:05,783
+Na segunda-feira, duas semanas em modo sombra no lote real, depois autonomia por degraus.
+
+32
+00:02:05,783 --> 00:02:06,953
+Guarda do Lote:
+
+33
+00:02:06,953 --> 00:02:08,824
+o Marcos olha 11 de 192.
