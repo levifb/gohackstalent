@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-11-07 10:15",
+ "gerado_em": "2026-11-07 10:31",
  "agora_ficticio": "2026-11-02 08:00:00",
  "modo": "llm",
  "lotes": [
@@ -883,34 +883,30 @@
    "resumo": {
     "titulos": 192,
     "valor_total": 2241484.39,
-    "resolvidos_sozinho": 179,
-    "na_fila_humana": 13,
-    "liberados": 177,
-    "valor_liberado": 1861162.88,
-    "retidos": 15,
-    "valor_retido": 380321.51,
-    "analisados_pelo_modelo": 15,
+    "resolvidos_sozinho": 181,
+    "na_fila_humana": 11,
+    "liberados": 179,
+    "valor_liberado": 1867581.35,
+    "retidos": 13,
+    "valor_retido": 373903.04,
+    "analisados_pelo_modelo": 13,
     "travas_acionadas": 0,
     "por_acao": {
      "liberar": {
-      "n": 177,
-      "valor": 1861162.88
+      "n": 179,
+      "valor": 1867581.35
      },
-     "solicitar_aprovacao": {
-      "n": 7,
-      "valor": 340540.07
-     },
-     "revisao_humana": {
-      "n": 1,
-      "valor": 4750.0
+     "retirar_do_lote": {
+      "n": 2,
+      "valor": 13756.36
      },
      "cancelar_titulo": {
       "n": 3,
       "valor": 11168.47
      },
-     "retirar_do_lote": {
-      "n": 1,
-      "valor": 9006.36
+     "solicitar_aprovacao": {
+      "n": 5,
+      "valor": 334121.6
      },
      "bloquear_titulo": {
       "n": 3,
@@ -918,7 +914,7 @@
      }
     },
     "por_pessoa": {
-     "Renata Paiva, coordenadora de contas a pagar": 8,
+     "Renata Paiva, coordenadora de contas a pagar": 6,
      "Helena Duarte, diretora financeira": 5,
      "Lívia Campos, advogada (jurídico)": 3
     }
@@ -1673,94 +1669,33 @@
      "forma": "ted",
      "lancado_por": "usuario_02",
      "decisao": {
-      "titulo_id": "TP429796",
-      "diagnostico": "alcada",
-      "acao": "solicitar_aprovacao",
+      "diagnostico": "ok",
+      "acao": "liberar",
+      "acionar": [],
       "valor_corrigido": null,
-      "acionar": [
-       "PS01"
-      ],
+      "confianca": 1.0,
       "alertas_descartados": [],
-      "confianca": 0.97,
-      "motivo": "A parcela confere com a duplicata, mas os dois títulos da mesma NF no lote somam R$ 5.007,74 e exigem aprovação da Renata. Antes da liberação, também deve ser esclarecida a diferença de R$ 57,58 entre o total da NF e a OC.",
-      "evidencias": [
-       "Título e duplicata 002 da NF 32057 têm valor de R$ 2.503,87 e vencimento em 01/11/2026.",
-       "A triagem informa dois títulos da mesma NF no lote, somando R$ 5.007,74, acima da alçada de R$ 5 mil do analista.",
-       "A NF prevê duas duplicatas; o parcelamento não dispensa a aprovação pela soma do fornecedor, NF e dia.",
-       "Total da NF de R$ 5.007,75 e OC aprovada de R$ 4.950,17, sem justificativa da diferença no dossiê."
-      ],
+      "evidencias": [],
+      "motivo": "Conferido pelas regras: NF, duplicata, cadastro e boleto sem divergência.",
       "instrucao_suspeita_no_texto": false
      },
-     "origem_decisao": "modelo",
-     "fila_humana": true,
-     "pessoas": [
-      {
-       "id": "PS01",
-       "nome": "Renata Paiva, coordenadora de contas a pagar"
-      }
-     ],
+     "origem_decisao": "regras",
+     "fila_humana": false,
+     "pessoas": [],
      "etapas": {
       "triagem": {
-       "alertas": [
-        {
-         "codigo": "FRACIONAMENTO",
-         "gravidade": "aprovacao",
-         "evidencia": "2 títulos da mesma NF no lote somam R$ 5,007.74.",
-         "regra": "a alçada vale pela soma por fornecedor + NF + dia",
-         "acionar": [
-          "PS01"
-         ],
-         "valor_corrigido": null,
-         "contestavel": false
-        }
-       ],
-       "precisa_analise": true
-      },
-      "dossie": {
-       "fontes": [
-        "lote",
-        "titulo",
-        "alertas_da_triagem",
-        "fornecedor",
-        "nota_fiscal",
-        "pedido_compra",
-        "comunicacoes_do_fornecedor",
-        "lancador"
-       ]
-      },
-      "analise": {
-       "cache": true,
-       "tentativas": 1,
-       "erro": null,
-       "proposta": {
-        "titulo_id": "TP429796",
-        "diagnostico": "alcada",
-        "acao": "solicitar_aprovacao",
-        "valor_corrigido": null,
-        "acionar": [
-         "PS01"
-        ],
-        "alertas_descartados": [],
-        "confianca": 0.97,
-        "motivo": "A parcela confere com a duplicata, mas os dois títulos da mesma NF no lote somam R$ 5.007,74 e exigem aprovação da Renata. Antes da liberação, também deve ser esclarecida a diferença de R$ 57,58 entre o total da NF e a OC.",
-        "evidencias": [
-         "Título e duplicata 002 da NF 32057 têm valor de R$ 2.503,87 e vencimento em 01/11/2026.",
-         "A triagem informa dois títulos da mesma NF no lote, somando R$ 5.007,74, acima da alçada de R$ 5 mil do analista.",
-         "A NF prevê duas duplicatas; o parcelamento não dispensa a aprovação pela soma do fornecedor, NF e dia.",
-         "Total da NF de R$ 5.007,75 e OC aprovada de R$ 4.950,17, sem justificativa da diferença no dossiê."
-        ],
-        "instrucao_suspeita_no_texto": false
-       }
+       "alertas": [],
+       "precisa_analise": false
       },
       "trava": {
        "acionada": false,
        "motivo": null
       },
       "execucao": {
-       "acao": "solicitar_aprovacao",
+       "acao": "liberar",
        "simulada": true,
-       "sai_no_lote": false,
-       "valor_que_sai": 0.0
+       "sai_no_lote": true,
+       "valor_que_sai": 2503.87
       }
      }
     },
@@ -1859,20 +1794,19 @@
      "decisao": {
       "titulo_id": "TP429834",
       "diagnostico": "duplicidade",
-      "acao": "revisao_humana",
+      "acao": "retirar_do_lote",
       "valor_corrigido": null,
       "acionar": [
        "PS01"
       ],
       "alertas_descartados": [],
       "confianca": 0.88,
-      "motivo": "O fornecedor informou dois recebimentos que praticamente cobrem toda a NF; falta conciliar os pagamentos por parcela e verificar se o excedente foi devolvido ou mantido como crédito antes de pagar novamente. Renata deve revisar sem liberar este título no lote e avaliar a alçada conjunta de R$ 9.500,00.",
+      "motivo": "O fornecedor informou dois recebimentos que já cobrem o total da NF, indicando risco de novo pagamento em duplicidade. Retirar do lote e acionar Renata para conciliar os comprovantes e a imputação às parcelas antes de liberar ou cancelar o título.",
       "evidencias": [
-       "E-mail do endereço cadastrado financeiro@maciez.com, em 14/10/2026, informa dois pagamentos de R$ 4.750,01 para a NF 20329 e oferece crédito ou devolução.",
-       "Os recebimentos informados somam R$ 9.500,02; o total da NF é R$ 9.500,01.",
-       "Não há comprovantes, identificação das parcelas pagas ou confirmação de devolução ou utilização do crédito no dossiê.",
-       "O título corresponde à parcela 2/2, por R$ 4.750,00, igual ao valor da duplicata 002.",
-       "A triagem informa dois títulos da mesma NF no lote, somando R$ 9.500,00, acima da alçada do analista."
+       "E-mail de 14/10/2026, enviado pelo endereço cadastrado financeiro@maciez.com, relata dois recebimentos de R$ 4.750,01 para a NF 20329.",
+       "Os recebimentos informados somam R$ 9.500,02, enquanto o total da NF é R$ 9.500,01.",
+       "O título corresponde à parcela 2/2 da mesma NF, com valor de R$ 4.750,00.",
+       "O dossiê não contém comprovantes bancários nem conciliação que identifique a parcela quitada por cada recebimento."
       ],
       "instrucao_suspeita_no_texto": false
      },
@@ -1888,24 +1822,15 @@
       "triagem": {
        "alertas": [
         {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Recebimento em duplicidade NF 20329' de financeiro@maciez.com em 2026-10-14 15:52:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        },
-        {
-         "codigo": "FRACIONAMENTO",
+         "codigo": "FORNECEDOR_CITA_ESTA_NF",
          "gravidade": "aprovacao",
-         "evidencia": "2 títulos da mesma NF no lote somam R$ 9,500.00.",
-         "regra": "a alçada vale pela soma por fornecedor + NF + dia",
+         "evidencia": "E-mail 'Recebimento em duplicidade NF 20329' de financeiro@maciez.com em 2026-10-14 15:52:00: Prezados, constam dois pagamentos de R$ 4.750,01 para a NF 20329 em nosso extrato. Podemos manter como crédito para o próximo faturamento ou devolver, como pref",
+         "regra": "título pago em duplicidade ou a menos precisa de conciliação antes de novo pagamento",
          "acionar": [
           "PS01"
          ],
          "valor_corrigido": null,
-         "contestavel": false
+         "contestavel": true
         }
        ],
        "precisa_analise": true
@@ -1929,20 +1854,19 @@
        "proposta": {
         "titulo_id": "TP429834",
         "diagnostico": "duplicidade",
-        "acao": "revisao_humana",
+        "acao": "retirar_do_lote",
         "valor_corrigido": null,
         "acionar": [
          "PS01"
         ],
         "alertas_descartados": [],
         "confianca": 0.88,
-        "motivo": "O fornecedor informou dois recebimentos que praticamente cobrem toda a NF; falta conciliar os pagamentos por parcela e verificar se o excedente foi devolvido ou mantido como crédito antes de pagar novamente. Renata deve revisar sem liberar este título no lote e avaliar a alçada conjunta de R$ 9.500,00.",
+        "motivo": "O fornecedor informou dois recebimentos que já cobrem o total da NF, indicando risco de novo pagamento em duplicidade. Retirar do lote e acionar Renata para conciliar os comprovantes e a imputação às parcelas antes de liberar ou cancelar o título.",
         "evidencias": [
-         "E-mail do endereço cadastrado financeiro@maciez.com, em 14/10/2026, informa dois pagamentos de R$ 4.750,01 para a NF 20329 e oferece crédito ou devolução.",
-         "Os recebimentos informados somam R$ 9.500,02; o total da NF é R$ 9.500,01.",
-         "Não há comprovantes, identificação das parcelas pagas ou confirmação de devolução ou utilização do crédito no dossiê.",
-         "O título corresponde à parcela 2/2, por R$ 4.750,00, igual ao valor da duplicata 002.",
-         "A triagem informa dois títulos da mesma NF no lote, somando R$ 9.500,00, acima da alçada do analista."
+         "E-mail de 14/10/2026, enviado pelo endereço cadastrado financeiro@maciez.com, relata dois recebimentos de R$ 4.750,01 para a NF 20329.",
+         "Os recebimentos informados somam R$ 9.500,02, enquanto o total da NF é R$ 9.500,01.",
+         "O título corresponde à parcela 2/2 da mesma NF, com valor de R$ 4.750,00.",
+         "O dossiê não contém comprovantes bancários nem conciliação que identifique a parcela quitada por cada recebimento."
         ],
         "instrucao_suspeita_no_texto": false
        }
@@ -1952,7 +1876,7 @@
        "motivo": null
       },
       "execucao": {
-       "acao": "revisao_humana",
+       "acao": "retirar_do_lote",
        "simulada": true,
        "sai_no_lote": false,
        "valor_que_sai": 0.0
@@ -2099,13 +2023,12 @@
       "valor_corrigido": null,
       "acionar": [],
       "alertas_descartados": [],
-      "confianca": 0.98,
-      "motivo": "Cancelar este título porque repete a mesma NF e parcela do TP429796, já agendado. A soma de R$ 5.007,74 decorre da duplicidade; cancelada a repetição, não é necessária aprovação adicional por essa soma.",
+      "confianca": 0.99,
+      "motivo": "O título repete o mesmo fornecedor, NF e parcela do TP429796, que já está agendado. Cancelar o TP429865 para evitar pagamento em duplicidade, preservando o título anterior.",
       "evidencias": [
-       "Triagem identifica TP429796 como já agendado para o mesmo fornecedor, NF 000032057 e parcela 2/2.",
-       "TP429865 tem valor de R$ 2.503,87, igual à duplicata 002 da NF 32057.",
-       "Os dois títulos repetidos no lote somam R$ 5.007,74.",
-       "O boleto DDA corresponde ao documento 32057/2, no valor de R$ 2.503,87; estar em aberto não autoriza dois pagamentos."
+       "Triagem identifica TP429796 já agendado para o mesmo fornecedor, NF 000032057 e parcela 2/2.",
+       "TP429865 corresponde à NF 32057, duplicata 002, no valor de R$ 2.503,87.",
+       "O boleto no DDA corresponde ao documento 32057/2; estar em aberto não elimina a duplicidade de lançamento."
       ],
       "instrucao_suspeita_no_texto": false
      },
@@ -2121,17 +2044,6 @@
          "evidencia": "Mesmo fornecedor, NF 000032057 e parcela 2/2 do título TP429796 (status agendado).",
          "regra": "título já lançado não pode ser pago de novo",
          "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        },
-        {
-         "codigo": "FRACIONAMENTO",
-         "gravidade": "aprovacao",
-         "evidencia": "2 títulos da mesma NF no lote somam R$ 5,007.74.",
-         "regra": "a alçada vale pela soma por fornecedor + NF + dia",
-         "acionar": [
-          "PS01"
-         ],
          "valor_corrigido": null,
          "contestavel": false
         }
@@ -2162,13 +2074,12 @@
         "valor_corrigido": null,
         "acionar": [],
         "alertas_descartados": [],
-        "confianca": 0.98,
-        "motivo": "Cancelar este título porque repete a mesma NF e parcela do TP429796, já agendado. A soma de R$ 5.007,74 decorre da duplicidade; cancelada a repetição, não é necessária aprovação adicional por essa soma.",
+        "confianca": 0.99,
+        "motivo": "O título repete o mesmo fornecedor, NF e parcela do TP429796, que já está agendado. Cancelar o TP429865 para evitar pagamento em duplicidade, preservando o título anterior.",
         "evidencias": [
-         "Triagem identifica TP429796 como já agendado para o mesmo fornecedor, NF 000032057 e parcela 2/2.",
-         "TP429865 tem valor de R$ 2.503,87, igual à duplicata 002 da NF 32057.",
-         "Os dois títulos repetidos no lote somam R$ 5.007,74.",
-         "O boleto DDA corresponde ao documento 32057/2, no valor de R$ 2.503,87; estar em aberto não autoriza dois pagamentos."
+         "Triagem identifica TP429796 já agendado para o mesmo fornecedor, NF 000032057 e parcela 2/2.",
+         "TP429865 corresponde à NF 32057, duplicata 002, no valor de R$ 2.503,87.",
+         "O boleto no DDA corresponde ao documento 32057/2; estar em aberto não elimina a duplicidade de lançamento."
         ],
         "instrucao_suspeita_no_texto": false
        }
@@ -2839,13 +2750,13 @@
        "PS01"
       ],
       "alertas_descartados": [],
-      "confianca": 0.98,
-      "motivo": "Cancelar este título porque repete a NF e a parcela do TP429834, já agendado. Acionar Renata para conciliar os pagamentos relatados pelo fornecedor antes de qualquer liberação do título remanescente e avaliar a soma de R$ 9.500,00 sinalizada no lote.",
+      "confianca": 0.99,
+      "motivo": "Cancelar este título porque repete fornecedor, NF e parcela do TP429834 já agendado. Acionar Renata para conciliar os dois recebimentos relatados pelo fornecedor e impedir novo pagamento da NF até esclarecer o saldo, inclusive no título agendado.",
       "evidencias": [
-       "TP430006 e TP429834 têm o mesmo fornecedor, NF 20329 e parcela 2/2; TP429834 está agendado.",
-       "Os dois títulos da mesma NF no lote somam R$ 9.500,00, acima da alçada do analista.",
-       "E-mail do endereço cadastrado financeiro@maciez.com, de 14/10/2026, relata dois pagamentos de R$ 4.750,01 para a NF 20329 e oferece devolução ou crédito.",
-       "A duplicata 002 e o boleto no DDA têm valor de R$ 4.750,00; o DDA em aberto não elimina a duplicidade de lançamento nem esclarece os recebimentos relatados."
+       "Triagem identifica TP429834 agendado para o mesmo fornecedor, NF 20329 e parcela 2/2.",
+       "TP430006 tem valor de R$ 4.750,00, igual à duplicata 002 da NF 20329.",
+       "E-mail de 14/10/2026 do endereço cadastrado financeiro@maciez.com relata dois recebimentos de R$ 4.750,01 para a NF 20329 e oferece devolução ou crédito.",
+       "Boleto 20329/2 consta em aberto no DDA, mas isso não elimina a duplicidade de lançamento nem esclarece os recebimentos relatados."
       ],
       "instrucao_suspeita_no_texto": false
      },
@@ -2870,24 +2781,15 @@
          "contestavel": false
         },
         {
-         "codigo": "COMUNICACAO_RELEVANTE",
-         "gravidade": "atencao",
-         "evidencia": "E-mail 'Recebimento em duplicidade NF 20329' de financeiro@maciez.com em 2026-10-14 15:52:00.",
-         "regra": "contexto do fornecedor",
-         "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        },
-        {
-         "codigo": "FRACIONAMENTO",
+         "codigo": "FORNECEDOR_CITA_ESTA_NF",
          "gravidade": "aprovacao",
-         "evidencia": "2 títulos da mesma NF no lote somam R$ 9,500.00.",
-         "regra": "a alçada vale pela soma por fornecedor + NF + dia",
+         "evidencia": "E-mail 'Recebimento em duplicidade NF 20329' de financeiro@maciez.com em 2026-10-14 15:52:00: Prezados, constam dois pagamentos de R$ 4.750,01 para a NF 20329 em nosso extrato. Podemos manter como crédito para o próximo faturamento ou devolver, como pref",
+         "regra": "título pago em duplicidade ou a menos precisa de conciliação antes de novo pagamento",
          "acionar": [
           "PS01"
          ],
          "valor_corrigido": null,
-         "contestavel": false
+         "contestavel": true
         }
        ],
        "precisa_analise": true
@@ -2906,7 +2808,7 @@
        ]
       },
       "analise": {
-       "cache": true,
+       "cache": false,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -2918,13 +2820,13 @@
          "PS01"
         ],
         "alertas_descartados": [],
-        "confianca": 0.98,
-        "motivo": "Cancelar este título porque repete a NF e a parcela do TP429834, já agendado. Acionar Renata para conciliar os pagamentos relatados pelo fornecedor antes de qualquer liberação do título remanescente e avaliar a soma de R$ 9.500,00 sinalizada no lote.",
+        "confianca": 0.99,
+        "motivo": "Cancelar este título porque repete fornecedor, NF e parcela do TP429834 já agendado. Acionar Renata para conciliar os dois recebimentos relatados pelo fornecedor e impedir novo pagamento da NF até esclarecer o saldo, inclusive no título agendado.",
         "evidencias": [
-         "TP430006 e TP429834 têm o mesmo fornecedor, NF 20329 e parcela 2/2; TP429834 está agendado.",
-         "Os dois títulos da mesma NF no lote somam R$ 9.500,00, acima da alçada do analista.",
-         "E-mail do endereço cadastrado financeiro@maciez.com, de 14/10/2026, relata dois pagamentos de R$ 4.750,01 para a NF 20329 e oferece devolução ou crédito.",
-         "A duplicata 002 e o boleto no DDA têm valor de R$ 4.750,00; o DDA em aberto não elimina a duplicidade de lançamento nem esclarece os recebimentos relatados."
+         "Triagem identifica TP429834 agendado para o mesmo fornecedor, NF 20329 e parcela 2/2.",
+         "TP430006 tem valor de R$ 4.750,00, igual à duplicata 002 da NF 20329.",
+         "E-mail de 14/10/2026 do endereço cadastrado financeiro@maciez.com relata dois recebimentos de R$ 4.750,01 para a NF 20329 e oferece devolução ou crédito.",
+         "Boleto 20329/2 consta em aberto no DDA, mas isso não elimina a duplicidade de lançamento nem esclarece os recebimentos relatados."
         ],
         "instrucao_suspeita_no_texto": false
        }
@@ -5533,96 +5435,33 @@
      "forma": "ted",
      "lancado_por": "usuario_04",
      "decisao": {
-      "titulo_id": "TP431527",
-      "diagnostico": "alcada",
-      "acao": "solicitar_aprovacao",
+      "diagnostico": "ok",
+      "acao": "liberar",
+      "acionar": [],
       "valor_corrigido": null,
-      "acionar": [
-       "PS01"
-      ],
+      "confianca": 1.0,
       "alertas_descartados": [],
-      "confianca": 0.94,
-      "motivo": "O título confere com a duplicata, mas os dois títulos da mesma NF no lote somam R$ 7.829,20 e ultrapassam minha alçada de R$ 5 mil. Solicito aprovação da Renata antes da liberação, com conferência das parcelas e do vencimento divergente.",
-      "evidencias": [
-       "Alerta FRACIONAMENTO não contestável informa dois títulos da mesma NF no lote, totalizando R$ 7.829,20.",
-       "Título de R$ 3.914,60 corresponde ao valor da duplicata 001 da NF 71109, série 1.",
-       "NF possui três duplicatas; o dossiê não identifica a parcela do segundo título do lote para verificar eventual duplicidade.",
-       "Vencimento lançado em 03/11/2026 difere do vencimento da duplicata, 31/10/2026.",
-       "Não há alterações cadastrais nos últimos 60 dias."
-      ],
+      "evidencias": [],
+      "motivo": "Conferido pelas regras: NF, duplicata, cadastro e boleto sem divergência.",
       "instrucao_suspeita_no_texto": false
      },
-     "origem_decisao": "modelo",
-     "fila_humana": true,
-     "pessoas": [
-      {
-       "id": "PS01",
-       "nome": "Renata Paiva, coordenadora de contas a pagar"
-      }
-     ],
+     "origem_decisao": "regras",
+     "fila_humana": false,
+     "pessoas": [],
      "etapas": {
       "triagem": {
-       "alertas": [
-        {
-         "codigo": "FRACIONAMENTO",
-         "gravidade": "aprovacao",
-         "evidencia": "2 títulos da mesma NF no lote somam R$ 7,829.20.",
-         "regra": "a alçada vale pela soma por fornecedor + NF + dia",
-         "acionar": [
-          "PS01"
-         ],
-         "valor_corrigido": null,
-         "contestavel": false
-        }
-       ],
-       "precisa_analise": true
-      },
-      "dossie": {
-       "fontes": [
-        "lote",
-        "titulo",
-        "alertas_da_triagem",
-        "fornecedor",
-        "nota_fiscal",
-        "pedido_compra",
-        "comunicacoes_do_fornecedor",
-        "lancador"
-       ]
-      },
-      "analise": {
-       "cache": true,
-       "tentativas": 1,
-       "erro": null,
-       "proposta": {
-        "titulo_id": "TP431527",
-        "diagnostico": "alcada",
-        "acao": "solicitar_aprovacao",
-        "valor_corrigido": null,
-        "acionar": [
-         "PS01"
-        ],
-        "alertas_descartados": [],
-        "confianca": 0.94,
-        "motivo": "O título confere com a duplicata, mas os dois títulos da mesma NF no lote somam R$ 7.829,20 e ultrapassam minha alçada de R$ 5 mil. Solicito aprovação da Renata antes da liberação, com conferência das parcelas e do vencimento divergente.",
-        "evidencias": [
-         "Alerta FRACIONAMENTO não contestável informa dois títulos da mesma NF no lote, totalizando R$ 7.829,20.",
-         "Título de R$ 3.914,60 corresponde ao valor da duplicata 001 da NF 71109, série 1.",
-         "NF possui três duplicatas; o dossiê não identifica a parcela do segundo título do lote para verificar eventual duplicidade.",
-         "Vencimento lançado em 03/11/2026 difere do vencimento da duplicata, 31/10/2026.",
-         "Não há alterações cadastrais nos últimos 60 dias."
-        ],
-        "instrucao_suspeita_no_texto": false
-       }
+       "alertas": [],
+       "precisa_analise": false
       },
       "trava": {
        "acionada": false,
        "motivo": null
       },
       "execucao": {
-       "acao": "solicitar_aprovacao",
+       "acao": "liberar",
        "simulada": true,
-       "sai_no_lote": false,
-       "valor_que_sai": 0.0
+       "sai_no_lote": true,
+       "valor_que_sai": 3914.6
       }
      }
     },
@@ -6935,12 +6774,11 @@
       "acionar": [],
       "alertas_descartados": [],
       "confianca": 0.99,
-      "motivo": "Cancelar este título, pois repete a NF e a parcela do TP431527 já agendado. A soma de R$ 7.829,20 decorre da duplicação; com o cancelamento, resta R$ 3.914,60, sem necessidade de aprovação adicional.",
+      "motivo": "O título repete o fornecedor, a NF 71109 e a parcela 1/3 do TP431527, que já está agendado. Cancelar o lançamento duplicado evita pagamento em dobro sem interromper o pagamento original.",
       "evidencias": [
        "A triagem identifica TP431527 já agendado para o mesmo fornecedor, NF 71109 e parcela 1/3.",
-       "TP431660 tem valor de R$ 3.914,60, igual à duplicata 001 da NF 71109.",
-       "Os dois títulos no lote somam R$ 7.829,20; a exclusão da duplicidade deixa R$ 3.914,60.",
-       "O boleto 71109/1 está em aberto no DDA, com valor de R$ 3.914,60 e CNPJ do fornecedor; isso não autoriza um segundo pagamento."
+       "TP431660 registra fornecedor FP2838, NF 71109, parcela 1/3 e valor de R$ 3.914,60.",
+       "A duplicata 001 da NF 71109 e o boleto DDA 71109/1 têm o mesmo valor de R$ 3.914,60; o DDA em aberto não elimina a duplicidade de lançamento."
       ],
       "instrucao_suspeita_no_texto": false
      },
@@ -6956,17 +6794,6 @@
          "evidencia": "Mesmo fornecedor, NF 71109 e parcela 1/3 do título TP431527 (status agendado).",
          "regra": "título já lançado não pode ser pago de novo",
          "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        },
-        {
-         "codigo": "FRACIONAMENTO",
-         "gravidade": "aprovacao",
-         "evidencia": "2 títulos da mesma NF no lote somam R$ 7,829.20.",
-         "regra": "a alçada vale pela soma por fornecedor + NF + dia",
-         "acionar": [
-          "PS01"
-         ],
          "valor_corrigido": null,
          "contestavel": false
         }
@@ -6987,7 +6814,7 @@
        ]
       },
       "analise": {
-       "cache": true,
+       "cache": false,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -6998,12 +6825,11 @@
         "acionar": [],
         "alertas_descartados": [],
         "confianca": 0.99,
-        "motivo": "Cancelar este título, pois repete a NF e a parcela do TP431527 já agendado. A soma de R$ 7.829,20 decorre da duplicação; com o cancelamento, resta R$ 3.914,60, sem necessidade de aprovação adicional.",
+        "motivo": "O título repete o fornecedor, a NF 71109 e a parcela 1/3 do TP431527, que já está agendado. Cancelar o lançamento duplicado evita pagamento em dobro sem interromper o pagamento original.",
         "evidencias": [
          "A triagem identifica TP431527 já agendado para o mesmo fornecedor, NF 71109 e parcela 1/3.",
-         "TP431660 tem valor de R$ 3.914,60, igual à duplicata 001 da NF 71109.",
-         "Os dois títulos no lote somam R$ 7.829,20; a exclusão da duplicidade deixa R$ 3.914,60.",
-         "O boleto 71109/1 está em aberto no DDA, com valor de R$ 3.914,60 e CNPJ do fornecedor; isso não autoriza um segundo pagamento."
+         "TP431660 registra fornecedor FP2838, NF 71109, parcela 1/3 e valor de R$ 3.914,60.",
+         "A duplicata 001 da NF 71109 e o boleto DDA 71109/1 têm o mesmo valor de R$ 3.914,60; o DDA em aberto não elimina a duplicidade de lançamento."
         ],
         "instrucao_suspeita_no_texto": false
        }
@@ -22886,7 +22712,7 @@
      "lancado_por": "integracao_frete",
      "decisao": {
       "titulo_id": "TP432863",
-      "diagnostico": "boleto_irregular",
+      "diagnostico": "duplicidade",
       "acao": "retirar_do_lote",
       "valor_corrigido": null,
       "acionar": [
@@ -22894,11 +22720,12 @@
       ],
       "alertas_descartados": [],
       "confianca": 0.99,
-      "motivo": "O boleto já foi liquidado e o fornecedor confirmou o recebimento; mantê-lo no lote causaria pagamento em duplicidade. Retirado do lote para Marcos conciliar o pagamento feito fora dele e regularizar a baixa do título.",
+      "motivo": "O pagamento da NF 17319 já foi realizado fora do lote e o boleto está liquidado; manter o título agendado causaria pagamento em duplicidade. Retirar do lote e acionar Marcos para regularizar a baixa no ERP.",
       "evidencias": [
-       "DDA do documento 17319/1 consta como liquidado; a triagem informa liquidação em 28/10/2026.",
-       "E-mail de financeiro@transnorte.com.br, domínio cadastrado, em 29/10/2026 confirma recebimento de R$ 27.134,80 no dia anterior referente à NF 17319.",
-       "Título, duplicata da NF e boleto correspondem a R$ 27.134,80, com parcela única e mesmo CNPJ beneficiário."
+       "DDA do documento 17319/1, no valor de R$ 27.134,80, consta como liquidado.",
+       "Triagem identifica pagamento avulso de R$ 27.134,80 em 28/10/2026 no Banco Litoral, após o lançamento do título.",
+       "E-mail do endereço cadastrado, em 29/10/2026, confirma recebimento do pagamento referente à NF 17319.",
+       "Título da NF 17319, parcela 1/1, permanece agendado no lote RM20261106-MER."
       ],
       "instrucao_suspeita_no_texto": false
      },
@@ -22918,6 +22745,17 @@
          "gravidade": "bloqueio",
          "evidencia": "Boleto no DDA com situação 'liquidado' em 2026-10-28.",
          "regra": "título pago fora do lote não pode seguir agendado",
+         "acionar": [
+          "PS02"
+         ],
+         "valor_corrigido": null,
+         "contestavel": false
+        },
+        {
+         "codigo": "PAGO_FORA_DO_LOTE",
+         "gravidade": "bloqueio",
+         "evidencia": "Pagamento avulso de R$ 27,134.80 em 28/10/2026 no Banco Litoral ('PAG BOL 289 TRANSNORTE LOGISTI'), depois do lançamento, e o título segue agendado.",
+         "regra": "título pago fora do lote não pode seguir agendado; baixa manual no ERP",
          "acionar": [
           "PS02"
          ],
@@ -22946,7 +22784,7 @@
        "erro": null,
        "proposta": {
         "titulo_id": "TP432863",
-        "diagnostico": "boleto_irregular",
+        "diagnostico": "duplicidade",
         "acao": "retirar_do_lote",
         "valor_corrigido": null,
         "acionar": [
@@ -22954,11 +22792,12 @@
         ],
         "alertas_descartados": [],
         "confianca": 0.99,
-        "motivo": "O boleto já foi liquidado e o fornecedor confirmou o recebimento; mantê-lo no lote causaria pagamento em duplicidade. Retirado do lote para Marcos conciliar o pagamento feito fora dele e regularizar a baixa do título.",
+        "motivo": "O pagamento da NF 17319 já foi realizado fora do lote e o boleto está liquidado; manter o título agendado causaria pagamento em duplicidade. Retirar do lote e acionar Marcos para regularizar a baixa no ERP.",
         "evidencias": [
-         "DDA do documento 17319/1 consta como liquidado; a triagem informa liquidação em 28/10/2026.",
-         "E-mail de financeiro@transnorte.com.br, domínio cadastrado, em 29/10/2026 confirma recebimento de R$ 27.134,80 no dia anterior referente à NF 17319.",
-         "Título, duplicata da NF e boleto correspondem a R$ 27.134,80, com parcela única e mesmo CNPJ beneficiário."
+         "DDA do documento 17319/1, no valor de R$ 27.134,80, consta como liquidado.",
+         "Triagem identifica pagamento avulso de R$ 27.134,80 em 28/10/2026 no Banco Litoral, após o lançamento do título.",
+         "E-mail do endereço cadastrado, em 29/10/2026, confirma recebimento do pagamento referente à NF 17319.",
+         "Título da NF 17319, parcela 1/1, permanece agendado no lote RM20261106-MER."
         ],
         "instrucao_suspeita_no_texto": false
        }
@@ -28576,7 +28415,7 @@
      "lancado_por": "integracao_frete",
      "decisao": {
       "titulo_id": "TP432865",
-      "diagnostico": "boleto_irregular",
+      "diagnostico": "duplicidade",
       "acao": "retirar_do_lote",
       "valor_corrigido": null,
       "acionar": [
@@ -28584,13 +28423,12 @@
       ],
       "alertas_descartados": [],
       "confianca": 0.99,
-      "motivo": "O boleto da NF 82347 já está liquidado no DDA e não pode ser pago novamente; retirei o título do lote e acionei Marcos para conciliar a baixa. O alerta de alçada permanece, mas não cabe solicitar aprovação de um pagamento já liquidado.",
+      "motivo": "O boleto já foi liquidado por pagamento avulso e seguir no lote causaria pagamento em duplicidade; retirar e acionar Marcos para regularizar a baixa no ERP. O alerta de alçada permanece, mas não cabe solicitar nova aprovação para uma obrigação já paga.",
       "evidencias": [
-       "DDA do documento 82347/1 consta como liquidado.",
-       "Triagem informa liquidação em 29/10/2026.",
-       "Boleto, título e duplicata correspondem à NF 82347, parcela única, no valor de R$ 59.597,64.",
-       "CNPJ do beneficiário do boleto coincide com o do fornecedor.",
-       "Valor acima de R$ 50 mil; alerta ALCADA_DIRETORIA mantido, sem encaminhar pagamento indevido para aprovação."
+       "DDA do documento 82347/1 consta como liquidado, com baixa em 29/10/2026 informada pela triagem.",
+       "Triagem identifica pagamento avulso de R$ 59.597,64 em 29/10/2026 no Banco Litoral, após o lançamento, enquanto o título segue agendado.",
+       "NF 82347, parcela única, duplicata e título têm valor de R$ 59.597,64.",
+       "CNPJ do beneficiário do boleto coincide com o fornecedor: 72.632.502/0001-46."
       ],
       "instrucao_suspeita_no_texto": false
      },
@@ -28610,6 +28448,17 @@
          "gravidade": "bloqueio",
          "evidencia": "Boleto no DDA com situação 'liquidado' em 2026-10-29.",
          "regra": "título pago fora do lote não pode seguir agendado",
+         "acionar": [
+          "PS02"
+         ],
+         "valor_corrigido": null,
+         "contestavel": false
+        },
+        {
+         "codigo": "PAGO_FORA_DO_LOTE",
+         "gravidade": "bloqueio",
+         "evidencia": "Pagamento avulso de R$ 59,597.64 em 29/10/2026 no Banco Litoral ('PAG BOL 612 RAPIDO SUL TRANSPO'), depois do lançamento, e o título segue agendado.",
+         "regra": "título pago fora do lote não pode seguir agendado; baixa manual no ERP",
          "acionar": [
           "PS02"
          ],
@@ -28649,7 +28498,7 @@
        "erro": null,
        "proposta": {
         "titulo_id": "TP432865",
-        "diagnostico": "boleto_irregular",
+        "diagnostico": "duplicidade",
         "acao": "retirar_do_lote",
         "valor_corrigido": null,
         "acionar": [
@@ -28657,13 +28506,12 @@
         ],
         "alertas_descartados": [],
         "confianca": 0.99,
-        "motivo": "O boleto da NF 82347 já está liquidado no DDA e não pode ser pago novamente; retirei o título do lote e acionei Marcos para conciliar a baixa. O alerta de alçada permanece, mas não cabe solicitar aprovação de um pagamento já liquidado.",
+        "motivo": "O boleto já foi liquidado por pagamento avulso e seguir no lote causaria pagamento em duplicidade; retirar e acionar Marcos para regularizar a baixa no ERP. O alerta de alçada permanece, mas não cabe solicitar nova aprovação para uma obrigação já paga.",
         "evidencias": [
-         "DDA do documento 82347/1 consta como liquidado.",
-         "Triagem informa liquidação em 29/10/2026.",
-         "Boleto, título e duplicata correspondem à NF 82347, parcela única, no valor de R$ 59.597,64.",
-         "CNPJ do beneficiário do boleto coincide com o do fornecedor.",
-         "Valor acima de R$ 50 mil; alerta ALCADA_DIRETORIA mantido, sem encaminhar pagamento indevido para aprovação."
+         "DDA do documento 82347/1 consta como liquidado, com baixa em 29/10/2026 informada pela triagem.",
+         "Triagem identifica pagamento avulso de R$ 59.597,64 em 29/10/2026 no Banco Litoral, após o lançamento, enquanto o título segue agendado.",
+         "NF 82347, parcela única, duplicata e título têm valor de R$ 59.597,64.",
+         "CNPJ do beneficiário do boleto coincide com o fornecedor: 72.632.502/0001-46."
         ],
         "instrucao_suspeita_no_texto": false
        }
@@ -28924,22 +28772,22 @@
    "resumo": {
     "titulos": 72,
     "valor_total": 888909.81,
-    "resolvidos_sozinho": 67,
-    "na_fila_humana": 5,
-    "liberados": 66,
-    "valor_liberado": 736328.9,
-    "retidos": 6,
-    "valor_retido": 156587.11,
-    "analisados_pelo_modelo": 7,
+    "resolvidos_sozinho": 68,
+    "na_fila_humana": 4,
+    "liberados": 67,
+    "valor_liberado": 740024.42,
+    "retidos": 5,
+    "valor_retido": 152891.59,
+    "analisados_pelo_modelo": 6,
     "travas_acionadas": 0,
     "por_acao": {
      "liberar": {
-      "n": 65,
-      "valor": 731877.57
+      "n": 66,
+      "valor": 735573.09
      },
      "solicitar_aprovacao": {
-      "n": 3,
-      "valor": 79274.12
+      "n": 2,
+      "valor": 75578.6
      },
      "bloquear_titulo": {
       "n": 1,
@@ -28960,7 +28808,7 @@
     },
     "por_pessoa": {
      "Helena Duarte, diretora financeira": 1,
-     "Renata Paiva, coordenadora de contas a pagar": 3,
+     "Renata Paiva, coordenadora de contas a pagar": 2,
      "Lívia Campos, advogada (jurídico)": 1,
      "Marcos Teles, tesoureiro": 1
     }
@@ -30862,96 +30710,33 @@
      "forma": "ted",
      "lancado_por": "usuario_10",
      "decisao": {
-      "titulo_id": "TP432169",
-      "diagnostico": "alcada",
-      "acao": "solicitar_aprovacao",
+      "diagnostico": "ok",
+      "acao": "liberar",
+      "acionar": [],
       "valor_corrigido": null,
-      "acionar": [
-       "PS01"
-      ],
+      "confianca": 1.0,
       "alertas_descartados": [],
-      "confianca": 0.94,
-      "motivo": "O valor confere com a duplicata, mas os dois títulos da mesma NF no lote somam R$ 7.391,04 e exigem aprovação da Renata. Antes de autorizar, ela deve conferir a parcela do outro título e esclarecer o uso de TED apesar do envio de boletos para esta NF.",
-      "evidencias": [
-       "Título e duplicata 001 da NF 73535 têm valor de R$ 3.695,52 e vencimento em 10/11/2026.",
-       "Alerta FRACIONAMENTO não contestável informa dois títulos da mesma NF no lote, somando R$ 7.391,04, acima da alçada de R$ 5 mil do analista.",
-       "NF e OC-41046 totalizam R$ 11.086,56, com três duplicatas; os dados da parcela do outro título não foram apresentados.",
-       "Pagamento lançado como TED, enquanto o cadastro prevê boleto e o fornecedor enviou mensagem sobre boletos da NF 73535 em 22/10/2026; boleto_dda está nulo.",
-       "Não há alterações cadastrais nos últimos 60 dias."
-      ],
+      "evidencias": [],
+      "motivo": "Conferido pelas regras: NF, duplicata, cadastro e boleto sem divergência.",
       "instrucao_suspeita_no_texto": false
      },
-     "origem_decisao": "modelo",
-     "fila_humana": true,
-     "pessoas": [
-      {
-       "id": "PS01",
-       "nome": "Renata Paiva, coordenadora de contas a pagar"
-      }
-     ],
+     "origem_decisao": "regras",
+     "fila_humana": false,
+     "pessoas": [],
      "etapas": {
       "triagem": {
-       "alertas": [
-        {
-         "codigo": "FRACIONAMENTO",
-         "gravidade": "aprovacao",
-         "evidencia": "2 títulos da mesma NF no lote somam R$ 7,391.04.",
-         "regra": "a alçada vale pela soma por fornecedor + NF + dia",
-         "acionar": [
-          "PS01"
-         ],
-         "valor_corrigido": null,
-         "contestavel": false
-        }
-       ],
-       "precisa_analise": true
-      },
-      "dossie": {
-       "fontes": [
-        "lote",
-        "titulo",
-        "alertas_da_triagem",
-        "fornecedor",
-        "nota_fiscal",
-        "pedido_compra",
-        "comunicacoes_do_fornecedor",
-        "lancador"
-       ]
-      },
-      "analise": {
-       "cache": true,
-       "tentativas": 1,
-       "erro": null,
-       "proposta": {
-        "titulo_id": "TP432169",
-        "diagnostico": "alcada",
-        "acao": "solicitar_aprovacao",
-        "valor_corrigido": null,
-        "acionar": [
-         "PS01"
-        ],
-        "alertas_descartados": [],
-        "confianca": 0.94,
-        "motivo": "O valor confere com a duplicata, mas os dois títulos da mesma NF no lote somam R$ 7.391,04 e exigem aprovação da Renata. Antes de autorizar, ela deve conferir a parcela do outro título e esclarecer o uso de TED apesar do envio de boletos para esta NF.",
-        "evidencias": [
-         "Título e duplicata 001 da NF 73535 têm valor de R$ 3.695,52 e vencimento em 10/11/2026.",
-         "Alerta FRACIONAMENTO não contestável informa dois títulos da mesma NF no lote, somando R$ 7.391,04, acima da alçada de R$ 5 mil do analista.",
-         "NF e OC-41046 totalizam R$ 11.086,56, com três duplicatas; os dados da parcela do outro título não foram apresentados.",
-         "Pagamento lançado como TED, enquanto o cadastro prevê boleto e o fornecedor enviou mensagem sobre boletos da NF 73535 em 22/10/2026; boleto_dda está nulo.",
-         "Não há alterações cadastrais nos últimos 60 dias."
-        ],
-        "instrucao_suspeita_no_texto": false
-       }
+       "alertas": [],
+       "precisa_analise": false
       },
       "trava": {
        "acionada": false,
        "motivo": null
       },
       "execucao": {
-       "acao": "solicitar_aprovacao",
+       "acao": "liberar",
        "simulada": true,
-       "sai_no_lote": false,
-       "valor_que_sai": 0.0
+       "sai_no_lote": true,
+       "valor_que_sai": 3695.52
       }
      }
     },
@@ -31682,12 +31467,11 @@
       "acionar": [],
       "alertas_descartados": [],
       "confianca": 0.99,
-      "motivo": "Cancelar este título porque repete a mesma NF e parcela do TP432169, já agendado. A exclusão da duplicata deixa R$ 3.695,52 para pagamento, dentro da alçada do analista, sem necessidade de aprovação adicional.",
+      "motivo": "O título repete o fornecedor, a NF e a parcela do TP432169, que já está agendado. Cancelar o lançamento duplicado, preservando o pagamento original.",
       "evidencias": [
-       "TP432169 já está agendado para o mesmo fornecedor, NF 000073535 e parcela 1/3.",
-       "TP432669 tem valor de R$ 3.695,52, igual à duplicata 001 da NF 73535, com vencimento em 10/11/2026.",
-       "O alerta FRACIONAMENTO registra R$ 7.391,04 pela soma dos dois títulos; cancelar a repetição reduz o pagamento a R$ 3.695,52.",
-       "Boleto registrado no DDA, em aberto, no banco 551 e com o CNPJ do fornecedor; isso não autoriza pagar duas vezes a mesma parcela."
+       "A triagem identifica TP432169 como já agendado para o mesmo fornecedor, NF 000073535 e parcela 1/3.",
+       "TP432669 corresponde à NF 73535, parcela 1/3, no valor de R$ 3.695,52.",
+       "A duplicata 001 da NF e o boleto DDA 73535/1 têm o mesmo valor e vencimento em 10/11/2026; o boleto em aberto não elimina a duplicidade de lançamento."
       ],
       "instrucao_suspeita_no_texto": false
      },
@@ -31703,17 +31487,6 @@
          "evidencia": "Mesmo fornecedor, NF 000073535 e parcela 1/3 do título TP432169 (status agendado).",
          "regra": "título já lançado não pode ser pago de novo",
          "acionar": [],
-         "valor_corrigido": null,
-         "contestavel": false
-        },
-        {
-         "codigo": "FRACIONAMENTO",
-         "gravidade": "aprovacao",
-         "evidencia": "2 títulos da mesma NF no lote somam R$ 7,391.04.",
-         "regra": "a alçada vale pela soma por fornecedor + NF + dia",
-         "acionar": [
-          "PS01"
-         ],
          "valor_corrigido": null,
          "contestavel": false
         }
@@ -31734,7 +31507,7 @@
        ]
       },
       "analise": {
-       "cache": true,
+       "cache": false,
        "tentativas": 1,
        "erro": null,
        "proposta": {
@@ -31745,12 +31518,11 @@
         "acionar": [],
         "alertas_descartados": [],
         "confianca": 0.99,
-        "motivo": "Cancelar este título porque repete a mesma NF e parcela do TP432169, já agendado. A exclusão da duplicata deixa R$ 3.695,52 para pagamento, dentro da alçada do analista, sem necessidade de aprovação adicional.",
+        "motivo": "O título repete o fornecedor, a NF e a parcela do TP432169, que já está agendado. Cancelar o lançamento duplicado, preservando o pagamento original.",
         "evidencias": [
-         "TP432169 já está agendado para o mesmo fornecedor, NF 000073535 e parcela 1/3.",
-         "TP432669 tem valor de R$ 3.695,52, igual à duplicata 001 da NF 73535, com vencimento em 10/11/2026.",
-         "O alerta FRACIONAMENTO registra R$ 7.391,04 pela soma dos dois títulos; cancelar a repetição reduz o pagamento a R$ 3.695,52.",
-         "Boleto registrado no DDA, em aberto, no banco 551 e com o CNPJ do fornecedor; isso não autoriza pagar duas vezes a mesma parcela."
+         "A triagem identifica TP432169 como já agendado para o mesmo fornecedor, NF 000073535 e parcela 1/3.",
+         "TP432669 corresponde à NF 73535, parcela 1/3, no valor de R$ 3.695,52.",
+         "A duplicata 001 da NF e o boleto DDA 73535/1 têm o mesmo valor e vencimento em 10/11/2026; o boleto em aberto não elimina a duplicidade de lançamento."
         ],
         "instrucao_suspeita_no_texto": false
        }
@@ -31943,7 +31715,7 @@
      "lancado_por": "integracao_frete",
      "decisao": {
       "titulo_id": "TP432992",
-      "diagnostico": "boleto_irregular",
+      "diagnostico": "duplicidade",
       "acao": "retirar_do_lote",
       "valor_corrigido": null,
       "acionar": [
@@ -31951,12 +31723,12 @@
       ],
       "alertas_descartados": [],
       "confianca": 0.99,
-      "motivo": "O boleto consta como liquidado no DDA e não pode seguir no lote, mesmo com NF e OC conferidas. Marcos deve conciliar o pagamento anterior e regularizar a baixa; não cabe solicitar aprovação de um novo pagamento.",
+      "motivo": "O boleto já foi liquidado fora do lote e mantê-lo agendado causaria pagamento em duplicidade. Retirar do lote e acionar Marcos para providenciar a baixa no ERP; não há novo pagamento a submeter à diretoria.",
       "evidencias": [
-       "DDA do documento 59821/1 com situação liquidado; a triagem informa liquidação em 30/10/2026.",
-       "Título, duplicata da NF 59821 e OC-41241 têm o mesmo valor de R$ 72.436,61.",
-       "CNPJ do beneficiário do boleto coincide com o do fornecedor.",
-       "O alerta ALCADA_DIRETORIA permanece registrado, mas o boleto liquidado impede o pagamento."
+       "DDA do documento 59821/1, de R$ 72.436,61, consta como liquidado.",
+       "Triagem registra pagamento avulso de R$ 72.436,61 em 30/10/2026 no Banco Litoral, com histórico 'PAG BOL 551 EXPRESSA JA TRANSP'.",
+       "Título TP432992 permanece agendado no lote RM20261110-MER após o pagamento.",
+       "NF 59821, duplicata única e OC-41241 têm o mesmo valor de R$ 72.436,61."
       ],
       "instrucao_suspeita_no_texto": false
      },
@@ -31976,6 +31748,17 @@
          "gravidade": "bloqueio",
          "evidencia": "Boleto no DDA com situação 'liquidado' em 2026-10-30.",
          "regra": "título pago fora do lote não pode seguir agendado",
+         "acionar": [
+          "PS02"
+         ],
+         "valor_corrigido": null,
+         "contestavel": false
+        },
+        {
+         "codigo": "PAGO_FORA_DO_LOTE",
+         "gravidade": "bloqueio",
+         "evidencia": "Pagamento avulso de R$ 72,436.61 em 30/10/2026 no Banco Litoral ('PAG BOL 551 EXPRESSA JA TRANSP'), depois do lançamento, e o título segue agendado.",
+         "regra": "título pago fora do lote não pode seguir agendado; baixa manual no ERP",
          "acionar": [
           "PS02"
          ],
@@ -32014,7 +31797,7 @@
        "erro": null,
        "proposta": {
         "titulo_id": "TP432992",
-        "diagnostico": "boleto_irregular",
+        "diagnostico": "duplicidade",
         "acao": "retirar_do_lote",
         "valor_corrigido": null,
         "acionar": [
@@ -32022,12 +31805,12 @@
         ],
         "alertas_descartados": [],
         "confianca": 0.99,
-        "motivo": "O boleto consta como liquidado no DDA e não pode seguir no lote, mesmo com NF e OC conferidas. Marcos deve conciliar o pagamento anterior e regularizar a baixa; não cabe solicitar aprovação de um novo pagamento.",
+        "motivo": "O boleto já foi liquidado fora do lote e mantê-lo agendado causaria pagamento em duplicidade. Retirar do lote e acionar Marcos para providenciar a baixa no ERP; não há novo pagamento a submeter à diretoria.",
         "evidencias": [
-         "DDA do documento 59821/1 com situação liquidado; a triagem informa liquidação em 30/10/2026.",
-         "Título, duplicata da NF 59821 e OC-41241 têm o mesmo valor de R$ 72.436,61.",
-         "CNPJ do beneficiário do boleto coincide com o do fornecedor.",
-         "O alerta ALCADA_DIRETORIA permanece registrado, mas o boleto liquidado impede o pagamento."
+         "DDA do documento 59821/1, de R$ 72.436,61, consta como liquidado.",
+         "Triagem registra pagamento avulso de R$ 72.436,61 em 30/10/2026 no Banco Litoral, com histórico 'PAG BOL 551 EXPRESSA JA TRANSP'.",
+         "Título TP432992 permanece agendado no lote RM20261110-MER após o pagamento.",
+         "NF 59821, duplicata única e OC-41241 têm o mesmo valor de R$ 72.436,61."
         ],
         "instrucao_suspeita_no_texto": false
        }
@@ -43264,34 +43047,30 @@
  "semana": {
   "titulos": 876,
   "valor_total": 10206764.09,
-  "resolvidos_sozinho": 812,
-  "na_fila_humana": 64,
-  "liberados": 807,
-  "valor_liberado": 8237976.82,
-  "retidos": 69,
-  "valor_retido": 1980255.05,
-  "analisados_pelo_modelo": 73,
+  "resolvidos_sozinho": 815,
+  "na_fila_humana": 61,
+  "liberados": 810,
+  "valor_liberado": 8248090.81,
+  "retidos": 66,
+  "valor_retido": 1970141.06,
+  "analisados_pelo_modelo": 70,
   "travas_acionadas": 0,
   "por_acao": {
    "liberar": {
-    "n": 803,
-    "valor": 8225234.84
+    "n": 806,
+    "valor": 8235348.83
    },
-   "solicitar_aprovacao": {
-    "n": 20,
-    "valor": 1332132.92
-   },
-   "revisao_humana": {
-    "n": 2,
-    "valor": 14620.5
+   "retirar_do_lote": {
+    "n": 14,
+    "valor": 398790.77
    },
    "cancelar_titulo": {
     "n": 6,
     "valor": 17316.9
    },
-   "retirar_do_lote": {
-    "n": 13,
-    "valor": 394040.77
+   "solicitar_aprovacao": {
+    "n": 17,
+    "valor": 1322018.93
    },
    "bloquear_titulo": {
     "n": 28,
@@ -43300,10 +43079,14 @@
    "corrigir_lancamento": {
     "n": 4,
     "valor": 1274.2
+   },
+   "revisao_humana": {
+    "n": 1,
+    "valor": 9870.5
    }
   },
   "por_pessoa": {
-   "Renata Paiva, coordenadora de contas a pagar": 46,
+   "Renata Paiva, coordenadora de contas a pagar": 43,
    "Helena Duarte, diretora financeira": 16,
    "Lívia Campos, advogada (jurídico)": 28,
    "Marcos Teles, tesoureiro": 3,
@@ -43312,14 +43095,14 @@
   }
  },
  "uso_modelo": {
-  "chamadas": 0,
-  "cache": 73,
-  "prompt_tokens": 0,
-  "completion_tokens": 0,
+  "chamadas": 3,
+  "cache": 67,
+  "prompt_tokens": 10307,
+  "completion_tokens": 797,
   "reasoning_tokens": 0,
   "jev_chamadas": 0,
   "jev_input_tokens": 0,
   "jev_usd": 0.0
  },
- "segundos": 35.1
+ "segundos": 36.3
 }

@@ -127,5 +127,29 @@ def comunicacoes() -> pd.DataFrame:
 
 
 @lru_cache(maxsize=None)
+def pagamentos_avulsos() -> pd.DataFrame:
+    """Débitos feitos fora do lote nos dois bancos, num formato só: data, banco, descricao, valor (positivo)."""
+    m = _csv("extrato_banco_meridiano")
+    m = m[m.tipo == "PAGTO AVULSO"].assign(valor=lambda d: -d.valor.astype(float), data=lambda d: pd.to_datetime(d.data),
+                                            banco="Banco Meridiano")[["data", "banco", "descricao", "valor"]]
+    lit = pd.read_csv(DADOS / "extrato_banco_litoral.csv", dtype=str, sep=";", encoding="utf-8")
+    lit = lit[lit["Histórico"].str.match(r"(PIX ENV|TED ENV|PAG BOL)", na=False)]
+    lit = pd.DataFrame({"data": pd.to_datetime(lit.Data, format="%d/%m/%Y"), "banco": "Banco Litoral",
+                        "descricao": lit["Histórico"],
+                        "valor": -lit["Valor (R$)"].str.replace(".", "", regex=False).str.replace(",", ".").astype(float)})
+    # o Litoral não marca o avulso: é avulso o débito que não corresponde a título pago por lote no mesmo dia e valor
+    t = titulos()
+    pagos = t[(t.status == "pago") & (t.banco_pagador == "Banco Litoral") & t.lote_remessa.notna()]
+    chaves = set(zip(pd.to_datetime(pagos.data_pagamento), pagos.valor.round(2)))
+    lit = lit[[(d, round(v, 2)) not in chaves for d, v in zip(lit.data, lit.valor)]]
+    return pd.concat([m, lit], ignore_index=True)
+
+
+def sem_acento(s: str) -> str:
+    import unicodedata
+    return "".join(c for c in unicodedata.normalize("NFD", s or "") if unicodedata.category(c) != "Mn").upper()
+
+
+@lru_cache(maxsize=None)
 def usuarios() -> pd.DataFrame:
     return _csv("usuarios_sistema").set_index("login", drop=False)

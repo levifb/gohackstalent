@@ -1,0 +1,61 @@
+{
+ "modo": "llm",
+ "n": 29,
+ "tudo_certo": 28,
+ "por_etapa": {
+  "triagem": 28,
+  "dinheiro": 28,
+  "acao": 28,
+  "pessoas": 28,
+  "valor": 29
+ },
+ "placar": {
+  "agente": {
+   "indevido": 4750.0,
+   "atraso": 0.0,
+   "acionamentos": 0.0,
+   "total": 4750.0
+  },
+  "assinar_sem_conferir": {
+   "indevido": 517425.48,
+   "atraso": 0.0,
+   "acionamentos": 0.0,
+   "total": 517425.48
+  },
+  "bloquear_todo_alerta": {
+   "indevido": 4750.0,
+   "atraso": 1253.16,
+   "acionamentos": 240.0,
+   "total": 6243.16
+  }
+ },
+ "uso_modelo": {
+  "chamadas": 1,
+  "cache": 17,
+  "prompt_tokens": 3388,
+  "completion_tokens": 227,
+  "reasoning_tokens": 0,
+  "jev_chamadas": 0,
+  "jev_input_tokens": 0,
+  "jev_usd": 0.0
+ },
+ "erros": [
+  {
+   "titulo_id": "TP429834",
+   "ok": {
+    "triagem": false,
+    "dinheiro": false,
+    "acao": false,
+    "pessoas": false,
+    "valor": true
+   },
+   "obtido": {
+    "acao": "liberar",
+    "acionar": [],
+    "sai": true,
+    "origem": "regras",
+    "motivo": "Conferido pelas regras: NF, duplicata, cadastro e boleto sem divergência."
+   }
+  }
+ ]
+}

@@ -273,9 +273,48 @@ def verificar_boleto(t, f) -> list[Alerta]:
     return out
 
 
+@lru_cache(maxsize=None)
+def _avulsos_por_titulo() -> dict[str, dict]:
+    """Título agendado -> pagamento avulso (fora do lote) do mesmo fornecedor e valor, feito depois do lançamento.
+    Entre títulos iguais do mesmo fornecedor (parcelas de mesmo valor), o avulso quita o de vencimento mais antigo."""
+    av = fonte.pagamentos_avulsos()
+    ag = fonte.agenda()
+    t = fonte.titulos()
+    fs = fonte.fornecedores()
+    # avulso já explicado: há título pago fora do lote (baixa manual) com o mesmo valor na mesma data
+    baixados = t[(t.status == "pago") & t.lote_remessa.isna()]
+    explicados = set(zip(pd.to_datetime(baixados.data_pagamento), baixados.valor.round(2)))
+    av = av[[(d, round(v, 2)) not in explicados for d, v in zip(av.data, av.valor)]]
+    out, usados = {}, set()
+    for p in av.sort_values("data").itertuples():
+        desc = fonte.sem_acento(p.descricao)
+        cand = ag[(ag.valor - p.valor).abs() < 0.02]
+        if len(cand):
+            cand = cand[[fonte.sem_acento(fs.loc[f].nome_fantasia).split()[0] in desc for f in cand.fornecedor_id]]
+        if len(cand):
+            cand = cand[[t.loc[x].data_lancamento.normalize() <= p.data and x not in out for x in cand.titulo_id]]
+        if len(cand) == 0 or p.Index in usados:
+            continue
+        alvo = cand.sort_values("vencimento").iloc[0]
+        out[alvo.titulo_id] = {"data": p.data.strftime("%d/%m/%Y"), "banco": p.banco, "descricao": p.descricao, "valor": p.valor}
+        usados.add(p.Index)
+    return out
+
+
+def verificar_pago_fora_do_lote(t, f) -> list[Alerta]:
+    p = _avulsos_por_titulo().get(t.titulo_id)
+    if not p:
+        return []
+    return [Alerta("PAGO_FORA_DO_LOTE", "bloqueio",
+                   f"Pagamento avulso de R$ {p['valor']:,.2f} em {p['data']} no {p['banco']} ('{p['descricao']}'), depois do lançamento, e o título segue agendado.",
+                   "título pago fora do lote não pode seguir agendado; baixa manual no ERP", ["PS02"])]
+
+
 def verificar_alcada(t, f, lote_df: pd.DataFrame) -> list[Alerta]:
     tit = fonte.titulos()
-    mesmos = lote_df[lote_df.fornecedor_id == t.fornecedor_id]
+    if t.titulo_id in _duplicidades():
+        return []  # a cópia já é barrada como duplicidade; alçada não se aplica a ela
+    mesmos = lote_df[(lote_df.fornecedor_id == t.fornecedor_id) & ~lote_df.titulo_id.isin(_duplicidades().keys())]
     mesmos = mesmos[mesmos.titulo_id.map(lambda x: tit.loc[x].nf_norm) == t.nf_norm] if t.nf_norm else mesmos[mesmos.titulo_id == t.titulo_id]
     soma = mesmos.valor.sum()
     out = []
@@ -302,8 +341,16 @@ def verificar_comunicacoes(t, f) -> list[Alerta]:
                           ["PS01", "PS08"]))
     sens = c[~c.dominio_parecido & c.assunto.str.contains("duplicidade|dados banc|parcial|protesto", case=False, na=False)]
     for e in sens.itertuples():
-        out.append(Alerta("COMUNICACAO_RELEVANTE", "atencao", f"E-mail '{e.assunto}' de {e.remetente} em {e.data_hora}.",
-                          "contexto do fornecedor"))
+        cita_nf = bool(t.nf_norm) and re.search(rf"\bNF\s*0*{re.escape(t.nf_norm)}\b", f"{e.assunto} {e.texto}") is not None
+        if cita_nf and re.search("duplicidade|parcial", e.assunto, re.I):
+            # o fornecedor fala desta NF: já recebeu em dobro ou recebeu a menos; não pagar de novo sem conciliar
+            out.append(Alerta("FORNECEDOR_CITA_ESTA_NF", "aprovacao",
+                              f"E-mail '{e.assunto}' de {e.remetente} em {e.data_hora}: {str(e.texto)[:160]}",
+                              "título pago em duplicidade ou a menos precisa de conciliação antes de novo pagamento",
+                              ["PS01"], contestavel=True))
+        else:
+            out.append(Alerta("COMUNICACAO_RELEVANTE", "atencao", f"E-mail '{e.assunto}' de {e.remetente} em {e.data_hora}.",
+                              "contexto do fornecedor"))
     return out
 
 
@@ -325,7 +372,7 @@ def triagem(titulo_id: str, lote_df: pd.DataFrame) -> list[Alerta]:
     alertas = []
     for chk in (verificar_duplicidade,):
         alertas += chk(t)
-    for chk in (verificar_tres_vias, verificar_troca_bancaria, verificar_boleto, verificar_comunicacoes):
+    for chk in (verificar_tres_vias, verificar_troca_bancaria, verificar_boleto, verificar_comunicacoes, verificar_pago_fora_do_lote):
         alertas += chk(t, f)
     alertas += verificar_alcada(t, f, lote_df)
     return alertas
