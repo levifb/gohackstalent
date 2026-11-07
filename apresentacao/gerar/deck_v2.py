@@ -185,7 +185,7 @@ elif etapa == "v3":
     s = S[4]
     gw = 6.4
     img(f"{s}_grd", s, f"{U}/capturas/slide5_grade_v3.png", 0.55, 1.8, gw, gw * 564 / 1716)
-    t = "■ liberado     ■ barrado: erro ou golpe     ■ aguarda a diretora (> R$ 50 mil)"
+    t = "■ liberado   ■ barrado: erro ou golpe   ■ aguarda a diretora (> R$ 50 mil)"
     texto(f"{s}_lgd", s, 0.55, 3.98, gw, 0.35, t, 12, TINTA, "Poppins", 500)
     VERDE = {"red": 0.247, "green": 0.816, "blue": 0.541}
     CIANO = {"red": 0.239, "green": 0.749, "blue": 0.937}
