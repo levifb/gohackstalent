@@ -113,3 +113,9 @@ button:disabled { opacity: 0.6; cursor: wait; }
 .sistemas tr.st-divergente td { background: #fff3f8; }
 .sistemas tr.st-ausente td { background: #fffaf0; }
 .modal { max-width: 920px; }
+.tg-prints { grid-column: 1 / -1; margin-top: 6px; }
+.tg-prints-grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 8px; align-items: start; }
+.tg-prints figure { margin: 0; }
+.tg-prints img { width: 100%; border-radius: 12px; border: 1px solid var(--borda); display: block; }
+.tg-prints figcaption { font-size: 13px; color: var(--cinza); margin-top: 6px; }
+@media (max-width: 900px) { .tg-prints-grade { grid-template-columns: 1fr; } }

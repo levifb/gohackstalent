@@ -375,6 +375,23 @@ function Telegram({ lote, fila }: { lote?: Lote; fila: Item[] }) {
           </div>
         )}
       </div>
+      <div className="tg-prints">
+        <span className="rotulo">PRINTS REAIS DO CELULAR · 07/11, LOTE DE 03/11 10H</span>
+        <div className="tg-prints-grade">
+          <figure>
+            <img src="/capturas/tg_resumo.png" alt="Resumo do lote enviado pelo bot no Telegram" loading="lazy" />
+            <figcaption>1. O resumo chega antes do fechamento</figcaption>
+          </figure>
+          <figure>
+            <img src="/capturas/tg_cartao.png" alt="Cartão de título bloqueado com os botões" loading="lazy" />
+            <figcaption>2. Um cartão por caso, com motivo, pessoa e botões</figcaption>
+          </figure>
+          <figure>
+            <img src="/capturas/tg_politica.png" alt="Resposta do bot ao pedido de liberar um título bloqueado por golpe" loading="lazy" />
+            <figcaption>3. "Liberar mesmo assim" num golpe: o bot aplica a política</figcaption>
+          </figure>
+        </div>
+      </div>
     </section>
   );
 }
